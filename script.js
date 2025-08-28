@@ -1,18 +1,15 @@
-fetch('tools.json')
-  .then(response => response.json())
-  .then(data => {
-    const container = document.getElementById('product-list');
-    data.forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'product-card';
-      card.innerHTML = `
-        <img src="${item.image}" alt="${item.name}" />
-        <h3>${item.name}</h3>
-        <p>قیمت پایه: ${item.price.toLocaleString()} تومان</p>
-        <button onclick="showDescription('${item.description}')">📄 توضیحات</button>
-        <button onclick="playAudio('${item.audio}')">🔊 صدا</button>
-        <button onclick="addToCart('${item.id}', ${item.price})">➕ افزودن به سبد خرید</button>
-      `;
-      container.appendChild(card);
-    });
-  });
+function showDescription(text) {
+  alert(text);
+}
+
+function playAudio(file) {
+  const audio = new Audio(file);
+  audio.play();
+}
+
+const cart = [];
+
+function addToCart(id, price) {
+  cart.push({ id, price });
+  alert("محصول به سبد خرید اضافه شد!");
+}
