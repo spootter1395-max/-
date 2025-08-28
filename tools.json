@@ -1,17 +1,18 @@
 [
   {
-    "title": "تبدیل متن به تصویر",
-    "description": "با یک جمله، تصویر بساز!",
-    "link": "#"
+    "id": "mahshin",
+    "name": "ماهشین",
+    "price": 35000,
+    "image": "mahshin.png",
+    "description": "محصول ویژه با کیفیت بالا",
+    "audio": "mahshin.mp3"
   },
   {
-    "title": "طراحی لوگو هوشمند",
-    "description": "لوگوی برندت رو با هوش مصنوعی طراحی کن",
-    "link": "#"
-  },
-  {
-    "title": "ساخت موزیک با متن",
-    "description": "متن بده، موزیک تحویل بگیر!",
-    "link": "#"
+    "id": "dadinar",
+    "name": "دادی نار",
+    "price": 42000,
+    "image": "dadinar.png",
+    "description": "طعم خاص و ماندگار",
+    "audio": "dadinar.mp3"
   }
 ]
