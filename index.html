@@ -1,17 +1,61 @@
-<div id="cart-panel" class="cart-container">
-  <h2>سبد خرید شما</h2>
-  <table id="cart-table">
-    <thead>
-      <tr>
-        <th>محصول</th>
-        <th>تعداد</th>
-        <th>قیمت پایه</th>
-        <th>تخفیف</th>
-        <th>قیمت نهایی</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-  <p>جمع کل: <span id="cart-total">۰</span> تومان</p>
-  <button onclick="submitOrder()">📤 ثبت سفارش</button>
-</div>
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>کاتالوگ پخش آذرخش</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- پیام خوش‌آمدگویی -->
+  <div id="welcome-screen">
+    <h1 class="fade-in">به کاتالوگ محصولات پخش آذرخش خوش آمدید</h1>
+    <audio id="intro-sound" src="intro.mp3" autoplay></audio>
+  </div>
+
+  <!-- کنترل موسیقی پس‌زمینه -->
+  <audio id="bg-music" src="background.mp3" loop></audio>
+  <button id="music-toggle" onclick="toggleMusic()">🔊 موسیقی</button>
+
+  <!-- منوی کشویی -->
+  <nav class="dropdown-menu">
+    <button onclick="toggleMenu()">☰ منو</button>
+    <ul id="menu-items">
+      <li onclick="showCategory('exclusive')">محصولات انحصاری</li>
+      <li onclick="showCategory('agency')">عاملیت فروش</li>
+    </ul>
+  </nav>
+
+  <!-- دسته‌بندی محصولات -->
+  <div id="exclusive" class="category-section">
+    <h2>محصولات انحصاری</h2>
+    <div id="product-list" class="product-container"></div>
+  </div>
+
+  <!-- سبد خرید -->
+  <div class="cart-container">
+    <h2>سبد خرید شما</h2>
+    <label>
+      <input type="checkbox" id="cash-checkbox" onchange="updateCartDisplay()">
+      خرید نقدی (تخفیف ۳٪)
+    </label>
+    <table id="cart-table">
+      <thead>
+        <tr>
+          <th>محصول</th>
+          <th>تعداد</th>
+          <th>قیمت پایه</th>
+          <th>تخفیف</th>
+          <th>قیمت نهایی</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <p>جمع کل: <span id="cart-total">۰</span> تومان</p>
+    <button onclick="submitOrder()">📤 ثبت سفارش</button>
+  </div>
+
+</body>
+<script src="script.js"></script>
+</html>
