@@ -1,56 +1,31 @@
-body {
-  font-family: 'IRANSans', sans-serif;
-  direction: rtl;
-  background-color: #f9f9f9;
-  color: #333;
-  margin: 0;
-  padding: 0;
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
-header {
-  background-color: #4caf50;
-  color: white;
-  padding: 20px;
+.product-card {
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 15px;
   text-align: center;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.categories, .tools {
-  padding: 20px;
-}
-
-.categories ul {
-  list-style: none;
-  padding: 0;
-}
-
-.categories li {
-  background-color: #e0f7fa;
-  margin: 10px 0;
-  padding: 10px;
+.product-card img {
+  width: 100%;
   border-radius: 8px;
 }
 
-.tool-card {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 15px;
-  margin: 10px 0;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-button {
-  background-color: #4caf50;
-  color: white;
+.product-card button {
+  margin: 5px;
+  padding: 8px 12px;
   border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
+  border-radius: 6px;
+  background-color: #ff9800;
+  color: white;
   cursor: pointer;
-}
-
-footer {
-  background-color: #eee;
-  text-align: center;
-  padding: 15px;
-  font-size: 0.9em;
 }
