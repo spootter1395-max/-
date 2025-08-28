@@ -1,18 +1,6 @@
 [
   {
-    "id": "mahshin",
-    "name": "ماهشین",
+    "id": "mahhsin",
+    "name": "ماحسین",
     "price": 35000,
-    "image": "mahshin.png",
-    "description": "محصول ویژه با کیفیت بالا",
-    "audio": "mahshin.mp3"
-  },
-  {
-    "id": "dadinar",
-    "name": "دادی نار",
-    "price": 42000,
-    "image": "dadinar.png",
-    "description": "طعم خاص و ماندگار",
-    "audio": "dadinar.mp3"
-  }
-]
+    "image": "mahhsin
