@@ -1,18 +1,18 @@
-document.addEventListener("DOMContentLoaded", () => {
-  fetch("assets/data/tools.json")
-    .then(res => res.json())
-    .then(data => {
-      const container = document.querySelector(".tools");
-      data.forEach(tool => {
-        const card = document.createElement("div");
-        card.className = "tool-card";
-        card.innerHTML = `
-          <h3>${tool.title}</h3>
-          <p>${tool.description}</p>
-          <button onclick="location.href='${tool.link}'">ورود</button>
-        `;
-        container.appendChild(card);
-      });
-    })
-    .catch(err => console.error("خطا در بارگذاری ابزارها:", err));
-});
+fetch('tools.json')
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById('product-list');
+    data.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+        <img src="${item.image}" alt="${item.name}" />
+        <h3>${item.name}</h3>
+        <p>قیمت پایه: ${item.price.toLocaleString()} تومان</p>
+        <button onclick="showDescription('${item.description}')">📄 توضیحات</button>
+        <button onclick="playAudio('${item.audio}')">🔊 صدا</button>
+        <button onclick="addToCart('${item.id}', ${item.price})">➕ افزودن به سبد خرید</button>
+      `;
+      container.appendChild(card);
+    });
+  });
