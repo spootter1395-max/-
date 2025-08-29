@@ -2,144 +2,69 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>صفحه اصلی آذرخش</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>صفحه فرود آذرخش</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
+      font-family: sans-serif;
+      background: #f0f0f0;
       margin: 0;
-      font-family: 'Vazir', sans-serif;
-      background-color: #f5f5f5;
-      direction: rtl;
+      padding: 0;
+      text-align: center;
     }
-
     header {
-      background-color: #8b0000;
-      color: white;
-      padding: 15px;
-      text-align: center;
-      position: relative;
-    }
-
-    .contact {
-      font-size: 14px;
-      margin-top: 5px;
-    }
-
-    .social-icons {
-      position: absolute;
-      left: 15px;
-      top: 15px;
-    }
-
-    .social-icons a {
-      margin: 0 5px;
-      color: white;
-      text-decoration: none;
-      font-size: 20px;
-    }
-
-    .logo {
-      width: 80px;
-      margin-bottom: 10px;
-    }
-
-    .slider {
-      width: 100%;
-      height: 250px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .slider img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-
-    .slider img.active {
-      opacity: 1;
-    }
-
-    .categories {
+      background-color: #222;
       padding: 20px;
-      text-align: center;
     }
-
-    .categories h2 {
+    header img {
+      height: 60px;
+    }
+    .slider {
+      margin: 30px auto;
+      max-width: 600px;
+    }
+    .slider img, .slider video {
+      width: 100%;
+      border-radius: 10px;
       margin-bottom: 20px;
-      color: #8b0000;
     }
-
-    .category-list {
+    .social-icons {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 15px;
+      gap: 20px;
+      margin: 30px 0;
     }
-
-    .category-item {
-      background-color: #fff;
-      border: 2px solid #8b0000;
-      border-radius: 8px;
-      padding: 10px 20px;
-      font-size: 16px;
-      color: #333;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
+    .social-icons img {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
     }
-
-    .category-item:hover {
-      transform: scale(1.05);
+    .social-icons img:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="copilot-image-1756450.jpeg" alt="لوگو آذرخش" class="logo">
-    <div class="contact">📞 09121676804 | ☎️ 02634702520</div>
-    <div class="social-icons">
-      <a href="#"><span>📱</span></a> <!-- واتساپ -->
-      <a href="#"><span>📨</span></a> <!-- تلگرام -->
-      <a href="#"><span>🎥</span></a> <!-- روبیکا -->
-      <a href="#"><span>📷</span></a> <!-- اینستاگرام -->
-    </div>
+    <img src="logo.png" alt="لوگوی آذرخش">
   </header>
 
-  <div class="slider">
-    <img src="IMG1.jpg" class="active" alt="محصول ۱">
-    <img src="IMG2.jpg" alt="محصول ۲">
-    <img src="IMG3.jpg" alt="محصول ۳">
-  </div>
+  <section class="slider">
+    <img src="IMG_20250829_223657_817.jpg" alt="تصویر اسلایدی اول">
+    <img src="Screenshot_۲۰۲۵-۰۸-۲۹-۲۲-۳۲-۳۳-۶۹۲_com.instagram.android.jpg" alt="تصویر اسلایدی دوم">
+    <video controls>
+      <source src="VID_20250829_223507_792.mp4" type="video/mp4">
+      مرورگر شما از پخش ویدئو پشتیبانی نمی‌کند.
+    </video>
+  </section>
 
-  <div class="categories">
-    <h2>دسته‌بندی محصولات</h2>
-    <div class="category-list">
-      <div class="category-item">سبد کت‌لایی‌ها</div>
-      <div class="category-item">محصولات ماهشین</div>
-      <div class="category-item">دادی نار</div>
-      <div class="category-item">آق بابا</div>
-      <div class="category-item">شیرینی‌جات</div>
-      <div class="category-item">نوشیدنی‌ها</div>
-      <div class="category-item">شانسی</div>
-    </div>
-  </div>
-
-  <script>
-    const slides = document.querySelectorAll(".slider img");
-    let current = 0;
-
-    setInterval(() => {
-      slides[current].classList.remove("active");
-      current = (current + 1) % slides.length;
-      slides[current].classList.add("active");
-    }, 4000);
-  </script>
+  <section class="social-icons">
+    <a href="https://instagram.com"><img src="13.png" alt="آیکون اینستاگرام"></a>
+    <a href="https://wa.me/"><img src="whatsapp.png" alt="آیکون واتساپ"></a>
+    <a href="https://t.me/"><img src="telegram-farsgraphic.png" alt="آیکون تلگرام"></a>
+  </section>
 
 </body>
 </html>
