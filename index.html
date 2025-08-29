@@ -2,158 +2,144 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>🍒 آلوچه ویژه ۳۵ فروش</title>
+  <title>صفحه اصلی آذرخش</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
+      margin: 0;
       font-family: 'Vazir', sans-serif;
-      background: linear-gradient(to left, #e66465, #9198e5);
-      text-align: center;
-      padding: 20px;
+      background-color: #f5f5f5;
       direction: rtl;
-      overflow: hidden;
     }
 
-    /* لوگو خوش‌آمدگویی */
-    .logo-container {
-      margin-top: 100px;
+    header {
+      background-color: #8b0000;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      position: relative;
+    }
+
+    .contact {
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .social-icons {
+      position: absolute;
+      left: 15px;
+      top: 15px;
+    }
+
+    .social-icons a {
+      margin: 0 5px;
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
     }
 
     .logo {
-      width: 200px;
-      animation: logoShock 1.5s ease-in-out;
+      width: 80px;
+      margin-bottom: 10px;
     }
 
-    @keyframes logoShock {
-      0%   { transform: scale(1); filter: brightness(1); }
-      20%  { transform: scale(1.1) rotate(1deg); filter: brightness(1.5); }
-      40%  { transform: scale(0.95) rotate(-1deg); filter: brightness(1.2); }
-      60%  { transform: scale(1.05); filter: brightness(1.4); }
-      80%  { transform: scale(1); filter: brightness(1); }
-      100% { transform: scale(1); filter: brightness(1); }
+    .slider {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      position: relative;
     }
 
-    .welcome-text {
-      font-size: 24px;
-      margin-top: 20px;
-      color: white;
+    .slider img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
     }
 
-    #mainContent {
-      display: none;
-      animation: fadeZoom 1s ease-in-out;
+    .slider img.active {
+      opacity: 1;
     }
 
-    .product-image {
-      width: 300px;
-      border: 8px solid #8b0000;
-      border-radius: 12px;
+    .categories {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .categories h2 {
       margin-bottom: 20px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      color: #8b0000;
     }
 
-    @keyframes fadeZoom {
-      0% { opacity: 0; transform: scale(0.8); }
-      100% { opacity: 1; transform: scale(1); }
+    .category-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
     }
 
-    .audio-button {
-      margin-top: 20px;
-      padding: 12px 24px;
-      background-color: #8b0000;
-      color: white;
-      border: none;
+    .category-item {
+      background-color: #fff;
+      border: 2px solid #8b0000;
       border-radius: 8px;
+      padding: 10px 20px;
       font-size: 16px;
-      cursor: pointer;
+      color: #333;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
     }
 
-    .audio-button:hover {
+    .category-item:hover {
       transform: scale(1.05);
-    }
-
-    .music-selector {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #fff;
-      border: 2px solid #8b0000;
-      border-radius: 12px;
-      padding: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
     }
   </style>
 </head>
 <body>
 
-  <!-- بخش خوش‌آمدگویی -->
-  <div id="welcomeSection">
-    <div class="logo-container">
-      <img src="copilot_image_1756450038118.jpeg" alt="Azarakhsh Logo" class="logo">
+  <header>
+    <img src="copilot-image-1756450.jpeg" alt="لوگو آذرخش" class="logo">
+    <div class="contact">📞 09121676804 | ☎️ 02634702520</div>
+    <div class="social-icons">
+      <a href="#"><span>📱</span></a> <!-- واتساپ -->
+      <a href="#"><span>📨</span></a> <!-- تلگرام -->
+      <a href="#"><span>🎥</span></a> <!-- روبیکا -->
+      <a href="#"><span>📷</span></a> <!-- اینستاگرام -->
     </div>
-    <h1 class="welcome-text">به دنیای آذرخش خوش آمدید</h1>
+  </header>
+
+  <div class="slider">
+    <img src="IMG1.jpg" class="active" alt="محصول ۱">
+    <img src="IMG2.jpg" alt="محصول ۲">
+    <img src="IMG3.jpg" alt="محصول ۳">
   </div>
 
-  <!-- محتوای اصلی محصول -->
-  <div id="mainContent">
-    <h1>🍒 آلوچه ویژه ۳۵ فروش</h1>
-    <img src="IMG20250829015040_390.jpg" alt="آلوچه" class="product-image">
-
-    <button class="audio-button" onclick="playIntro()">🔊 معرفی محصول</button>
-
-    <div class="music-selector">
-      <label for="music">انتخاب موسیقی:</label>
-      <select id="music" onchange="changeMusic(this.value)">
-        <option value="santour">سنتی ایرانی</option>
-        <option value="modern">مدرن مینیمال</option>
-        <option value="bikalam">بی‌کلام احساسی</option>
-        <option value="none">خاموش</option>
-      </select>
+  <div class="categories">
+    <h2>دسته‌بندی محصولات</h2>
+    <div class="category-list">
+      <div class="category-item">سبد کت‌لایی‌ها</div>
+      <div class="category-item">محصولات ماهشین</div>
+      <div class="category-item">دادی نار</div>
+      <div class="category-item">آق بابا</div>
+      <div class="category-item">شیرینی‌جات</div>
+      <div class="category-item">نوشیدنی‌ها</div>
+      <div class="category-item">شانسی</div>
     </div>
   </div>
-
-  <!-- فایل‌های صوتی -->
-  <audio id="introAudio" src="سلام به همه گوش بدید.m4a"></audio>
-  <audio id="pageTurn" src="Page turn sound effect.mp3"></audio>
-  <audio id="bgMusic" autoplay loop src="02.Sina Sarlak Chaharmenzale Santo.mp3"></audio>
-  <audio id="welcomeAudio">
-    <source src="dark-engine-logo-141942-2 (1).mp3" type="audio/mpeg">
-  </audio>
 
   <script>
-    // اجرای خوش‌آمدگویی و نمایش محتوای اصلی
-    window.addEventListener("load", () => {
-      const welcomeAudio = document.getElementById("welcomeAudio");
-      welcomeAudio.play().catch(err => console.warn("پخش خوش‌آمدگویی محدود شد:", err));
+    const slides = document.querySelectorAll(".slider img");
+    let current = 0;
 
-      setTimeout(() => {
-        document.getElementById("welcomeSection").style.display = "none";
-        document.getElementById("mainContent").style.display = "block";
-      }, 6000);
-    });
-
-    function playIntro() {
-      document.getElementById('pageTurn').play();
-      setTimeout(() => {
-        document.getElementById('introAudio').play();
-      }, 500);
-    }
-
-    function changeMusic(value) {
-      const bgMusic = document.getElementById('bgMusic');
-      if (value === "santour") {
-        bgMusic.src = "02.Sina Sarlak Chaharmenzale Santo.mp3";
-      } else if (value === "modern") {
-        bgMusic.src = "Music Background 1.mp3";
-      } else if (value === "bikalam") {
-        bgMusic.src = "bikalam-ghamgin-list1-part11 (1).mp3";
-      } else {
-        bgMusic.pause();
-        return;
-      }
-      bgMusic.play();
-    }
+    setInterval(() => {
+      slides[current].classList.remove("active");
+      current = (current + 1) % slides.length;
+      slides[current].classList.add("active");
+    }, 4000);
   </script>
+
 </body>
 </html>
