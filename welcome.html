@@ -7,21 +7,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <audio autoplay>
-    <source src="cinematic-intro-6097-1.mp3" type="audio/mpeg">
-    مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
-  </audio>
-
+  <!-- لوگو -->
   <div class="logo-container">
     <img src="copilot_image_1756450038118.jpeg" alt="Azarakhsh Logo" class="logo">
   </div>
 
+  <!-- متن خوش‌آمدگویی -->
   <h1 class="welcome-text">به دنیای آذرخش خوش آمدید</h1>
 
+  <!-- پخش صوتی -->
+  <audio id="introAudio" autoplay>
+    <source src="cinematic-intro-6097-1.mp3" type="audio/mpeg">
+    مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
+  </audio>
+
+  <!-- اسکریپت انتقال و پخش -->
   <script>
-    setTimeout(function() {
-      window.location.href = "index.html";
-    }, 6000);
+    window.addEventListener("DOMContentLoaded", function() {
+      const audio = document.getElementById("introAudio");
+      audio.play().catch(function(error) {
+        console.log("پخش خودکار توسط مرورگر محدود شده:", error);
+      });
+
+      setTimeout(function() {
+        window.location.href = "index.html";
+      }, 6000);
+    });
   </script>
 </body>
 </html>
