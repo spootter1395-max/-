@@ -2,54 +2,40 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>خوش‌آمدید | معرفی محصول</title>
+  <title>آذرخش | خوش‌آمدید</title>
   <style>
     body {
-      font-family: 'Vazir', sans-serif;
-      background-color: #f0f0f0;
-      padding: 30px;
-      direction: rtl;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
     }
-    .container {
-      max-width: 700px;
-      margin: auto;
-      background-color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      padding: 25px;
+    .logo {
+      animation: fadeIn 3s ease-in-out;
+      width: 300px;
     }
-    h1, h2 {
-      color: #444;
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 1.1em;
-      line-height: 2;
-      color: #333;
-    }
-    .divider {
-      margin: 30px 0;
-      border-top: 1px solid #ccc;
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.5); }
+      100% { opacity: 1; transform: scale(1); }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>خوش‌آمدید 🌟</h1>
-    <p>
-      به صفحه‌ی رسمی محصول ما خوش اومدید. اینجا جاییه که کیفیت، سلیقه و خلاقیت با هم ترکیب شدن تا تجربه‌ای متفاوت براتون بسازن.
-    </p>
+  <img src="logo-azarakhsh.png" alt="لوگوی آذرخش" class="logo">
+  <audio autoplay>
+    <source src="audio/intro.mp3" type="audio/mp3">
+    مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
+  </audio>
 
-    <div class="divider"></div>
-
-    <h2>معرفی محصول</h2>
-    <p>
-      این محصول با دقت و عشق طراحی شده تا تجربه‌ای خاص برای شما رقم بزنه.  
-      کیفیت بالا، طراحی منحصربه‌فرد، و توجه به جزئیات باعث شده که انتخاب اول کسانی باشه که به زیبایی و کارایی اهمیت می‌دن.
-    </p>
-    <p>
-      اگر دنبال یه انتخاب خاص هستی که هم ظاهر شیک داشته باشه و هم عملکرد عالی، این محصول دقیقاً همونه که دنبالش بودی.
-    </p>
-  </div>
+  <script>
+    // بعد از 5 ثانیه انتقال به صفحه اصلی
+    setTimeout(function() {
+      window.location.href = "main.html"; // یا هر صفحه‌ای که محتوای اصلی‌ات توشه
+    }, 5000);
+  </script>
 </body>
 </html>
