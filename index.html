@@ -6,6 +6,29 @@
   <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: white;
+      text-align: center;
+      font-family: sans-serif;
+    }
+
+    .logo-container {
+      margin-top: 80px;
+    }
+
+    .logo {
+      width: 200px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .welcome-text {
+      margin-top: 30px;
+      font-size: 24px;
+    }
+
     @keyframes logoShock {
       0%   { transform: scale(1); filter: brightness(1); }
       20%  { transform: scale(1.1) rotate(1deg); filter: brightness(1.5); }
@@ -21,20 +44,30 @@
   </style>
 </head>
 <body>
+  <!-- لوگو -->
   <div class="logo-container">
     <img src="copilot_image_1756450038118.jpeg" alt="Azarakhsh Logo" class="logo">
   </div>
 
+  <!-- متن خوش‌آمدگویی -->
   <h1 class="welcome-text">به دنیای آذرخش خوش آمدید</h1>
 
+  <!-- فایل صوتی -->
+  <audio id="introAudio" autoplay>
+    <source src="dark-engine-logo-141942-2 (1).mp3" type="audio/mpeg">
+    مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
+  </audio>
+
+  <!-- اسکریپت -->
   <script>
+    const audio = document.getElementById("introAudio");
     const logo = document.querySelector(".logo");
 
     window.addEventListener("load", () => {
-      // اجرای افکت لرزش لوگو
+      // افکت لرزش لوگو
       logo.classList.add("shock");
 
-      // انتقال به صفحه بعدی بعد از ۶ ثانیه
+      // انتقال به صفحه اصلی بعد از چند ثانیه
       setTimeout(() => {
         window.location.href = "main.html";
       }, 6000);
