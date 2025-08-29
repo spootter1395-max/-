@@ -14,10 +14,13 @@
       height: 100vh;
       overflow: hidden;
     }
+
     .logo {
-      animation: fadeIn 3s ease-in-out;
-      width: 300px;
+      width: 250px;
+      opacity: 0;
+      animation: fadeIn 3s ease-in-out forwards;
     }
+
     @keyframes fadeIn {
       0% { opacity: 0; transform: scale(0.5); }
       100% { opacity: 1; transform: scale(1); }
@@ -25,17 +28,20 @@
   </style>
 </head>
 <body>
+  <!-- لوگوی آذرخش -->
   <img src="logo-azarakhsh.png" alt="لوگوی آذرخش" class="logo">
+
+  <!-- صدای معرفی -->
   <audio autoplay>
     <source src="audio/intro.mp3" type="audio/mp3">
     مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
   </audio>
 
+  <!-- انتقال به صفحه اصلی بعد از 6 ثانیه -->
   <script>
-    // بعد از 5 ثانیه انتقال به صفحه اصلی
     setTimeout(function() {
-      window.location.href = "main.html"; // یا هر صفحه‌ای که محتوای اصلی‌ات توشه
-    }, 5000);
+      window.location.href = "main.html"; // اسم صفحه‌ی اصلی‌ات رو اینجا بذار
+    }, 6000);
   </script>
 </body>
 </html>
