@@ -6,15 +6,30 @@
   <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    /* دکمه نامرئی روی کل صفحه */
     #hiddenPlayButton {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      opacity: 0; /* کاملاً نامرئی ولی قابل کلیک */
+      opacity: 0;
       z-index: 9999;
       cursor: pointer;
+    }
+
+    /* افکت لرزش و نور لوگو */
+    @keyframes logoShock {
+      0%   { transform: scale(1); filter: brightness(1); }
+      20%  { transform: scale(1.1) rotate(1deg); filter: brightness(1.5); }
+      40%  { transform: scale(0.95) rotate(-1deg); filter: brightness(1.2); }
+      60%  { transform: scale(1.05); filter: brightness(1.4); }
+      80%  { transform: scale(1); filter: brightness(1); }
+      100% { transform: scale(1); filter: brightness(1); }
+    }
+
+    .logo.shock {
+      animation: logoShock 1.5s ease-in-out;
     }
   </style>
 </head>
@@ -27,7 +42,7 @@
   <!-- متن خوش‌آمدگویی -->
   <h1 class="welcome-text">به دنیای آذرخش خوش آمدید</h1>
 
-  <!-- دکمه نامرئی روی کل صفحه -->
+  <!-- دکمه نامرئی -->
   <button id="hiddenPlayButton">Play</button>
 
   <!-- فایل صوتی -->
@@ -40,15 +55,15 @@
   <script>
     const audio = document.getElementById("introAudio");
     const hiddenBtn = document.getElementById("hiddenPlayButton");
+    const logo = document.querySelector(".logo");
 
     hiddenBtn.addEventListener("click", () => {
       audio.play().then(() => {
-        console.log("صدا پخش شد.");
+        logo.classList.add("shock");
       }).catch(err => {
         console.warn("پخش صدا توسط مرورگر محدود شد:", err);
       });
 
-      // انتقال به صفحه بعدی بعد از ۶ ثانیه
       setTimeout(() => {
         window.location.href = "index.html";
       }, 6000);
