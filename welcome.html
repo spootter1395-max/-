@@ -2,26 +2,26 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>آذرخش</title>
+  <title>خوش‌آمدید به آذرخش</title>
   <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <audio id="introSound" src="cinematic-intro-6097-1.mp3" preload="auto"></audio>
+  <audio autoplay>
+    <source src="cinematic-intro-6097-1.mp3" type="audio/mpeg">
+    مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
+  </audio>
 
-  <div class="container">
-    <img src="logo.png" alt="لوگوی آذرخش" class="logo">
-    <h1 class="welcome-text">آذرخش؛ فقط یک نام نیست، یک تجربه است.</h1>
+  <div class="logo-container">
+    <img src="copilot_image_1756450038118.jpeg" alt="Azarakhsh Logo" class="logo">
   </div>
 
-  <script>
-    window.onload = () => {
-      const sound = document.getElementById("introSound");
-      sound.play();
+  <h1 class="welcome-text">به دنیای آذرخش خوش آمدید</h1>
 
-      setTimeout(() => {
-        window.location.href = "index.html";
-      }, 6000); // بعد از ۶ ثانیه وارد صفحه اصلی بشه
-    };
+  <script>
+    setTimeout(function() {
+      window.location.href = "index.html";
+    }, 6000);
   </script>
 </body>
 </html>
