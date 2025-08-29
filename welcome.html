@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>آذرخش</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <audio id="introSound" src="cinematic-intro-6097-1.mp3" preload="auto"></audio>
+
+  <div class="container">
+    <img src="logo.png" alt="لوگوی آذرخش" class="logo">
+    <h1 class="welcome-text">آذرخش؛ فقط یک نام نیست، یک تجربه است.</h1>
+  </div>
+
+  <script>
+    window.onload = () => {
+      const sound = document.getElementById("introSound");
+      sound.play();
+
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 6000); // بعد از ۶ ثانیه وارد صفحه اصلی بشه
+    };
+  </script>
+</body>
+</html>
