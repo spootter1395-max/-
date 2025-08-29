@@ -2,46 +2,65 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>آذرخش | خوش‌آمدید</title>
+  <title>خوش‌آمدید به آذرخش</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    .logo {
-      width: 250px;
+    #hiddenPlayButton {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       opacity: 0;
-      animation: fadeIn 3s ease-in-out forwards;
+      z-index: 9999;
+      cursor: pointer;
     }
 
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: scale(0.5); }
-      100% { opacity: 1; transform: scale(1); }
+    @keyframes logoShock {
+      0%   { transform: scale(1); filter: brightness(1); }
+      20%  { transform: scale(1.1) rotate(1deg); filter: brightness(1.5); }
+      40%  { transform: scale(0.95) rotate(-1deg); filter: brightness(1.2); }
+      60%  { transform: scale(1.05); filter: brightness(1.4); }
+      80%  { transform: scale(1); filter: brightness(1); }
+      100% { transform: scale(1); filter: brightness(1); }
+    }
+
+    .logo.shock {
+      animation: logoShock 1.5s ease-in-out;
     }
   </style>
 </head>
 <body>
-  <!-- لوگوی آذرخش -->
-  <img src="logo-azarakhsh.png" alt="لوگوی آذرخش" class="logo">
+  <div class="logo-container">
+    <img src="copilot_image_1756450038118.jpeg" alt="Azarakhsh Logo" class="logo">
+  </div>
 
-  <!-- صدای معرفی -->
-  <audio autoplay>
-    <source src="audio/intro.mp3" type="audio/mp3">
+  <h1 class="welcome-text">به دنیای آذرخش خوش آمدید</h1>
+
+  <button id="hiddenPlayButton">Play</button>
+
+  <audio id="introAudio">
+    <source src="dark-engine-logo-141942-2 (1).mp3" type="audio/mpeg">
     مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
   </audio>
 
-  <!-- انتقال به صفحه اصلی بعد از 6 ثانیه -->
   <script>
-    setTimeout(function() {
-      window.location.href = "main.html"; // اسم صفحه‌ی اصلی‌ات رو اینجا بذار
-    }, 6000);
+    const audio = document.getElementById("introAudio");
+    const hiddenBtn = document.getElementById("hiddenPlayButton");
+    const logo = document.querySelector(".logo");
+
+    hiddenBtn.addEventListener("click", () => {
+      audio.play().then(() => {
+        logo.classList.add("shock");
+      }).catch(err => {
+        console.warn("پخش صدا توسط مرورگر محدود شد:", err);
+      });
+
+      setTimeout(() => {
+        window.location.href = "main.html";
+      }, 6000);
+    });
   </script>
 </body>
 </html>
