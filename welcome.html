@@ -15,29 +15,28 @@
   <!-- متن خوش‌آمدگویی -->
   <h1 class="welcome-text">به دنیای آذرخش خوش آمدید</h1>
 
-  <!-- فایل صوتی با autoplay -->
+  <!-- فایل صوتی -->
   <audio id="introAudio" autoplay>
     <source src="dark-engine-logo-141942-2 (1).mp3" type="audio/mpeg">
     مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
   </audio>
 
-  <!-- اسکریپت برای پخش مطمئن -->
+  <!-- اسکریپت -->
   <script>
     window.addEventListener("load", function() {
       const audio = document.getElementById("introAudio");
 
-      // تلاش برای پخش خودکار با تأخیر کوتاه
+      // تلاش برای پخش صدا
+      audio.play().then(() => {
+        console.log("صدا پخش شد.");
+      }).catch(err => {
+        console.warn("پخش صدا توسط مرورگر محدود شد:", err);
+      });
+
+      // انتقال به صفحه بعدی حتی اگر صدا پخش نشه
       setTimeout(() => {
-        audio.play().then(() => {
-          console.log("صدا با موفقیت پخش شد.");
-          // انتقال به صفحه اصلی بعد از ۶ ثانیه
-          setTimeout(() => {
-            window.location.href = "index.html";
-          }, 6000);
-        }).catch(err => {
-          console.warn("پخش خودکار توسط مرورگر محدود شد:", err);
-        });
-      }, 1000); // تأخیر ۱ ثانیه‌ای برای اطمینان از بارگذاری
+        window.location.href = "index.html";
+      }, 6000); // زمان انتقال: ۶ ثانیه
     });
   </script>
 </body>
