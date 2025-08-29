@@ -16,24 +16,13 @@ body {
   width: 120px;
   height: auto;
   border-radius: 8px;
+  transition: all 0.3s ease-in-out;
 }
 
 .welcome-text {
   font-size: 28px;
   margin-top: 30px;
   animation: fadeInText 2s ease-in-out;
-}
-
-.sound-button {
-  margin-top: 40px;
-  padding: 12px 24px;
-  font-size: 18px;
-  background-color: crimson;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  animation: fadeIn 2s ease-in-out;
 }
 
 @keyframes fadeIn {
