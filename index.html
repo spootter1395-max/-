@@ -6,17 +6,6 @@
   <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    #hiddenPlayButton {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      z-index: 9999;
-      cursor: pointer;
-    }
-
     @keyframes logoShock {
       0%   { transform: scale(1); filter: brightness(1); }
       20%  { transform: scale(1.1) rotate(1deg); filter: brightness(1.5); }
@@ -38,25 +27,14 @@
 
   <h1 class="welcome-text">به دنیای آذرخش خوش آمدید</h1>
 
-  <button id="hiddenPlayButton">Play</button>
-
-  <audio id="introAudio">
-    <source src="dark-engine-logo-141942-2 (1).mp3" type="audio/mpeg">
-    مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
-  </audio>
-
   <script>
-    const audio = document.getElementById("introAudio");
-    const hiddenBtn = document.getElementById("hiddenPlayButton");
     const logo = document.querySelector(".logo");
 
-    hiddenBtn.addEventListener("click", () => {
-      audio.play().then(() => {
-        logo.classList.add("shock");
-      }).catch(err => {
-        console.warn("پخش صدا توسط مرورگر محدود شد:", err);
-      });
+    window.addEventListener("load", () => {
+      // اجرای افکت لرزش لوگو
+      logo.classList.add("shock");
 
+      // انتقال به صفحه بعدی بعد از ۶ ثانیه
       setTimeout(() => {
         window.location.href = "main.html";
       }, 6000);
