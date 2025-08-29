@@ -6,7 +6,7 @@
   <style>
     body {
       font-family: 'Vazir', sans-serif;
-      background: linear-gradient(to bottom, #fbeee0, #f8d9c2);
+      background: linear-gradient(to left, #e66465, #9198e5);
       text-align: center;
       padding: 20px;
       direction: rtl;
@@ -16,6 +16,7 @@
       width: 300px;
       border: 8px solid #8b0000;
       border-radius: 12px;
+      margin-bottom: 20px;
       box-shadow: 0 0 20px rgba(0,0,0,0.2);
       animation: fadeZoom 1s ease-in-out;
     }
@@ -62,7 +63,7 @@
 <body>
 
   <h1>🍒 آلوچه ویژه ۳۵ فروش</h1>
-  <img src="IMG_20250829_015040_390.jpg" alt="آلوچه" class="product-image">
+  <img src="IMG20250829015040_390.jpg" alt="آلوچه" class="product-image">
 
   <button class="audio-button" onclick="playIntro()">🔊 معرفی محصول</button>
 
@@ -76,9 +77,9 @@
     </select>
   </div>
 
-  <audio id="introAudio" src="سلام به همه خوش_سلیق (1).m4a"></audio>
+  <audio id="introAudio" src="سلام به همه گوش بدید.m4a"></audio>
   <audio id="pageTurn" src="Page turn sound effect.mp3"></audio>
-  <audio id="bgMusic" autoplay loop src="02.Sina Sarlak Chaharmezrab Santour Va Tombak.mp3"></audio>
+  <audio id="bgMusic" autoplay loop src="02.Sina Sarlak Chaharmenzale Santo.mp3"></audio>
 
   <script>
     function playIntro() {
@@ -91,7 +92,7 @@
     function changeMusic(value) {
       const bgMusic = document.getElementById('bgMusic');
       if (value === "santour") {
-        bgMusic.src = "02.Sina Sarlak Chaharmezrab Santour Va Tombak.mp3";
+        bgMusic.src = "02.Sina Sarlak Chaharmenzale Santo.mp3";
       } else if (value === "modern") {
         bgMusic.src = "Music Background 1.mp3";
       } else if (value === "bikalam") {
