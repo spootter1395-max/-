@@ -2,74 +2,36 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>خوش‌آمدید به آذرخش</title>
-  <link rel="stylesheet" href="style.css">
+  <title>صفحه اصلی آذرخش</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      background-color: black;
-      color: white;
+      background-color: #0d0d0d;
+      color: #f5f5f5;
+      font-family: 'Vazir', sans-serif;
       text-align: center;
-      font-family: sans-serif;
+      padding-top: 100px;
     }
 
-    .logo-container {
-      margin-top: 80px;
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      opacity: 0.8;
     }
 
     .logo {
-      width: 200px;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .welcome-text {
-      margin-top: 30px;
-      font-size: 24px;
-    }
-
-    @keyframes logoShock {
-      0%   { transform: scale(1); filter: brightness(1); }
-      20%  { transform: scale(1.1) rotate(1deg); filter: brightness(1.5); }
-      40%  { transform: scale(0.95) rotate(-1deg); filter: brightness(1.2); }
-      60%  { transform: scale(1.05); filter: brightness(1.4); }
-      80%  { transform: scale(1); filter: brightness(1); }
-      100% { transform: scale(1); filter: brightness(1); }
-    }
-
-    .logo.shock {
-      animation: logoShock 1.5s ease-in-out;
+      width: 120px;
+      margin-bottom: 30px;
     }
   </style>
 </head>
 <body>
-  <!-- لوگو -->
-  <div class="logo-container">
-    <img src="copilot-image-1756450.jpeg" alt="Azarakhsh Logo" class="logo">
-  </div>
-
-  <!-- متن خوش‌آمدگویی -->
-  <h1 class="welcome-text">به دنیای آذرخش خوش آمدید</h1>
-
-  <!-- فایل صوتی -->
-  <audio id="introAudio" autoplay>
-    <source src="Music Background 1.mp3" type="audio/mpeg">
-    مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
-  </audio>
-
-  <!-- اسکریپت -->
-  <script>
-    const audio = document.getElementById("introAudio");
-    const logo = document.querySelector(".logo");
-
-    window.addEventListener("load", () => {
-      logo.classList.add("shock");
-
-      setTimeout(() => {
-        window.location.href = "main.html";
-      }, 6000);
-    });
-  </script>
+  <img src="copilot-image-1756450.jpeg" alt="Azarakhsh Logo" class="logo">
+  <h1>🎬 ورود موفق به دنیای آذرخش</h1>
+  <p>شما اکنون در صفحه‌ی اصلی هستید. آماده‌ای برای شروع تجربه سینمایی؟</p>
 </body>
 </html>
