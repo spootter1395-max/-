@@ -7,7 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     #hiddenPlayButton {
-      display: none; /* دکمه کاملاً مخفی */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0; /* کاملاً نامرئی ولی قابل کلیک */
+      z-index: 9999;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -20,8 +27,8 @@
   <!-- متن خوش‌آمدگویی -->
   <h1 class="welcome-text">به دنیای آذرخش خوش آمدید</h1>
 
-  <!-- دکمه مخفی -->
-  <button id="hiddenPlayButton">پخش صدا</button>
+  <!-- دکمه نامرئی روی کل صفحه -->
+  <button id="hiddenPlayButton">Play</button>
 
   <!-- فایل صوتی -->
   <audio id="introAudio">
@@ -34,12 +41,6 @@
     const audio = document.getElementById("introAudio");
     const hiddenBtn = document.getElementById("hiddenPlayButton");
 
-    // وقتی روی هر جای صفحه کلیک شد، دکمه مخفی فعال بشه
-    document.body.addEventListener("click", () => {
-      hiddenBtn.click();
-    });
-
-    // وقتی دکمه مخفی کلیک شد، صدا پخش بشه و بعدش منتقل بشه
     hiddenBtn.addEventListener("click", () => {
       audio.play().then(() => {
         console.log("صدا پخش شد.");
