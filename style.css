@@ -1,45 +1,35 @@
 body {
   margin: 0;
   padding: 0;
-  background: radial-gradient(circle at center, #000000, #1a1a1a);
-  color: #ffffff;
-  font-family: 'IRANSans', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
+  background-color: black;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
 }
 
-.container {
-  text-align: center;
+.logo-container {
+  margin-top: 80px;
   animation: fadeIn 2s ease-in-out;
 }
 
 .logo {
-  width: 160px;
-  animation: boomEffect 1.2s ease-out forwards;
+  width: 120px;
+  height: auto;
+  border-radius: 8px;
 }
 
 .welcome-text {
-  margin-top: 20px;
-  font-size: 24px;
-  opacity: 0;
-  animation: textFade 2s ease-in-out 1.5s forwards;
-}
-
-/* انیمیشن‌ها */
-@keyframes boomEffect {
-  0% { transform: scale(0) rotate(0deg); opacity: 0; }
-  50% { transform: scale(1.5) rotate(180deg); opacity: 1; }
-  100% { transform: scale(1) rotate(360deg); }
-}
-
-@keyframes textFade {
-  to { opacity: 1; }
+  font-size: 28px;
+  margin-top: 30px;
+  animation: fadeInText 2s ease-in-out;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInText {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
