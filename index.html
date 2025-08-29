@@ -46,7 +46,7 @@
 <body>
   <!-- لوگو -->
   <div class="logo-container">
-    <img src="copilot_image_1756450038118.jpeg" alt="Azarakhsh Logo" class="logo">
+    <img src="copilot-image-1756450.jpeg" alt="Azarakhsh Logo" class="logo">
   </div>
 
   <!-- متن خوش‌آمدگویی -->
@@ -54,7 +54,7 @@
 
   <!-- فایل صوتی -->
   <audio id="introAudio" autoplay>
-    <source src="dark-engine-logo-141942-2 (1).mp3" type="audio/mpeg">
+    <source src="Music Background 1.mp3" type="audio/mpeg">
     مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
   </audio>
 
@@ -64,10 +64,8 @@
     const logo = document.querySelector(".logo");
 
     window.addEventListener("load", () => {
-      // افکت لرزش لوگو
       logo.classList.add("shock");
 
-      // انتقال به صفحه اصلی بعد از چند ثانیه
       setTimeout(() => {
         window.location.href = "main.html";
       }, 6000);
