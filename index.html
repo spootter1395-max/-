@@ -30,11 +30,27 @@
     header {
       background-color: #a3d5f7;
       padding: 20px;
+      position: relative;
     }
     header img {
       height: 80px;
     }
-    .slider img, .slider video {
+    #blinking-text {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 22px;
+      font-weight: bold;
+      color: #b30000;
+      animation: blink 1.2s infinite;
+      white-space: nowrap;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .slider video {
       max-width: 90%;
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
@@ -114,11 +130,12 @@
   <div id="main-content">
     <header>
       <img src="copilot_image_1756450038118.jpeg" alt="لوگوی پخش آذرخش">
+      <div id="blinking-text">پخش آذرخش — هر روز بهتر از دیروز ⚡</div>
     </header>
 
     <section class="slider">
-      <img src="IMG_20250829_223657_817.jpg" alt="آلوچه ماهشین">
-      <video src="VID_20250829_223507_792.mp4" controls autoplay muted></video>
+      <!-- تصویر آلوچه حذف شد -->
+      <video src="VID_20250829_223507_792.mp4" autoplay muted loop></video>
     </section>
 
     <section class="contact-section">
@@ -164,27 +181,23 @@
       document.getElementById("welcome-screen").style.display = "none";
       document.getElementById("main-content").style.display = "block";
 
-      // پخش خودکار آهنگ
       const player = new Audio("Shahram Nazeri - Bigharar.mp3");
       player.autoplay = true;
       player.loop = true;
       player.play();
 
-      // تغییر آهنگ
       const selector = document.getElementById("musicSelector");
       selector.addEventListener("change", function () {
         player.src = this.value;
         player.play();
       });
 
-      // دکمه بی‌صدا
       const muteBtn = document.getElementById("muteBtn");
       muteBtn.addEventListener("click", () => {
         player.muted = !player.muted;
         muteBtn.textContent = player.muted ? "🔊 باصدا" : "🔇 بی‌صدا";
       });
 
-      // دکمه شب و روز
       const themeBtn = document.getElementById("themeToggle");
       let isNight = false;
       themeBtn.addEventListener("click", () => {
