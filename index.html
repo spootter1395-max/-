@@ -2,29 +2,29 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>پخش آذرخش</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: sans-serif;
+      font-family: Tahoma, sans-serif;
       background-color: #f9f9f9;
       margin: 0;
       padding: 0;
     }
     header {
       background-color: #fff;
-      padding: 10px;
+      padding: 15px;
       text-align: center;
       border-bottom: 1px solid #ccc;
     }
     #blinking-text {
       font-weight: bold;
-      color: #ff6600;
+      color: #b30000;
       animation: blink 1s infinite;
     }
     @keyframes blink {
       0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
+      50% { opacity: 0.3; }
     }
     .slider video {
       width: 100%;
@@ -86,7 +86,7 @@
 
   <!-- صفحه خوش‌آمدگویی -->
   <div id="welcome-screen">
-    <iframe src="welcome.html" width="100%" height="100%" frameborder="0"></iframe>
+    <iframe src="welcome.html" width="100%" height="300" frameborder="0"></iframe>
   </div>
 
   <!-- محتوای اصلی -->
@@ -106,16 +106,16 @@
         <div class="menu-item" onclick="toggleCategory('mahshin')"><div class="icon">🍬</div><p>ماهشین</p></div>
         <div class="menu-item" onclick="toggleCategory('nooshidani')"><div class="icon">🥤</div><p>نوشیدنی</p></div>
         <div class="menu-item" onclick="toggleCategory('alonak')"><div class="icon">🛖🥜</div><p>آلونک</p></div>
-        <div class="menu-item" onclick="toggleCategory('dadinar')"><div class="icon">🍬</div><p>دادی نار</p></div>
-        <div class="menu-item" onclick="toggleCategory('aghbaba')"><div class="icon">🍿🔥</div><p>آق بابا</p></div>
-        <div class="menu-item" onclick="toggleCategory('shansi')"><div class="icon">🎁</div><p>شانسی</p></div>
-        <div class="menu-item" onclick="toggleCategory('motefareqe')"><div class="icon">🍫</div><p>متفرقه</p></div>
+        <div class="menu-item"><div class="icon">🍬</div><p>دادی نار</p></div>
+        <div class="menu-item"><div class="icon">🍿🔥</div><p>آق بابا</p></div>
+        <div class="menu-item"><div class="icon">🎁</div><p>شانسی</p></div>
+        <div class="menu-item"><div class="icon">🍫</div><p>متفرقه</p></div>
       </div>
 
       <!-- محصولات ماهشین -->
       <div id="mahshin" class="product-section">
         <div class="product-card">
-          <img src="IMG۲۰۲۵۰۸۳۱۰۱۲۷۳۹.jpg" alt="قطره طلا، آلوچه شرابی، مخلوط میوه، آلبالو گیلاس" width="100%">
+          <img src="IMG۲۰۲۵۰۸۳۱۰۱۲۷۳۹.jpg" alt="محصول ماهشین" width="100%">
           <h3>قطره طلا، آلوچه شرابی، مخلوط میوه، آلبالو گیلاس</h3>
           <p>📦 بسته‌بندی: هر رگال ۱۰ عدد | هر کارتن ۱۲ رگال</p>
 
@@ -159,9 +159,6 @@
           <p>🎯 تخفیف نقدی: ۵٪ | خرید عمده: ۱۰٪</p>
         </div>
       </div>
-
-      <!-- دسته‌های دیگر رو هم می‌تونی همین‌طور اضافه کنی -->
-
     </section>
 
     <footer>
@@ -194,4 +191,11 @@
 
     const mahshinPrices = {
       regal: 17300,
-      carton: 198000[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/Pardis-K/Doctor-Appointment/tree/5da8f6d7847dc7b98f9bbdd1ba83a09a1c39c8ef/views%2Flayout%2Fdoctor.blade.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
+      carton: 198000,
+      ghatre: 24500,
+      mokhloot: 21000,
+      albaloo: 22500
+    };
+
+    function updateMahshinPrice() {
+      const type = document.getElementById("mahshin
