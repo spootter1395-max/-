@@ -4,104 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>پخش آذرخش</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Vazirmatn', sans-serif;
-      background-color: #fdf6f0;
-      color: #444;
-      text-align: center;
-      transition: background-color 0.5s ease, color 0.5s ease;
-    }
-    #welcome-screen {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: #fff;
-      z-index: 9999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-    #main-content {
-      display: none;
-    }
-    header {
-      background-color: #a3d5f7;
-      padding: 20px;
-      position: relative;
-    }
-    header img {
-      height: 80px;
-    }
-    #blinking-text {
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      font-size: 22px;
-      font-weight: bold;
-      color: #b30000;
-      animation: blink 1.2s infinite;
-      white-space: nowrap;
-    }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-    .slider video {
-      max-width: 90%;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      margin: 30px 0;
-    }
-    .product-menu {
-      background-color: #fff;
-      margin: 30px auto;
-      padding: 20px;
-      max-width: 700px;
-      border-radius: 16px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.05);
-    }
-    .product-menu h2 {
-      font-size: 24px;
-      color: #b30000;
-      margin-bottom: 20px;
-    }
-    .menu-icons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
-    }
-    .menu-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 90px;
-    }
-    .menu-item img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      box-shadow: 0 0 10px #ccc;
-      transition: transform 0.3s ease;
-    }
-    .menu-item img:hover {
-      transform: scale(1.1);
-    }
-    .menu-item p {
-      margin-top: 8px;
-      font-size: 14px;
-      color: #444;
-    }
-    footer {
-      background-color: #d7c4f0;
-      padding: 20px;
-      font-size: 16px;
-      line-height: 1.8;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -122,13 +25,34 @@
     <section class="product-menu">
       <h2>📂 دسته‌بندی محصولات</h2>
       <div class="menu-icons">
-        <div class="menu-item"><img src="alooche.png" alt="ماهشین"><p>ماهشین</p></div>
-        <div class="menu-item"><img src="icepack.png" alt="نوشیدنی"><p>نوشیدنی</p></div>
-        <div class="menu-item"><img src="shirini.png" alt="آلونک"><p>آلونک</p></div>
-        <div class="menu-item"><img src="lavashak.png" alt="دادی نار"><p>دادی نار</p></div>
-        <div class="menu-item"><img src="tanagholat.png" alt="آق بابا"><p>آق بابا</p></div>
-        <div class="menu-item"><img src="chips.png" alt="شانسی"><p>شانسی</p></div>
-        <div class="menu-item"><img src="basket.png" alt="متفرقه"><p>متفرقه</p></div>
+        <div class="menu-item">
+          <div class="icon">🍬</div>
+          <p>ماهشین</p>
+        </div>
+        <div class="menu-item">
+          <div class="icon">🥤</div>
+          <p>نوشیدنی</p>
+        </div>
+        <div class="menu-item">
+          <div class="icon">🛖🥜</div>
+          <p>آلونک</p>
+        </div>
+        <div class="menu-item">
+          <div class="icon">🍬</div>
+          <p>دادی نار</p>
+        </div>
+        <div class="menu-item">
+          <div class="icon">🍿🔥</div>
+          <p>آق بابا</p>
+        </div>
+        <div class="menu-item">
+          <div class="icon">🎁</div>
+          <p>شانسی</p>
+        </div>
+        <div class="menu-item">
+          <div class="icon">🍫</div>
+          <p>متفرقه</p>
+        </div>
       </div>
     </section>
 
