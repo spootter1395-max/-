@@ -10,26 +10,20 @@
       font-family: 'Vazirmatn', sans-serif;
       background-color: #fdf6f0;
       color: #444;
+      text-align: center;
     }
     header {
       background-color: #a3d5f7;
       padding: 20px;
-      text-align: center;
     }
     header img {
       height: 80px;
     }
-    .slider {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 30px 0;
-    }
-    .slider img, .slider video {
+    .slider img {
       max-width: 90%;
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
+      margin: 30px 0;
     }
     .contact-section {
       background-color: #fff;
@@ -38,11 +32,11 @@
       max-width: 700px;
       border-radius: 16px;
       box-shadow: 0 0 20px rgba(0,0,0,0.05);
-      text-align: center;
     }
     .contact-section h2 {
       font-size: 28px;
       margin-bottom: 20px;
+      color: #b30000;
     }
     .contact-icons {
       display: flex;
@@ -61,27 +55,52 @@
       transform: scale(1.1);
     }
     .contact-section p {
-      font-size: 20px;
+      font-size: 18px;
       margin: 5px 0;
+    }
+    .copy-btn {
+      background-color: #a3d5f7;
+      border: none;
+      padding: 8px 16px;
+      font-size: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .copy-btn:hover {
+      background-color: #8ac2e0;
+    }
+    .music-player {
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #fff;
+      max-width: 600px;
+      border-radius: 16px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    }
+    select, button {
+      font-size: 16px;
+      padding: 8px 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
     }
     footer {
       background-color: #d7c4f0;
-      text-align: center;
-      padding: 15px;
+      padding: 20px;
       font-size: 16px;
-      margin-top: 40px;
+      line-height: 1.8;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="copilot_image_1756450038118.jpeg" alt="لوگوی آذرخش">
+    <img src="copilotimage1756450038118.jpeg" alt="لوگوی پخش آذرخش">
   </header>
 
   <section class="slider">
-    <img src="IMG_20250829_223657_817.jpg" alt="تصویر اسلایدر">
-    <video src="VID_20250829_223507_792.mp4" controls autoplay muted></video>
+    <img src="IMG20250829223657_817.jpg" alt="تصویر اسلایدر">
   </section>
 
   <section class="contact-section">
@@ -91,19 +110,51 @@
         <img src="whatsapp.png" alt="واتساپ">
       </a>
       <a href="https://t.me/09154353956" target="_blank">
-        <img src="telegram-farsgraphic.png" alt="تلگرام">
+        <img src="13.png" alt="تلگرام">
       </a>
       <a href="https://rubika.ir/pakhsh_azarakhsh" target="_blank">
         <img src="instagram.png" alt="روبیکا">
       </a>
     </div>
     <p>📞 شماره تماس:</p>
-    <p><strong>09154353956 - 09373129402</strong></p>
+    <p id="phone"><strong>09154353956 - 09373129402</strong></p>
+    <button class="copy-btn" onclick="copyPhone()">📋 کپی شماره</button>
+  </section>
+
+  <section class="music-player">
+    <h2>🎵 پخش آهنگ</h2>
+    <select id="trackSelect">
+      <option value="molaqat ba dozakhian.mp3">آهنگ اول - ملاقات با دوزخیان</option>
+      <option value="02.Sina Sarlak Chaharmezrab Santour Va Tombak.mp3">آهنگ دوم - چهارمضراب سنتور و تنبک</option>
+      <option value="Shahram Nazeri - Bigharar.mp3">آهنگ سوم - بی‌قرار</option>
+    </select>
+    <br>
+    <button onclick="playTrack()">▶️ پخش آهنگ</button>
+    <br><br>
+    <audio id="audioPlayer" controls style="width:90%; margin-top:10px;"></audio>
   </section>
 
   <footer>
-    طراحی شده با عشق توسط سید و Copilot 💜
+    📍 مشهد بازار حافظ غرفه ۱۶۶<br>
+    📍 مشهد انتهای توس ۳۳، کشف، شقایق ۱<br><br>
+    تهیه شده با عشق توسط سید و Copilot 💜
   </footer>
+
+  <script>
+    function copyPhone() {
+      const phoneText = document.getElementById("phone").innerText;
+      navigator.clipboard.writeText(phoneText).then(() => {
+        alert("شماره تماس کپی شد ✅");
+      });
+    }
+
+    function playTrack() {
+      const select = document.getElementById("trackSelect");
+      const audio = document.getElementById("audioPlayer");
+      audio.src = select.value;
+      audio.play();
+    }
+  </script>
 
 </body>
 </html>
