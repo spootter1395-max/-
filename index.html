@@ -4,7 +4,83 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>پخش آذرخش</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #fff;
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+    }
+    #blinking-text {
+      font-weight: bold;
+      color: #ff6600;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .slider video {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+    }
+    .product-menu {
+      padding: 20px;
+    }
+    .menu-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .menu-item {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+      width: 100px;
+    }
+    .product-section {
+      display: none;
+      padding: 20px;
+    }
+    .product-card {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    .buy-section {
+      margin-top: 10px;
+    }
+    button, select {
+      font-size: 16px;
+      margin: 5px;
+      padding: 5px;
+    }
+    #mahshin-gift-message {
+      color: green;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    footer {
+      background: #eee;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
 
@@ -16,50 +92,76 @@
   <!-- محتوای اصلی -->
   <div id="main-content" style="display: none;">
     <header>
-      <img src="copilot_image_1756450038118.jpeg" alt="لوگوی پخش آذرخش">
+      <img src="copilotimage1756450038118.jpeg" alt="لوگوی پخش آذرخش" width="100">
       <div id="blinking-text">پخش آذرخش — هر روز بهتر از دیروز ⚡</div>
     </header>
 
     <section class="slider">
-      <video src="VID_20250829_223507_792.mp4" autoplay muted loop></video>
+      <video src="VID20250829223507_792.mp4" autoplay muted loop></video>
     </section>
 
     <section class="product-menu">
       <h2>📂 دسته‌بندی محصولات</h2>
       <div class="menu-icons">
-        <div class="menu-item" onclick="toggleCategory('mahshin')">
-          <div class="icon">🍬</div>
-          <p>ماهشین</p>
-        </div>
-        <!-- دسته‌های دیگر هم همین‌طور اضافه می‌شن -->
+        <div class="menu-item" onclick="toggleCategory('mahshin')"><div class="icon">🍬</div><p>ماهشین</p></div>
+        <div class="menu-item" onclick="toggleCategory('nooshidani')"><div class="icon">🥤</div><p>نوشیدنی</p></div>
+        <div class="menu-item" onclick="toggleCategory('alonak')"><div class="icon">🛖🥜</div><p>آلونک</p></div>
+        <div class="menu-item" onclick="toggleCategory('dadinar')"><div class="icon">🍬</div><p>دادی نار</p></div>
+        <div class="menu-item" onclick="toggleCategory('aghbaba')"><div class="icon">🍿🔥</div><p>آق بابا</p></div>
+        <div class="menu-item" onclick="toggleCategory('shansi')"><div class="icon">🎁</div><p>شانسی</p></div>
+        <div class="menu-item" onclick="toggleCategory('motefareqe')"><div class="icon">🍫</div><p>متفرقه</p></div>
       </div>
 
       <!-- محصولات ماهشین -->
       <div id="mahshin" class="product-section">
         <div class="product-card">
-          <img src="IMG_۲۰۲۵۰۸۳۱_۰۱۲۷۳۹.jpg" alt="قطره طلا، آلوچه شرابی، مخلوط میوه، آلبالو گیلاس">
+          <img src="IMG۲۰۲۵۰۸۳۱۰۱۲۷۳۹.jpg" alt="قطره طلا، آلوچه شرابی، مخلوط میوه، آلبالو گیلاس" width="100%">
           <h3>قطره طلا، آلوچه شرابی، مخلوط میوه، آلبالو گیلاس</h3>
-          <p>💰 قیمت مصرف‌کننده: ۳۵,۰۰۰ تومان</p>
           <p>📦 بسته‌بندی: هر رگال ۱۰ عدد | هر کارتن ۱۲ رگال</p>
-          <p>💳 تخفیف خرید نقدی: ۳٪</p>
-          <p>📊 طرح حجمی: با خرید ۲۰ کارتن جور از تمام محصولات این دسته، شامل تخفیف <strong>۵ به ۱</strong> می‌شوید</p>
+
+          <label for="mahshin-type">نوع محصول:</label>
+          <select id="mahshin-type" onchange="updateMahshinPrice()">
+            <option value="regal">شرابی - رگال (۱۷,۳۰۰ تومان)</option>
+            <option value="carton">شرابی - کارتن (۱۹۸,۰۰۰ تومان)</option>
+            <option value="ghatre">قطره طلا (۲۴,۵۰۰ تومان)</option>
+            <option value="mokhloot">مخلوط (۲۱,۰۰۰ تومان)</option>
+            <option value="albaloo">آلبالو گیلاس (۲۲,۵۰۰ تومان)</option>
+          </select>
 
           <div class="buy-section">
             <label>تعداد:</label>
-            <button onclick="changeQty('mahshin', -1)">➖</button>
-            <span id="qty-mahshin">1</span>
-            <button onclick="changeQty('mahshin', 1)">➕</button>
-            <button onclick="addToCart('mahshin')">🛒 افزودن به سبد خرید</button>
+            <button onclick="changeMahshinQty(-1)">➖</button>
+            <span id="mahshin-qty">1</span>
+            <button onclick="changeMahshinQty(1)">➕</button>
           </div>
+
+          <p>💰 قیمت واحد: <span id="mahshin-unit-price">17300</span> تومان</p>
+          <p>🧮 جمع کل: <span id="mahshin-total-price">17300</span> تومان</p>
+          <p id="mahshin-gift-message"></p>
         </div>
       </div>
 
-      <!-- سبد خرید -->
-      <div id="cart" class="cart-box">
-        <h3>🛍️ سبد خرید شما</h3>
-        <ul id="cart-items"></ul>
-        <p id="cart-total">مجموع: ۰ تومان</p>
+      <!-- سایر دسته‌ها -->
+      <div id="nooshidani" class="product-section">
+        <div class="product-card">
+          <img src="images/drink.jpg" alt="نوشابه انرژی‌زا" width="100%">
+          <h3>نوشابه انرژی‌زا</h3>
+          <p>💰 قیمت: ۱۸,۰۰۰ تومان</p>
+          <p>🎯 تخفیف نقدی: ۸٪ | خرید عمده: ۱۲٪</p>
+        </div>
       </div>
+
+      <div id="alonak" class="product-section">
+        <div class="product-card">
+          <img src="images/nuts.jpg" alt="مغز بادام" width="100%">
+          <h3>مغز بادام شور</h3>
+          <p>💰 قیمت: ۵۵,۰۰۰ تومان</p>
+          <p>🎯 تخفیف نقدی: ۵٪ | خرید عمده: ۱۰٪</p>
+        </div>
+      </div>
+
+      <!-- دسته‌های دیگر رو هم می‌تونی همین‌طور اضافه کنی -->
+
     </section>
 
     <footer>
@@ -86,42 +188,10 @@
       });
     }
 
-    // مدیریت تعداد و سبد خرید
-    const cart = {};
+    // اسکریپت مربوط به ماهشین
+    let mahshinQty = 1;
+    let mahshinUnitPrice = 17300;
 
-    function changeQty(id, delta) {
-      const qtySpan = document.getElementById(`qty-${id}`);
-      let qty = parseInt(qtySpan.textContent);
-      qty = Math.max(1, qty + delta);
-      qtySpan.textContent = qty;
-    }
-
-    function addToCart(id) {
-      const qty = parseInt(document.getElementById(`qty-${id}`).textContent);
-      const name = document.querySelector(`#${id} h3`).textContent;
-      const priceText = document.querySelector(`#${id} p`).textContent;
-      const price = parseInt(priceText.replace(/\D/g, ''));
-
-      cart[id] = { name, qty, price };
-      updateCart();
-    }
-
-    function updateCart() {
-      const cartList = document.getElementById("cart-items");
-      const cartTotal = document.getElementById("cart-total");
-      cartList.innerHTML = "";
-      let total = 0;
-
-      for (const id in cart) {
-        const item = cart[id];
-        const itemTotal = item.qty * item.price;
-        total += itemTotal;
-        cartList.innerHTML += `<li>${item.name} × ${item.qty} = ${itemTotal.toLocaleString()} تومان</li>`;
-      }
-
-      cartTotal.textContent = `مجموع: ${total.toLocaleString()} تومان`;
-    }
-  </script>
-
-</body>
-</html>
+    const mahshinPrices = {
+      regal: 17300,
+      carton: 198000[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/Pardis-K/Doctor-Appointment/tree/5da8f6d7847dc7b98f9bbdd1ba83a09a1c39c8ef/views%2Flayout%2Fdoctor.blade.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
