@@ -17,4 +17,24 @@ function updateMahshinPrice() {
 }
 
 function changeMahshinQty(change) {
-  mahshinQty = Math.max(1, mah
+  mahshinQty = Math.max(1, mahshinQty + change);
+  document.getElementById("mahshin-qty").innerText = mahshinQty;
+  updateMahshinTotal();
+}
+
+function updateMahshinTotal() {
+  const total = mahshinQty * mahshinUnitPrice;
+  document.getElementById("mahshin-total-price").innerText = total.toLocaleString();
+
+  const type = document.getElementById("mahshin-type").value;
+  const giftMsg = document.getElementById("mahshin-gift-message");
+
+  if (type === "carton" && mahshinQty >= 5) {
+    giftMsg.innerText = "🎁 یک کارتن اشانتیون شامل شما شد!";
+  } else {
+    giftMsg.innerText = "";
+  }
+}
+
+// مقدار اولیه
+updateMahshinTotal();
