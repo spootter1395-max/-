@@ -2,134 +2,119 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>پخش آذرخش | دسته‌بندی محصولات</title>
-  <style>
-    body {
-      font-family: 'Tahoma', sans-serif;
-      background-color: #fdf6f0;
-      color: #333;
-      padding: 30px;
-    }
-    h2 {
-      text-align: center;
-      color: #b30000;
-    }
-    .menu-icons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 30px;
-    }
-    .menu-item {
-      cursor: pointer;
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      padding: 12px;
-      width: 100px;
-      text-align: center;
-      box-shadow: 0 0 8px rgba(0,0,0,0.05);
-      transition: 0.3s;
-    }
-    .menu-item:hover {
-      background-color: #ffe6e6;
-    }
-    .icon {
-      font-size: 28px;
-      margin-bottom: 6px;
-    }
-    .product-section {
-      display: none;
-      margin-top: 20px;
-      animation: fadeIn 0.5s ease;
-    }
-    .product-card {
-      background-color: #fff;
-      border: 1px solid #ccc;
-      border-radius: 12px;
-      padding: 16px;
-      margin: 10px auto;
-      max-width: 400px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      text-align: right;
-    }
-    .product-card img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 10px;
-    }
-    .product-card h3 {
-      color: #b30000;
-      margin-bottom: 8px;
-    }
-    .product-card p {
-      font-size: 14px;
-      margin: 4px 0;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>پخش آذرخش</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h2>📂 دسته‌بندی محصولات</h2>
-
-  <div class="menu-icons">
-    <div class="menu-item" onclick="showCategory('mahshin')">
-      <div class="icon">🍬</div>
-      <p>ماهشین</p>
-    </div>
-    <div class="menu-item" onclick="showCategory('nooshidani')">
-      <div class="icon">🥤</div>
-      <p>نوشیدنی</p>
-    </div>
-    <div class="menu-item" onclick="showCategory('alonak')">
-      <div class="icon">🛖🥜</div>
-      <p>آلونک</p>
-    </div>
+  <!-- صفحه خوش‌آمدگویی -->
+  <div id="welcome-screen">
+    <iframe src="welcome.html" width="100%" height="100%" frameborder="0"></iframe>
   </div>
 
-  <!-- محصولات ماهشین -->
-  <div id="mahshin" class="product-section">
-    <div class="product-card">
-      <img src="IMG۲۰۲۵۰۸۳۱۰۱۲۷۳۹.jpg" alt="آلوچه ویژه ۳۵ فروش">
-      <h3>آلوچه ویژه ۳۵ فروش</h3>
-      <p>💰 قیمت: ۳۵,۰۰۰ تومان</p>
-      <p>📍 آدرس: مشهد بازار حافظ غرفه ۱۶۶</p>
-      <p>🎯 تخفیف نقدی: ۱۰٪ | خرید عمده: ۱۵٪</p>
-    </div>
-  </div>
+  <!-- محتوای اصلی -->
+  <div id="main-content" style="display: none;">
+    <header>
+      <img src="copilot_image_1756450038118.jpeg" alt="لوگوی پخش آذرخش">
+      <div id="blinking-text">پخش آذرخش — هر روز بهتر از دیروز ⚡</div>
+    </header>
 
-  <!-- محصولات نوشیدنی -->
-  <div id="nooshidani" class="product-section">
-    <div class="product-card">
-      <img src="images/drink.jpg" alt="نوشابه انرژی‌زا">
-      <h3>نوشابه انرژی‌زا</h3>
-      <p>💰 قیمت: ۱۸,۰۰۰ تومان</p>
-      <p>🎯 تخفیف نقدی: ۸٪ | خرید عمده: ۱۲٪</p>
-    </div>
-  </div>
+    <section class="slider">
+      <video src="VID_20250829_223507_792.mp4" autoplay muted loop></video>
+    </section>
 
-  <!-- محصولات آلونک -->
-  <div id="alonak" class="product-section">
-    <div class="product-card">
-      <img src="images/nuts.jpg" alt="مغز بادام">
-      <h3>مغز بادام شور</h3>
-      <p>💰 قیمت: ۵۵,۰۰۰ تومان</p>
-      <p>🎯 تخفیف نقدی: ۵٪ | خرید عمده: ۱۰٪</p>
-    </div>
+    <section class="product-menu">
+      <h2>📂 دسته‌بندی محصولات</h2>
+      <div class="menu-icons">
+        <div class="menu-item" onclick="toggleCategory('mahshin')">
+          <div class="icon">🍬</div>
+          <p>ماهشین</p>
+        </div>
+        <div class="menu-item" onclick="toggleCategory('nooshidani')">
+          <div class="icon">🥤</div>
+          <p>نوشیدنی</p>
+        </div>
+        <div class="menu-item" onclick="toggleCategory('alonak')">
+          <div class="icon">🛖🥜</div>
+          <p>آلونک</p>
+        </div>
+        <!-- دسته‌های بیشتر -->
+        <div class="menu-item" onclick="toggleCategory('dadinar')">
+          <div class="icon">🍬</div>
+          <p>دادی نار</p>
+        </div>
+        <div class="menu-item" onclick="toggleCategory('aghbaba')">
+          <div class="icon">🍿🔥</div>
+          <p>آق بابا</p>
+        </div>
+        <div class="menu-item" onclick="toggleCategory('shansi')">
+          <div class="icon">🎁</div>
+          <p>شانسی</p>
+        </div>
+        <div class="menu-item" onclick="toggleCategory('motefareqe')">
+          <div class="icon">🍫</div>
+          <p>متفرقه</p>
+        </div>
+      </div>
+
+      <!-- محصولات ماهشین -->
+      <div id="mahshin" class="product-section">
+        <div class="product-card">
+          <img src="IMG_۲۰۲۵۰۸۳۱_۰۱۲۷۳۹.jpg" alt="آلوچه ویژه">
+          <h3>آلوچه ویژه ۳۵ فروش</h3>
+          <p>💰 قیمت: ۳۵,۰۰۰ تومان</p>
+          <p>📍 مشهد بازار حافظ غرفه ۱۶۶</p>
+          <p>🎯 تخفیف نقدی: ۱۰٪ | خرید عمده: ۱۵٪</p>
+        </div>
+      </div>
+
+      <!-- محصولات نوشیدنی -->
+      <div id="nooshidani" class="product-section">
+        <div class="product-card">
+          <img src="images/drink.jpg" alt="نوشابه انرژی‌زا">
+          <h3>نوشابه انرژی‌زا</h3>
+          <p>💰 قیمت: ۱۸,۰۰۰ تومان</p>
+          <p>🎯 تخفیف نقدی: ۸٪ | خرید عمده: ۱۲٪</p>
+        </div>
+      </div>
+
+      <!-- محصولات آلونک -->
+      <div id="alonak" class="product-section">
+        <div class="product-card">
+          <img src="images/nuts.jpg" alt="مغز بادام">
+          <h3>مغز بادام شور</h3>
+          <p>💰 قیمت: ۵۵,۰۰۰ تومان</p>
+          <p>🎯 تخفیف نقدی: ۵٪ | خرید عمده: ۱۰٪</p>
+        </div>
+      </div>
+
+      <!-- دسته‌های دیگر رو هم می‌تونی همین‌طور اضافه کنی -->
+
+    </section>
+
+    <footer>
+      📍 مشهد بازار حافظ غرفه ۱۶۶<br>
+      📍 مشهد انتهای توس ۳۳، کشف، شقایق ۱<br><br>
+      تهیه شده در گروه تحقیقات و توسعه آذرخش 💡
+    </footer>
   </div>
 
   <script>
-    function showCategory(id) {
+    // نمایش محتوای اصلی بعد از خوش‌آمدگویی
+    setTimeout(() => {
+      document.getElementById("welcome-screen").style.display = "none";
+      document.getElementById("main-content").style.display = "block";
+    }, 4000);
+
+    // نمایش دسته‌بندی انتخاب‌شده و جمع کردن بقیه
+    function toggleCategory(id) {
       const sections = document.querySelectorAll('.product-section');
       sections.forEach(section => {
-        section.style.display = 'none';
+        section.style.display = section.id === id
+          ? (section.style.display === 'block' ? 'none' : 'block')
+          : 'none';
       });
-      document.getElementById(id).style.display = 'block';
     }
   </script>
 
