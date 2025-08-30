@@ -13,7 +13,6 @@
       text-align: center;
       transition: background-color 0.5s ease, color 0.5s ease;
     }
-
     #welcome-screen {
       position: fixed;
       top: 0; left: 0;
@@ -25,50 +24,22 @@
       align-items: center;
       flex-direction: column;
     }
-
     #main-content {
       display: none;
     }
-
     header {
       background-color: #a3d5f7;
       padding: 20px;
-      position: relative;
     }
-
     header img {
       height: 80px;
     }
-
-    .slogan {
-      font-size: 2rem;
-      font-weight: bold;
-      color: #b30000;
-      margin-top: 10px;
-      animation: blink 1s infinite, effectCycle 10s infinite;
-    }
-
-    @keyframes blink {
-      0%   { opacity: 1; transform: scale(1); }
-      50%  { opacity: 0.6; transform: scale(1.1) rotate(1deg); }
-      100% { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes effectCycle {
-      0%   { text-shadow: 0 0 10px #ff0; }
-      25%  { text-shadow: 0 0 10px #0ff; }
-      50%  { text-shadow: 0 0 10px #f0f; }
-      75%  { text-shadow: 0 0 10px #0f0; }
-      100% { text-shadow: 0 0 10px #ff0; }
-    }
-
-    .slider video {
+    .slider img, .slider video {
       max-width: 90%;
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
       margin: 30px 0;
     }
-
     .contact-section, .music-section {
       background-color: #fff;
       margin: 40px auto;
@@ -77,13 +48,11 @@
       border-radius: 16px;
       box-shadow: 0 0 20px rgba(0,0,0,0.05);
     }
-
     .contact-section h2, .music-section h2 {
       font-size: 28px;
       margin-bottom: 20px;
       color: #b30000;
     }
-
     .contact-icons {
       display: flex;
       justify-content: center;
@@ -91,23 +60,19 @@
       flex-wrap: wrap;
       margin-bottom: 25px;
     }
-
     .contact-icons img {
       height: 60px;
       border-radius: 8px;
       box-shadow: 0 0 10px #ccc;
       transition: transform 0.3s ease;
     }
-
     .contact-icons img:hover {
       transform: scale(1.1);
     }
-
     .contact-section p {
       font-size: 18px;
       margin: 5px 0;
     }
-
     #musicSelector {
       padding: 10px;
       font-size: 18px;
@@ -116,7 +81,6 @@
       width: 80%;
       margin-bottom: 20px;
     }
-
     #muteBtn, #themeToggle {
       padding: 10px 20px;
       font-size: 16px;
@@ -128,11 +92,9 @@
       color: #222;
       transition: background-color 0.3s ease;
     }
-
     #muteBtn:hover, #themeToggle:hover {
       background-color: #7bbbe0;
     }
-
     footer {
       background-color: #d7c4f0;
       padding: 20px;
@@ -151,13 +113,12 @@
   <!-- محتوای اصلی سایت -->
   <div id="main-content">
     <header>
-      <img src="copilot_image_1756450038118.jpeg" alt="لوگوی پخش آذرخش">
-      <div class="slogan">پخش آذرخش — هر روز بهتر از دیروز ⚡</div>
+      <img src="copilotimage1756450038118.jpeg" alt="لوگوی پخش آذرخش">
     </header>
 
     <section class="slider">
-      <!-- تصویر آلوچه حذف شد -->
-      <video src="VID_20250829_223507_792.mp4" autoplay muted loop></video>
+      <img src="IMG20250829223657_817.jpg" alt="آلوچه ماهشین">
+      <video src="VID20250829223507_792.mp4" controls autoplay muted></video>
     </section>
 
     <section class="contact-section">
@@ -169,10 +130,10 @@
         <a href="https://t.me/09154353956" target="_blank">
           <img src="telegram-farsgraphic.png" alt="تلگرام">
         </a>
-        <a href="https://rubika.ir/pakhsh_azarakhsh" target="_blank">
+        <a href="https://rubika.ir/pakhshazarakhsh" target="blank">
           <img src="logo-Rubika-app-download-png-vector-Toranjlogo (1).png" alt="روبیکا">
         </a>
-        <a href="https://instagram.com/pakhsh_azarakhsh" target="_blank">
+        <a href="https://instagram.com/pakhshazarakhsh" target="blank">
           <img src="13.png" alt="اینستاگرام">
         </a>
       </div>
@@ -203,27 +164,38 @@
       document.getElementById("welcome-screen").style.display = "none";
       document.getElementById("main-content").style.display = "block";
 
+      // پخش خودکار آهنگ
       const player = new Audio("Shahram Nazeri - Bigharar.mp3");
       player.autoplay = true;
       player.loop = true;
       player.play();
 
+      // تغییر آهنگ
       const selector = document.getElementById("musicSelector");
       selector.addEventListener("change", function () {
         player.src = this.value;
         player.play();
       });
 
+      // دکمه بی‌صدا
       const muteBtn = document.getElementById("muteBtn");
       muteBtn.addEventListener("click", () => {
         player.muted = !player.muted;
         muteBtn.textContent = player.muted ? "🔊 باصدا" : "🔇 بی‌صدا";
       });
 
+      // دکمه شب و روز
       const themeBtn = document.getElementById("themeToggle");
       let isNight = false;
       themeBtn.addEventListener("click", () => {
         isNight = !isNight;
         document.body.style.backgroundColor = isNight ? "#1e1e1e" : "#fdf6f0";
         document.body.style.color = isNight ? "#eee" : "#444";
-        themeBtn.textContent = isNight ? "[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/Pardis-K/Doctor-Appointment/tree/5da8f6d7847dc7b98f9bbdd1ba83a09a1c39c8ef/views%2Flayout%2Fdoctor.blade.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
+        themeBtn.textContent = isNight ? "☀️ حالت روز" : "🌙 حالت شب";
+      });
+
+    }, 4000);
+  </script>
+
+</body>
+</html>
