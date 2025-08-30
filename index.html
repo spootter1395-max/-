@@ -33,13 +33,13 @@
     header img {
       height: 80px;
     }
-    .slider img, .slider video {
+    .slider img {
       max-width: 90%;
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
       margin: 30px 0;
     }
-    .contact-section, .music-section {
+    .contact-section {
       background-color: #fff;
       margin: 40px auto;
       padding: 30px;
@@ -47,7 +47,7 @@
       border-radius: 16px;
       box-shadow: 0 0 20px rgba(0,0,0,0.05);
     }
-    .contact-section h2, .music-section h2 {
+    .contact-section h2 {
       font-size: 28px;
       margin-bottom: 20px;
       color: #b30000;
@@ -71,18 +71,6 @@
     .contact-section p {
       font-size: 18px;
       margin: 5px 0;
-    }
-    #musicSelector {
-      padding: 10px;
-      font-size: 18px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      width: 80%;
-      margin-bottom: 20px;
-    }
-    #audioPlayer {
-      width: 80%;
-      border-radius: 8px;
     }
     footer {
       background-color: #d7c4f0;
@@ -130,18 +118,6 @@
       <p><strong>09154353956 - 09373129402</strong></p>
     </section>
 
-    <section class="music-section">
-      <h2>🎶 انتخاب و پخش آهنگ</h2>
-      <select id="musicSelector">
-        <option value="">-- لطفاً یک آهنگ انتخاب کنید --</option>
-        <option value="Shahram Nazeri - Bigharar.mp3">Shahram Nazeri - بی‌قرار</option>
-        <option value="bikalam-ghamgin-list1-part11 (1).mp3">بی‌کلام غمگین - بخش ۱۱</option>
-      </select>
-      <audio id="audioPlayer" controls>
-        مرورگر شما از پخش صوتی پشتیبانی نمی‌کند.
-      </audio>
-    </section>
-
     <footer>
       📍 مشهد بازار حافظ غرفه ۱۶۶<br>
       📍 مشهد انتهای توس ۳۳، کشف، شقایق ۱<br><br>
@@ -154,22 +130,7 @@
     setTimeout(() => {
       document.getElementById("welcome-screen").style.display = "none";
       document.getElementById("main-content").style.display = "block";
-    }, 4000);
-
-    // پخش آهنگ انتخاب‌شده
-    const selector = document.getElementById("musicSelector");
-    const player = document.getElementById("audioPlayer");
-
-    selector.addEventListener("change", function () {
-      const selectedFile = this.value;
-      if (selectedFile) {
-        player.src = selectedFile;
-        player.play();
-      } else {
-        player.pause();
-        player.src = "";
-      }
-    });
+    }, 4000); // زمان نمایش خوش‌آمدگویی (۴ ثانیه)
   </script>
 
 </body>
