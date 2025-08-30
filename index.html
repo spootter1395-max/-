@@ -17,9 +17,7 @@
       border-bottom: 1px solid #ccc;
     }
     .logo {
-      font-size: 32px;
-      color: #d60000;
-      font-weight: bold;
+      height: 80px;
     }
     .contact {
       margin-top: 10px;
@@ -36,25 +34,13 @@
     }
     .slider {
       margin-top: 20px;
-      overflow: hidden;
-      height: 200px;
-      position: relative;
     }
-    .slides {
-      display: flex;
-      width: 300%;
-      animation: slide 9s infinite;
-    }
-    .slides img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-    @keyframes slide {
-      0% {margin-left: 0;}
-      33% {margin-left: -100%;}
-      66% {margin-left: -200%;}
-      100% {margin-left: 0;}
+    .slider img, .slider video {
+      width: 90%;
+      max-width: 600px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
     }
     .categories {
       margin: 30px 0;
@@ -96,22 +82,19 @@
 <body>
 
 <header>
-  <div class="logo">پخش آذرخش ⚡</div>
-  <div class="contact">📞 09373129402</div>
+  <img src="copilotimage1756450038118.jpeg" alt="لوگو پخش آذرخش" class="logo">
+  <div class="contact">📞 09154353956 | 📞 09373129402</div>
   <div class="social">
-    <img src="instagram.png" alt="Instagram">
-    <img src="rubika.png" alt="Rubika">
-    <img src="telegram.png" alt="Telegram">
-    <img src="whatsapp.png" alt="WhatsApp">
+    <img src="whatsapp.png" alt="واتساپ">
+    <img src="telegram-farsgraphic.png" alt="تلگرام">
+    <img src="instagram.png" alt="اینستاگرام">
+    <img src="logo-Rubika-app-download-png-vector-Toranjlogo (1).png" alt="روبیکا">
   </div>
 </header>
 
 <div class="slider">
-  <div class="slides">
-    <img src="slider1.jpg" alt="محصول 1">
-    <img src="slider2.jpg" alt="محصول 2">
-    <img src="slider3.jpg" alt="محصول 3">
-  </div>
+  <img src="IMG20250829223657_817.jpg" alt="تصویر اسلایدر">
+  <video src="VID20250829223507_792.mp4" controls autoplay muted></video>
 </div>
 
 <div class="categories">
