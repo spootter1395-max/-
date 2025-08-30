@@ -2,73 +2,120 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>پخش آذرخش</title>
-  <link rel="stylesheet" href="style.css">
+  <title>فروشگاه محصولات ترش | ماهشین</title>
+  <style>
+    body {
+      font-family: 'Tahoma', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background-color: #b30000;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #eee;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #b30000;
+      font-weight: bold;
+    }
+    h2 {
+      text-align: center;
+      margin-top: 30px;
+      color: #444;
+    }
+    .product-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 20px;
+    }
+    .product-card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      width: 300px;
+      margin: 15px;
+      padding: 16px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      text-align: right;
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+    .product-card h3 {
+      margin-bottom: 10px;
+      color: #b30000;
+    }
+    .product-card p {
+      margin: 6px 0;
+      font-size: 15px;
+    }
+    footer {
+      background-color: #eee;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
 </head>
 <body>
 
-  <div id="welcome-screen">
-    <iframe src="welcome.html" width="100%" height="100%" frameborder="0"></iframe>
-  </div>
+  <header>
+    <h1>🛍️ فروشگاه محصولات ترش</h1>
+  </header>
 
-  <div id="main-content">
-    <header>
-      <img src="copilot_image_1756450038118.jpeg" alt="لوگوی پخش آذرخش">
-      <div id="blinking-text">پخش آذرخش — هر روز بهتر از دیروز ⚡</div>
-    </header>
+  <nav>
+    <a href="#mahshin">ماهشین</a>
+    <a href="#lavashak">لواشک</a>
+    <a href="#contact">تماس با ما</a>
+  </nav>
 
-    <section class="slider">
-      <video src="VID_20250829_223507_792.mp4" autoplay muted loop></video>
-    </section>
+  <section id="mahshin">
+    <h2>🍑 دسته‌بندی ماهشین</h2>
+    <div class="product-list">
 
-    <section class="product-menu">
-      <h2>📂 دسته‌بندی محصولات</h2>
-      <div class="menu-icons">
-        <div class="menu-item">
-          <div class="icon">🍬</div>
-          <p>ماهشین</p>
-        </div>
-        <div class="menu-item">
-          <div class="icon">🥤</div>
-          <p>نوشیدنی</p>
-        </div>
-        <div class="menu-item">
-          <div class="icon">🛖🥜</div>
-          <p>آلونک</p>
-        </div>
-        <div class="menu-item">
-          <div class="icon">🍬</div>
-          <p>دادی نار</p>
-        </div>
-        <div class="menu-item">
-          <div class="icon">🍿🔥</div>
-          <p>آق بابا</p>
-        </div>
-        <div class="menu-item">
-          <div class="icon">🎁</div>
-          <p>شانسی</p>
-        </div>
-        <div class="menu-item">
-          <div class="icon">🍫</div>
-          <p>متفرقه</p>
-        </div>
+      <div class="product-card">
+        <img src="IMG_۲۰۲۵۰۸۳۱_۰۱۲۷۳۹.jpg" alt="آلوچه ویژه ۳۵ فروش">
+        <h3>آلوچه ویژه ۳۵ فروش</h3>
+        <p>💰 قیمت: ۳۵,۰۰۰ تومان</p>
+        <p>📍 آدرس: مشهد، بازار حافظ، غرفه ۱۶۶</p>
+        <p>🎯 تخفیف نقدی: ۱۰٪ | خرید عمده: ۱۵٪</p>
       </div>
-    </section>
 
-    <footer>
-      📍 مشهد بازار حافظ غرفه ۱۶۶<br>
-      📍 مشهد انتهای توس ۳۳، کشف، شقایق ۱<br><br>
-      تهیه شده در گروه تحقیقات و توسعه آذرخش 💡
-    </footer>
-  </div>
+      <!-- می‌تونی محصولات بیشتری اینجا اضافه کنی -->
 
-  <script>
-    setTimeout(() => {
-      document.getElementById("welcome-screen").style.display = "none";
-      document.getElementById("main-content").style.display = "block";
-    }, 4000);
-  </script>
+    </div>
+  </section>
+
+  <section id="lavashak">
+    <h2>🍬 دسته‌بندی لواشک</h2>
+    <div class="product-list">
+      <!-- محصولات لواشک اینجا قرار می‌گیرند -->
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>📞 تماس با ما</h2>
+    <p style="text-align:center;">برای سفارش یا اطلاعات بیشتر با شماره ۰۹۱۲xxxxxxx تماس بگیرید.</p>
+  </section>
+
+  <footer>
+    © ۲۰۲۵ فروشگاه محصولات ترش | طراحی توسط سید
+  </footer>
 
 </body>
 </html>
