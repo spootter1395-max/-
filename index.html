@@ -55,60 +55,45 @@
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
       margin: 30px 0;
     }
-    .contact-section, .music-section {
+    .product-menu {
       background-color: #fff;
-      margin: 40px auto;
-      padding: 30px;
+      margin: 30px auto;
+      padding: 20px;
       max-width: 700px;
       border-radius: 16px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
     }
-    .contact-section h2, .music-section h2 {
-      font-size: 28px;
-      margin-bottom: 20px;
+    .product-menu h2 {
+      font-size: 24px;
       color: #b30000;
+      margin-bottom: 20px;
     }
-    .contact-icons {
+    .menu-icons {
       display: flex;
-      justify-content: center;
-      gap: 30px;
       flex-wrap: wrap;
-      margin-bottom: 25px;
+      justify-content: center;
+      gap: 25px;
     }
-    .contact-icons img {
+    .menu-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 90px;
+    }
+    .menu-item img {
+      width: 60px;
       height: 60px;
-      border-radius: 8px;
+      border-radius: 50%;
       box-shadow: 0 0 10px #ccc;
       transition: transform 0.3s ease;
     }
-    .contact-icons img:hover {
+    .menu-item img:hover {
       transform: scale(1.1);
     }
-    .contact-section p {
-      font-size: 18px;
-      margin: 5px 0;
-    }
-    #musicSelector {
-      padding: 10px;
-      font-size: 18px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      width: 80%;
-      margin-bottom: 20px;
-    }
-    #muteBtn, #themeToggle {
-      padding: 10px 20px;
-      font-size: 16px;
-      margin: 10px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      background-color: #a3d5f7;
-      color: #222;
-      transition: background-color 0.3s ease;
-    }
-    #muteBtn:hover, #themeToggle:hover {
-      background-color: #7bbbe0;
+    .menu-item p {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #444;
     }
     footer {
       background-color: #d7c4f0;
@@ -120,12 +105,10 @@
 </head>
 <body>
 
-  <!-- صفحه خوش‌آمدگویی -->
   <div id="welcome-screen">
     <iframe src="welcome.html" width="100%" height="100%" frameborder="0"></iframe>
   </div>
 
-  <!-- محتوای اصلی سایت -->
   <div id="main-content">
     <header>
       <img src="copilot_image_1756450038118.jpeg" alt="لوگوی پخش آذرخش">
@@ -136,35 +119,17 @@
       <video src="VID_20250829_223507_792.mp4" autoplay muted loop></video>
     </section>
 
-    <section class="contact-section">
-      <h2>ارتباط با پخش آذرخش</h2>
-      <div class="contact-icons">
-        <a href="https://wa.me/989154353956" target="_blank">
-          <img src="whatsapp.png" alt="واتساپ">
-        </a>
-        <a href="https://t.me/09154353956" target="_blank">
-          <img src="telegram-farsgraphic.png" alt="تلگرام">
-        </a>
-        <a href="https://rubika.ir/pakhsh_azarakhsh" target="_blank">
-          <img src="logo-Rubika-app-download-png-vector-Toranjlogo (1).png" alt="روبیکا">
-        </a>
-        <a href="https://instagram.com/pakhsh_azarakhsh" target="_blank">
-          <img src="13.png" alt="اینستاگرام">
-        </a>
+    <section class="product-menu">
+      <h2>📂 دسته‌بندی محصولات</h2>
+      <div class="menu-icons">
+        <div class="menu-item"><img src="alooche.png" alt="ماهشین"><p>ماهشین</p></div>
+        <div class="menu-item"><img src="icepack.png" alt="نوشیدنی"><p>نوشیدنی</p></div>
+        <div class="menu-item"><img src="shirini.png" alt="آلونک"><p>آلونک</p></div>
+        <div class="menu-item"><img src="lavashak.png" alt="دادی نار"><p>دادی نار</p></div>
+        <div class="menu-item"><img src="tanagholat.png" alt="آق بابا"><p>آق بابا</p></div>
+        <div class="menu-item"><img src="chips.png" alt="شانسی"><p>شانسی</p></div>
+        <div class="menu-item"><img src="basket.png" alt="متفرقه"><p>متفرقه</p></div>
       </div>
-      <p>📞 شماره تماس:</p>
-      <p><strong>09154353956 - 09373129402</strong></p>
-    </section>
-
-    <section class="music-section">
-      <h2>🎶 انتخاب آهنگ</h2>
-      <select id="musicSelector">
-        <option value="Shahram Nazeri - Bigharar.mp3">Shahram Nazeri - بی‌قرار</option>
-        <option value="bikalam-ghamgin-list1-part11 (1).mp3">بی‌کلام غمگین - بخش ۱۱</option>
-      </select>
-      <br>
-      <button id="muteBtn">🔇 بی‌صدا</button>
-      <button id="themeToggle">🌙 حالت شب</button>
     </section>
 
     <footer>
@@ -178,33 +143,6 @@
     setTimeout(() => {
       document.getElementById("welcome-screen").style.display = "none";
       document.getElementById("main-content").style.display = "block";
-
-      const player = new Audio("Shahram Nazeri - Bigharar.mp3");
-      player.autoplay = true;
-      player.loop = true;
-      player.play();
-
-      const selector = document.getElementById("musicSelector");
-      selector.addEventListener("change", function () {
-        player.src = this.value;
-        player.play();
-      });
-
-      const muteBtn = document.getElementById("muteBtn");
-      muteBtn.addEventListener("click", () => {
-        player.muted = !player.muted;
-        muteBtn.textContent = player.muted ? "🔊 باصدا" : "🔇 بی‌صدا";
-      });
-
-      const themeBtn = document.getElementById("themeToggle");
-      let isNight = false;
-      themeBtn.addEventListener("click", () => {
-        isNight = !isNight;
-        document.body.style.backgroundColor = isNight ? "#1e1e1e" : "#fdf6f0";
-        document.body.style.color = isNight ? "#eee" : "#444";
-        themeBtn.textContent = isNight ? "☀️ حالت روز" : "🌙 حالت شب";
-      });
-
     }, 4000);
   </script>
 
