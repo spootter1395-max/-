@@ -1,6 +1,6 @@
 body {
   font-family: 'Vazir', sans-serif;
-  background-color: #f0f0f0;
+  background-color: #f9f9f9;
   margin: 0;
   padding: 0;
   direction: rtl;
@@ -8,57 +8,32 @@ body {
 
 .container {
   max-width: 600px;
-  margin: 50px auto;
+  margin: 80px auto;
   background-color: #fff;
   padding: 30px;
   border-radius: 16px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  box-shadow: 0 0 20px rgba(0,0,0,0.05);
   text-align: center;
 }
 
-header h1 {
+h1 {
   font-size: 26px;
   color: #b30000;
-  margin-top: 20px;
-}
-
-header p {
-  font-size: 16px;
-  color: #555;
-  margin-bottom: 30px;
-}
-
-.welcome-img {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-}
-
-.music-list h2 {
-  font-size: 20px;
-  color: #333;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 select {
   width: 80%;
-  padding: 10px;
+  padding: 10px 14px;
   font-size: 16px;
   border-radius: 8px;
   border: 1px solid #ccc;
   background-color: #fff;
   color: #333;
   outline: none;
+  transition: border-color 0.3s ease;
 }
 
-footer {
-  margin-top: 40px;
-  font-size: 14px;
-  color: #777;
-}
-
-.icons img {
-  width: 32px;
-  margin: 0 8px;
-  vertical-align: middle;
+select:focus {
+  border-color: #b30000;
 }
