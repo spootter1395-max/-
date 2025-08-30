@@ -1,70 +1,109 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>صفحه فرود آذرخش</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>پخش آذرخش</title>
   <style>
     body {
-      font-family: sans-serif;
-      background: #f0f0f0;
       margin: 0;
-      padding: 0;
-      text-align: center;
+      font-family: 'Vazirmatn', sans-serif;
+      background-color: #fdf6f0;
+      color: #444;
     }
     header {
-      background-color: #222;
+      background-color: #a3d5f7;
       padding: 20px;
+      text-align: center;
     }
     header img {
-      height: 60px;
+      height: 80px;
     }
     .slider {
-      margin: 30px auto;
-      max-width: 600px;
-    }
-    .slider img, .slider video {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-    .social-icons {
       display: flex;
-      justify-content: center;
-      gap: 20px;
+      flex-direction: column;
+      align-items: center;
       margin: 30px 0;
     }
-    .social-icons img {
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      transition: transform 0.2s ease;
+    .slider img, .slider video {
+      max-width: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
     }
-    .social-icons img:hover {
+    .contact-section {
+      background-color: #fff;
+      margin: 40px auto;
+      padding: 30px;
+      max-width: 700px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+    .contact-section h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+    }
+    .contact-icons img {
+      height: 60px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #ccc;
+      transition: transform 0.3s ease;
+    }
+    .contact-icons img:hover {
       transform: scale(1.1);
+    }
+    .contact-section p {
+      font-size: 20px;
+      margin: 5px 0;
+    }
+    footer {
+      background-color: #d7c4f0;
+      text-align: center;
+      padding: 15px;
+      font-size: 16px;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="logo.png" alt="لوگوی آذرخش">
+    <img src="copilot_image_1756450038118.jpeg" alt="لوگوی آذرخش">
   </header>
 
   <section class="slider">
-    <img src="IMG_20250829_223657_817.jpg" alt="تصویر اسلایدی اول">
-    <img src="Screenshot_۲۰۲۵-۰۸-۲۹-۲۲-۳۲-۳۳-۶۹۲_com.instagram.android.jpg" alt="تصویر اسلایدی دوم">
-    <video controls>
-      <source src="VID_20250829_223507_792.mp4" type="video/mp4">
-      مرورگر شما از پخش ویدئو پشتیبانی نمی‌کند.
-    </video>
+    <img src="IMG_20250829_223657_817.jpg" alt="تصویر اسلایدر">
+    <video src="VID_20250829_223507_792.mp4" controls autoplay muted></video>
   </section>
 
-  <section class="social-icons">
-    <a href="https://instagram.com"><img src="13.png" alt="آیکون اینستاگرام"></a>
-    <a href="https://wa.me/"><img src="whatsapp.png" alt="آیکون واتساپ"></a>
-    <a href="https://t.me/"><img src="telegram-farsgraphic.png" alt="آیکون تلگرام"></a>
+  <section class="contact-section">
+    <h2>ارتباط با پخش آذرخش</h2>
+    <div class="contact-icons">
+      <a href="https://wa.me/989154353956" target="_blank">
+        <img src="whatsapp.png" alt="واتساپ">
+      </a>
+      <a href="https://t.me/09154353956" target="_blank">
+        <img src="telegram-farsgraphic.png" alt="تلگرام">
+      </a>
+      <a href="https://rubika.ir/pakhsh_azarakhsh" target="_blank">
+        <img src="instagram.png" alt="روبیکا">
+      </a>
+    </div>
+    <p>📞 شماره تماس:</p>
+    <p><strong>09154353956 - 09373129402</strong></p>
   </section>
+
+  <footer>
+    طراحی شده با عشق توسط سید و Copilot 💜
+  </footer>
 
 </body>
 </html>
