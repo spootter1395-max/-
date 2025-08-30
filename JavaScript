@@ -1,0 +1,20 @@
+let mahshinQty = 1;
+let mahshinUnitPrice = 17300;
+
+const mahshinPrices = {
+  regal: 17300,
+  carton: 198000,
+  ghatre: 24500,
+  mokhloot: 21000,
+  albaloo: 22500
+};
+
+function updateMahshinPrice() {
+  const type = document.getElementById("mahshin-type").value;
+  mahshinUnitPrice = mahshinPrices[type];
+  document.getElementById("mahshin-unit-price").innerText = mahshinUnitPrice.toLocaleString();
+  updateMahshinTotal();
+}
+
+function changeMahshinQty(change) {
+  mahshinQty = Math.max(1, mah
