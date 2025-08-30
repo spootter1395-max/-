@@ -1,236 +1,198 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>پخش آذرخش</title>
+  <title>صفحه آذرخش</title>
   <style>
-    body {
+    body, html {
       margin: 0;
-      font-family: 'Vazirmatn', sans-serif;
-      background-color: #fdf6f0;
-      color: #444;
-      text-align: center;
-      transition: background-color 0.5s ease, color 0.5s ease;
+      padding: 0;
+      font-family: 'Tahoma', sans-serif;
+      overflow: hidden;
+      transition: background 0.5s, color 0.5s;
     }
 
-    #welcome-screen {
+    /* ویدئوی پس‌زمینه */
+    #bg-video {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: #fff;
-      z-index: 9999;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+    }
+
+    /* صفحه خوش‌آمدگویی */
+    #welcome {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      color: #fff;
       display: flex;
-      justify-content: center;
       align-items: center;
-      flex-direction: column;
+      justify-content: center;
+      font-size: 32px;
+      z-index: 100;
+      animation: fadeOut 1s ease-in-out 4s forwards;
     }
 
-    #main-content {
-      display: none;
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
     }
 
-    header {
-      background-color: #a3d5f7;
-      padding: 20px;
-      position: relative;
-    }
-
-    header img {
-      height: 80px;
-    }
-
-    .slogan {
-      font-size: 2rem;
-      font-weight: bold;
-      color: #b30000;
-      margin-top: 10px;
-      animation: blink 1s infinite, effectCycle 10s infinite;
+    /* شعار چشمک‌زن */
+    #blinking-text {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 24px;
+      color: #fff;
+      animation: blink 1s infinite;
+      white-space: nowrap;
+      z-index: 10;
     }
 
     @keyframes blink {
-      0%   { opacity: 1; transform: scale(1); }
-      50%  { opacity: 0.6; transform: scale(1.1) rotate(1deg); }
-      100% { opacity: 1; transform: scale(1); }
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
 
-    @keyframes effectCycle {
-      0%   { text-shadow: 0 0 10px #ff0; }
-      25%  { text-shadow: 0 0 10px #0ff; }
-      50%  { text-shadow: 0 0 10px #f0f; }
-      75%  { text-shadow: 0 0 10px #0f0; }
-      100% { text-shadow: 0 0 10px #ff0; }
+    /* لوگو و اطلاعات تماس */
+    #header {
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: #fff;
     }
 
-    .slider video {
-      max-width: 90%;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      margin: 30px 0;
+    #logo {
+      width: 100px;
+      height: auto;
     }
 
-    .contact-section, .music-section {
-      background-color: #fff;
-      margin: 40px auto;
-      padding: 30px;
-      max-width: 700px;
-      border-radius: 16px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    /* منوی آهنگ و دکمه‌ها */
+    #controls {
+      position: absolute;
+      top: 200px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: #fff;
     }
 
-    .contact-section h2, .music-section h2 {
-      font-size: 28px;
-      margin-bottom: 20px;
-      color: #b30000;
-    }
-
-    .contact-icons {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-      margin-bottom: 25px;
-    }
-
-    .contact-icons img {
-      height: 60px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px #ccc;
-      transition: transform 0.3s ease;
-    }
-
-    .contact-icons img:hover {
-      transform: scale(1.1);
-    }
-
-    .contact-section p {
-      font-size: 18px;
-      margin: 5px 0;
-    }
-
-    #musicSelector {
-      padding: 10px;
-      font-size: 18px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      width: 80%;
-      margin-bottom: 20px;
-    }
-
-    #muteBtn, #themeToggle {
-      padding: 10px 20px;
+    select, button {
+      margin: 5px;
+      padding: 8px;
       font-size: 16px;
-      margin: 10px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      background-color: #a3d5f7;
-      color: #222;
-      transition: background-color 0.3s ease;
     }
 
-    #muteBtn:hover, #themeToggle:hover {
-      background-color: #7bbbe0;
+    /* اسلایدر */
+    #slider {
+      position: absolute;
+      top: 300px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300px;
+      height: 200px;
+      overflow: hidden;
+      border: 2px solid #fff;
     }
 
+    #slider img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: slide 12s infinite;
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      33% { transform: translateX(-100%); }
+      66% { transform: translateX(-200%); }
+      100% { transform: translateX(0); }
+    }
+
+    /* حالت شب */
+    .dark-mode {
+      background: #111;
+      color: #eee;
+    }
+
+    /* فوتر */
     footer {
-      background-color: #d7c4f0;
-      padding: 20px;
-      font-size: 16px;
-      line-height: 1.8;
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
 
-  <!-- صفحه خوش‌آمدگویی -->
-  <div id="welcome-screen">
-    <iframe src="welcome.html" width="100%" height="100%" frameborder="0"></iframe>
+  <!-- ویدئوی پس‌زمینه -->
+  <video autoplay muted loop id="bg-video">
+    <source src="assets/bg.mp4" type="video/mp4">
+  </video>
+
+  <!-- خوش‌آمدگویی -->
+  <div id="welcome">به صفحه آذرخش خوش آمدید</div>
+
+  <!-- شعار چشمک‌زن -->
+  <div id="blinking-text">با آذرخش بدرخش</div>
+
+  <!-- لوگو و اطلاعات تماس -->
+  <div id="header">
+    <img id="logo" src="assets/logo.png" alt="لوگو">
+    <p>تماس: 0912-XXXXXXX</p>
   </div>
 
-  <!-- محتوای اصلی سایت -->
-  <div id="main-content">
-    <header>
-      <img src="copilot_image_1756450038118.jpeg" alt="لوگوی پخش آذرخش">
-      <div class="slogan">پخش آذرخش — هر روز بهتر از دیروز ⚡</div>
-    </header>
-
-    <section class="slider">
-      <!-- تصویر آلوچه حذف شد -->
-      <video src="VID_20250829_223507_792.mp4" autoplay muted loop></video>
-    </section>
-
-    <section class="contact-section">
-      <h2>ارتباط با پخش آذرخش</h2>
-      <div class="contact-icons">
-        <a href="https://wa.me/989154353956" target="_blank">
-          <img src="whatsapp.png" alt="واتساپ">
-        </a>
-        <a href="https://t.me/09154353956" target="_blank">
-          <img src="telegram-farsgraphic.png" alt="تلگرام">
-        </a>
-        <a href="https://rubika.ir/pakhsh_azarakhsh" target="_blank">
-          <img src="logo-Rubika-app-download-png-vector-Toranjlogo (1).png" alt="روبیکا">
-        </a>
-        <a href="https://instagram.com/pakhsh_azarakhsh" target="_blank">
-          <img src="13.png" alt="اینستاگرام">
-        </a>
-      </div>
-      <p>📞 شماره تماس:</p>
-      <p><strong>09154353956 - 09373129402</strong></p>
-    </section>
-
-    <section class="music-section">
-      <h2>🎶 انتخاب آهنگ</h2>
-      <select id="musicSelector">
-        <option value="Shahram Nazeri - Bigharar.mp3">Shahram Nazeri - بی‌قرار</option>
-        <option value="bikalam-ghamgin-list1-part11 (1).mp3">بی‌کلام غمگین - بخش ۱۱</option>
-      </select>
-      <br>
-      <button id="muteBtn">🔇 بی‌صدا</button>
-      <button id="themeToggle">🌙 حالت شب</button>
-    </section>
-
-    <footer>
-      📍 مشهد بازار حافظ غرفه ۱۶۶<br>
-      📍 مشهد انتهای توس ۳۳، کشف، شقایق ۱<br><br>
-      تهیه شده در گروه تحقیقات و توسعه آذرخش 💡
-    </footer>
+  <!-- منوی آهنگ و دکمه‌ها -->
+  <div id="controls">
+    <select id="music-select">
+      <option value="assets/song1.mp3">آهنگ ۱</option>
+      <option value="assets/song2.mp3">آهنگ ۲</option>
+    </select>
+    <button onclick="playMusic()">پخش</button>
+    <button onclick="toggleMute()">بی‌صدا</button>
+    <button onclick="toggleDark()">شب/روز</button>
+    <audio id="audio-player" loop></audio>
   </div>
 
+  <!-- اسلایدر تصاویر -->
+  <div id="slider">
+    <img src="assets/img1.jpg" alt="تصویر ۱">
+    <img src="assets/img2.jpg" alt="تصویر ۲">
+    <img src="assets/img3.jpg" alt="تصویر ۳">
+  </div>
+
+  <!-- فوتر -->
+  <footer>تهیه شده در گروه تحقیقات و توسعه آذرخش</footer>
+
+  <!-- اسکریپت -->
   <script>
-    setTimeout(() => {
-      document.getElementById("welcome-screen").style.display = "none";
-      document.getElementById("main-content").style.display = "block";
+    function playMusic() {
+      const audio = document.getElementById('audio-player');
+      const select = document.getElementById('music-select');
+      audio.src = select.value;
+      audio.play();
+    }
 
-      const player = new Audio("Shahram Nazeri - Bigharar.mp3");
-      player.autoplay = true;
-      player.loop = true;
-      player.play();
+    function toggleMute() {
+      const audio = document.getElementById('audio-player');
+      audio.muted = !audio.muted;
+    }
 
-      const selector = document.getElementById("musicSelector");
-      selector.addEventListener("change", function () {
-        player.src = this.value;
-        player.play();
-      });
-
-      const muteBtn = document.getElementById("muteBtn");
-      muteBtn.addEventListener("click", () => {
-        player.muted = !player.muted;
-        muteBtn.textContent = player.muted ? "🔊 باصدا" : "🔇 بی‌صدا";
-      });
-
-      const themeBtn = document.getElementById("themeToggle");
-      let isNight = false;
-      themeBtn.addEventListener("click", () => {
-        isNight = !isNight;
-        document.body.style.backgroundColor = isNight ? "#1e1e1e" : "#fdf6f0";
-        document.body.style.color = isNight ? "#eee" : "#444";
-        themeBtn.textContent = isNight ? "☀️ حالت روز" : "🌙 حالت شب";
-      });
-
-    }, 4000);
+    function toggleDark() {
+      document.body.classList.toggle('dark-mode');
+    }
   </script>
-
 </body>
 </html>
