@@ -11,6 +11,7 @@
       background-color: #fdf6f0;
       color: #444;
       text-align: center;
+      transition: background-color 0.5s ease, color 0.5s ease;
     }
     #welcome-screen {
       position: fixed;
@@ -33,13 +34,13 @@
     header img {
       height: 80px;
     }
-    .slider img {
+    .slider img, .slider video {
       max-width: 90%;
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
       margin: 30px 0;
     }
-    .contact-section {
+    .contact-section, .music-section {
       background-color: #fff;
       margin: 40px auto;
       padding: 30px;
@@ -47,7 +48,7 @@
       border-radius: 16px;
       box-shadow: 0 0 20px rgba(0,0,0,0.05);
     }
-    .contact-section h2 {
+    .contact-section h2, .music-section h2 {
       font-size: 28px;
       margin-bottom: 20px;
       color: #b30000;
@@ -71,6 +72,28 @@
     .contact-section p {
       font-size: 18px;
       margin: 5px 0;
+    }
+    #musicSelector {
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 80%;
+      margin-bottom: 20px;
+    }
+    #muteBtn, #themeToggle {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #a3d5f7;
+      color: #222;
+      transition: background-color 0.3s ease;
+    }
+    #muteBtn:hover, #themeToggle:hover {
+      background-color: #7bbbe0;
     }
     footer {
       background-color: #d7c4f0;
@@ -118,19 +141,60 @@
       <p><strong>09154353956 - 09373129402</strong></p>
     </section>
 
+    <section class="music-section">
+      <h2>🎶 انتخاب آهنگ</h2>
+      <select id="musicSelector">
+        <option value="Shahram Nazeri - Bigharar.mp3">Shahram Nazeri - بی‌قرار</option>
+        <option value="bikalam-ghamgin-list1-part11 (1).mp3">بی‌کلام غمگین - بخش ۱۱</option>
+      </select>
+      <br>
+      <button id="muteBtn">🔇 بی‌صدا</button>
+      <button id="themeToggle">🌙 حالت شب</button>
+    </section>
+
     <footer>
       📍 مشهد بازار حافظ غرفه ۱۶۶<br>
       📍 مشهد انتهای توس ۳۳، کشف، شقایق ۱<br><br>
-      تهیه شده با عشق توسط سید و Copilot 💜
+      تهیه شده در گروه تحقیقات و توسعه آذرخش 💡
     </footer>
   </div>
 
   <script>
-    // نمایش خوش‌آمدگویی و سپس محتوای اصلی
     setTimeout(() => {
       document.getElementById("welcome-screen").style.display = "none";
       document.getElementById("main-content").style.display = "block";
-    }, 4000); // زمان نمایش خوش‌آمدگویی (۴ ثانیه)
+
+      // پخش خودکار آهنگ
+      const player = new Audio("Shahram Nazeri - Bigharar.mp3");
+      player.autoplay = true;
+      player.loop = true;
+      player.play();
+
+      // تغییر آهنگ
+      const selector = document.getElementById("musicSelector");
+      selector.addEventListener("change", function () {
+        player.src = this.value;
+        player.play();
+      });
+
+      // دکمه بی‌صدا
+      const muteBtn = document.getElementById("muteBtn");
+      muteBtn.addEventListener("click", () => {
+        player.muted = !player.muted;
+        muteBtn.textContent = player.muted ? "🔊 باصدا" : "🔇 بی‌صدا";
+      });
+
+      // دکمه شب و روز
+      const themeBtn = document.getElementById("themeToggle");
+      let isNight = false;
+      themeBtn.addEventListener("click", () => {
+        isNight = !isNight;
+        document.body.style.backgroundColor = isNight ? "#1e1e1e" : "#fdf6f0";
+        document.body.style.color = isNight ? "#eee" : "#444";
+        themeBtn.textContent = isNight ? "☀️ حالت روز" : "🌙 حالت شب";
+      });
+
+    }, 4000);
   </script>
 
 </body>
