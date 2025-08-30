@@ -107,9 +107,32 @@ header img {
   font-weight: bold;
 }
 
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #f8f8f8;
+.buy-section {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.buy-section button {
+  padding: 6px 12px;
+  border: none;
+  background-color: #b30000;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
   font-size: 14px;
-  line-height[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/Pardis-K/Doctor-Appointment/tree/5da8f6d7847dc7b98f9bbdd1ba83a09a1c39c8ef/views%2Flayout%2Fdoctor.blade.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
+}
+
+.buy-section button:hover {
+  background-color: #990000;
+}
+
+.cart-box {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 30px;
+  max[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/Pardis-K/Doctor-Appointment/tree/5da8f6d7847dc7b98f9bbdd1ba83a09a1c39c8ef/views%2Flayout%2Fdoctor.blade.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
