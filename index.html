@@ -2,132 +2,108 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>پخش آذرخش</title>
   <style>
     body {
-      font-family: sans-serif;
-      background: #fff;
       margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    header {
-      background: #f8f8f8;
-      padding: 15px;
-      border-bottom: 1px solid #ccc;
-    }
-    .logo {
-      height: 80px;
-    }
-    .contact {
-      margin-top: 10px;
-      font-size: 14px;
-      color: #333;
-    }
-    .social {
-      margin-top: 10px;
-    }
-    .social img {
-      width: 30px;
-      margin: 0 5px;
-      vertical-align: middle;
-    }
-    .slider {
-      margin-top: 20px;
-    }
-    .slider img, .slider video {
-      width: 90%;
-      max-width: 600px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
-    }
-    .categories {
-      margin: 30px 0;
-    }
-    .categories h2 {
-      font-size: 22px;
-      color: #b30000;
-      margin-bottom: 20px;
-    }
-    .grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .item {
-      width: 100px;
-      text-align: center;
-    }
-    .item img {
-      width: 60px;
-      height: 60px;
-    }
-    .item span {
-      display: block;
-      margin-top: 5px;
-      font-size: 14px;
+      font-family: 'Vazirmatn', sans-serif;
+      background-color: #fdf6f0;
       color: #444;
     }
+    header {
+      background-color: #a3d5f7;
+      padding: 20px;
+      text-align: center;
+    }
+    header img {
+      height: 80px;
+    }
+    .slider {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 30px 0;
+    }
+    .slider img, .slider video {
+      max-width: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    .contact-section {
+      background-color: #fff;
+      margin: 40px auto;
+      padding: 30px;
+      max-width: 700px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+    .contact-section h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+    }
+    .contact-icons img {
+      height: 60px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #ccc;
+      transition: transform 0.3s ease;
+    }
+    .contact-icons img:hover {
+      transform: scale(1.1);
+    }
+    .contact-section p {
+      font-size: 20px;
+      margin: 5px 0;
+    }
     footer {
-      background: #f0f0f0;
+      background-color: #d7c4f0;
+      text-align: center;
       padding: 15px;
-      font-size: 14px;
-      color: #555;
-      margin-top: 30px;
+      font-size: 16px;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <img src="copilotimage1756450038118.jpeg" alt="لوگو پخش آذرخش" class="logo">
-  <div class="contact">📞 09154353956 | 📞 09373129402</div>
-  <div class="social">
-    <img src="whatsapp.png" alt="واتساپ">
-    <img src="telegram-farsgraphic.png" alt="تلگرام">
-    <img src="instagram.png" alt="اینستاگرام">
-    <img src="logo-Rubika-app-download-png-vector-Toranjlogo (1).png" alt="روبیکا">
-  </div>
-</header>
+  <header>
+    <img src="copilot_image_1756450038118.jpeg" alt="لوگوی آذرخش">
+  </header>
 
-<div class="slider">
-  <img src="IMG20250829223657_817.jpg" alt="تصویر اسلایدر">
-  <video src="VID20250829223507_792.mp4" controls autoplay muted></video>
-</div>
+  <section class="slider">
+    <img src="IMG_20250829_223657_817.jpg" alt="تصویر اسلایدر">
+    <video src="VID_20250829_223507_792.mp4" controls autoplay muted></video>
+  </section>
 
-<div class="categories">
-  <h2>دسته‌بندی محصولات</h2>
-  <div class="grid">
-    <div class="item">
-      <img src="alooche.png" alt="دادی نار">
-      <span>محصولات دادی نار</span>
+  <section class="contact-section">
+    <h2>ارتباط با پخش آذرخش</h2>
+    <div class="contact-icons">
+      <a href="https://wa.me/989154353956" target="_blank">
+        <img src="whatsapp.png" alt="واتساپ">
+      </a>
+      <a href="https://t.me/09154353956" target="_blank">
+        <img src="telegram-farsgraphic.png" alt="تلگرام">
+      </a>
+      <a href="https://rubika.ir/pakhsh_azarakhsh" target="_blank">
+        <img src="instagram.png" alt="روبیکا">
+      </a>
     </div>
-    <div class="item">
-      <img src="gaz.png" alt="آلونک">
-      <span>محصولات آلونک</span>
-    </div>
-    <div class="item">
-      <img src="alooche.png" alt="ماهشین">
-      <span>محصولات ماهشین</span>
-    </div>
-    <div class="item">
-      <img src="gift.png" alt="شانسی‌ها">
-      <span>شانسی‌ها</span>
-    </div>
-    <div class="item">
-      <img src="drink.png" alt="متفرقه">
-      <span>متفرقه</span>
-    </div>
-  </div>
-</div>
+    <p>📞 شماره تماس:</p>
+    <p><strong>09154353956 - 09373129402</strong></p>
+  </section>
 
-<footer>
-  مشهد بازار حافظ غرفه ۱۶۶ | مشهد توس ۳۳، کشف، شقایق ۱  
-  <br><br>
-  تهیه شده با عشق توسط گروه تحقیقات و توسعه تیم آذرخش ❤️
-</footer>
+  <footer>
+    طراحی شده با عشق توسط سید و Copilot 💜
+  </footer>
 
 </body>
 </html>
