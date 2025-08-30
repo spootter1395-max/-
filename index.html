@@ -2,45 +2,43 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>پخش آذرخش</title>
   <style>
     body {
-      font-family: 'Vazir', sans-serif;
-      background: #fdfdfd;
+      font-family: sans-serif;
+      background: #fff;
       margin: 0;
       padding: 0;
       text-align: center;
     }
     header {
-      background: #fff;
-      padding: 10px;
-      border-bottom: 2px solid #eee;
+      background: #f8f8f8;
+      padding: 15px;
+      border-bottom: 1px solid #ccc;
     }
     .logo {
-      font-size: 36px;
+      font-size: 32px;
       color: #d60000;
       font-weight: bold;
     }
     .contact {
-      margin-top: 5px;
+      margin-top: 10px;
       font-size: 14px;
-      color: #444;
+      color: #333;
     }
-    .social-icons {
+    .social {
       margin-top: 10px;
     }
-    .social-icons img {
-      width: 32px;
+    .social img {
+      width: 30px;
       margin: 0 5px;
       vertical-align: middle;
     }
     .slider {
-      position: relative;
-      max-width: 100%;
-      height: 250px;
+      margin-top: 20px;
       overflow: hidden;
-      margin-top: 10px;
+      height: 200px;
+      position: relative;
     }
     .slides {
       display: flex;
@@ -49,7 +47,7 @@
     }
     .slides img {
       width: 100%;
-      height: 250px;
+      height: 200px;
       object-fit: cover;
     }
     @keyframes slide {
@@ -62,35 +60,36 @@
       margin: 30px 0;
     }
     .categories h2 {
+      font-size: 22px;
       color: #b30000;
-      font-size: 24px;
       margin-bottom: 20px;
     }
-    .category-grid {
+    .grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
     }
-    .category {
+    .item {
       width: 100px;
       text-align: center;
     }
-    .category img {
+    .item img {
       width: 60px;
       height: 60px;
     }
-    .category span {
+    .item span {
       display: block;
       margin-top: 5px;
       font-size: 14px;
-      color: #333;
+      color: #444;
     }
     footer {
-      background: #f3f3f3;
+      background: #f0f0f0;
       padding: 15px;
       font-size: 14px;
-      color: #444;
+      color: #555;
+      margin-top: 30px;
     }
   </style>
 </head>
@@ -98,43 +97,43 @@
 
 <header>
   <div class="logo">پخش آذرخش ⚡</div>
-  <div class="contact">📞 09154353956 | 📞 09373129402</div>
-  <div class="social-icons">
-    <img src="whatsapp.png" alt="WhatsApp">
-    <img src="telegram.png" alt="Telegram">
-    <img src="rubika.png" alt="Rubika">
+  <div class="contact">📞 09373129402</div>
+  <div class="social">
     <img src="instagram.png" alt="Instagram">
+    <img src="rubika.png" alt="Rubika">
+    <img src="telegram.png" alt="Telegram">
+    <img src="whatsapp.png" alt="WhatsApp">
   </div>
 </header>
 
 <div class="slider">
   <div class="slides">
-    <img src="slider1.jpg" alt="محصول ۱">
-    <img src="slider2.jpg" alt="محصول ۲">
-    <img src="slider3.jpg" alt="محصول ۳">
+    <img src="slider1.jpg" alt="محصول 1">
+    <img src="slider2.jpg" alt="محصول 2">
+    <img src="slider3.jpg" alt="محصول 3">
   </div>
 </div>
 
 <div class="categories">
   <h2>دسته‌بندی محصولات</h2>
-  <div class="category-grid">
-    <div class="category">
+  <div class="grid">
+    <div class="item">
       <img src="alooche.png" alt="دادی نار">
       <span>محصولات دادی نار</span>
     </div>
-    <div class="category">
+    <div class="item">
       <img src="gaz.png" alt="آلونک">
       <span>محصولات آلونک</span>
     </div>
-    <div class="category">
+    <div class="item">
       <img src="alooche.png" alt="ماهشین">
       <span>محصولات ماهشین</span>
     </div>
-    <div class="category">
+    <div class="item">
       <img src="gift.png" alt="شانسی‌ها">
       <span>شانسی‌ها</span>
     </div>
-    <div class="category">
+    <div class="item">
       <img src="drink.png" alt="متفرقه">
       <span>متفرقه</span>
     </div>
