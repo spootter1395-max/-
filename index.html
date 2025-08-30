@@ -31,31 +31,7 @@
           <div class="icon">🍬</div>
           <p>ماهشین</p>
         </div>
-        <div class="menu-item" onclick="toggleCategory('nooshidani')">
-          <div class="icon">🥤</div>
-          <p>نوشیدنی</p>
-        </div>
-        <div class="menu-item" onclick="toggleCategory('alonak')">
-          <div class="icon">🛖🥜</div>
-          <p>آلونک</p>
-        </div>
-        <!-- دسته‌های بیشتر -->
-        <div class="menu-item" onclick="toggleCategory('dadinar')">
-          <div class="icon">🍬</div>
-          <p>دادی نار</p>
-        </div>
-        <div class="menu-item" onclick="toggleCategory('aghbaba')">
-          <div class="icon">🍿🔥</div>
-          <p>آق بابا</p>
-        </div>
-        <div class="menu-item" onclick="toggleCategory('shansi')">
-          <div class="icon">🎁</div>
-          <p>شانسی</p>
-        </div>
-        <div class="menu-item" onclick="toggleCategory('motefareqe')">
-          <div class="icon">🍫</div>
-          <p>متفرقه</p>
-        </div>
+        <!-- دسته‌های دیگر هم همین‌طور اضافه می‌شن -->
       </div>
 
       <!-- محصولات ماهشین -->
@@ -63,36 +39,27 @@
         <div class="product-card">
           <img src="IMG_۲۰۲۵۰۸۳۱_۰۱۲۷۳۹.jpg" alt="قطره طلا، آلوچه شرابی، مخلوط میوه، آلبالو گیلاس">
           <h3>قطره طلا، آلوچه شرابی، مخلوط میوه، آلبالو گیلاس</h3>
-          <p>👥 تعداد مصرف‌کننده: ۳۵ نفر</p>
+          <p>💰 قیمت مصرف‌کننده: ۳۵,۰۰۰ تومان</p>
           <p>📦 بسته‌بندی: هر رگال ۱۰ عدد | هر کارتن ۱۲ رگال</p>
-          <p>💰 قیمت پایه خرید: ۱۷,۳۰۰ تومان</p>
           <p>💳 تخفیف خرید نقدی: ۳٪</p>
-          <p>📊 طرح حجمی: با خرید ۲۰ کارتن جور از تمام محصولات این دسته، شامل تخفیف <strong>۵ به ۱</strong> می‌شوید (هر ۵ کارتن، ۱ کارتن رایگان)</p>
+          <p>📊 طرح حجمی: با خرید ۲۰ کارتن جور از تمام محصولات این دسته، شامل تخفیف <strong>۵ به ۱</strong> می‌شوید</p>
+
+          <div class="buy-section">
+            <label>تعداد:</label>
+            <button onclick="changeQty('mahshin', -1)">➖</button>
+            <span id="qty-mahshin">1</span>
+            <button onclick="changeQty('mahshin', 1)">➕</button>
+            <button onclick="addToCart('mahshin')">🛒 افزودن به سبد خرید</button>
+          </div>
         </div>
       </div>
 
-      <!-- محصولات نوشیدنی -->
-      <div id="nooshidani" class="product-section">
-        <div class="product-card">
-          <img src="images/drink.jpg" alt="نوشابه انرژی‌زا">
-          <h3>نوشابه انرژی‌زا</h3>
-          <p>💰 قیمت: ۱۸,۰۰۰ تومان</p>
-          <p>🎯 تخفیف نقدی: ۸٪ | خرید عمده: ۱۲٪</p>
-        </div>
+      <!-- سبد خرید -->
+      <div id="cart" class="cart-box">
+        <h3>🛍️ سبد خرید شما</h3>
+        <ul id="cart-items"></ul>
+        <p id="cart-total">مجموع: ۰ تومان</p>
       </div>
-
-      <!-- محصولات آلونک -->
-      <div id="alonak" class="product-section">
-        <div class="product-card">
-          <img src="images/nuts.jpg" alt="مغز بادام">
-          <h3>مغز بادام شور</h3>
-          <p>💰 قیمت: ۵۵,۰۰۰ تومان</p>
-          <p>🎯 تخفیف نقدی: ۵٪ | خرید عمده: ۱۰٪</p>
-        </div>
-      </div>
-
-      <!-- دسته‌های دیگر رو هم می‌تونی همین‌طور اضافه کنی -->
-
     </section>
 
     <footer>
@@ -117,6 +84,42 @@
           ? (section.style.display === 'block' ? 'none' : 'block')
           : 'none';
       });
+    }
+
+    // مدیریت تعداد و سبد خرید
+    const cart = {};
+
+    function changeQty(id, delta) {
+      const qtySpan = document.getElementById(`qty-${id}`);
+      let qty = parseInt(qtySpan.textContent);
+      qty = Math.max(1, qty + delta);
+      qtySpan.textContent = qty;
+    }
+
+    function addToCart(id) {
+      const qty = parseInt(document.getElementById(`qty-${id}`).textContent);
+      const name = document.querySelector(`#${id} h3`).textContent;
+      const priceText = document.querySelector(`#${id} p`).textContent;
+      const price = parseInt(priceText.replace(/\D/g, ''));
+
+      cart[id] = { name, qty, price };
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartList = document.getElementById("cart-items");
+      const cartTotal = document.getElementById("cart-total");
+      cartList.innerHTML = "";
+      let total = 0;
+
+      for (const id in cart) {
+        const item = cart[id];
+        const itemTotal = item.qty * item.price;
+        total += itemTotal;
+        cartList.innerHTML += `<li>${item.name} × ${item.qty} = ${itemTotal.toLocaleString()} تومان</li>`;
+      }
+
+      cartTotal.textContent = `مجموع: ${total.toLocaleString()} تومان`;
     }
   </script>
 
