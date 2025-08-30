@@ -2,70 +2,119 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>محصولات ماهشین</title>
+  <title>محصول ماهشین</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: 'Tahoma', sans-serif;
-      background-color: #fefefe;
-      margin: 0;
-      padding: 0;
+      font-family: Tahoma, sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
       color: #333;
     }
-    header {
-      background-color: #b30000;
-      color: white;
-      padding: 20px;
-      text-align: center;
+    label, select, button {
+      font-size: 16px;
+      margin: 5px 0;
     }
-    .product-card {
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 400px;
-      margin: 30px auto;
-      padding: 16px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      text-align: right;
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 10px 0;
     }
-    .product-card img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 12px;
+    .price-info {
+      margin-top: 10px;
+      font-size: 16px;
     }
-    .product-card h3 {
-      margin-bottom: 10px;
-      color: #b30000;
-    }
-    .product-card p {
-      margin: 6px 0;
-      font-size: 15px;
-    }
-    .back-link {
-      display: block;
-      text-align: center;
-      margin-top: 20px;
-      text-decoration: none;
-      color: #444;
+    #mahshin-gift-message {
+      color: green;
       font-weight: bold;
+      margin-top: 10px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>🍬 محصولات ماهشین</h1>
-  </header>
+  <div class="container">
+    <h2>🛍️ خرید محصولات ماهشین</h2>
 
-  <div class="product-card">
-    <img src="IMG۲۰۲۵۰۸۳۱۰۱۲۷۳۹.jpg" alt="آلوچه ویژه ۳۵ فروش">
-    <h3>آلوچه ویژه ۳۵ فروش</h3>
-    <p>💰 قیمت: ۳۵,۰۰۰ تومان</p>
-    <p>📍 آدرس: مشهد بازار حافظ غرفه ۱۶۶</p>
-    <p>🎯 تخفیف نقدی: ۱۰٪ | خرید عمده: ۱۵٪</p>
+    <label for="mahshin-type">نوع محصول:</label>
+    <select id="mahshin-type" onchange="updateMahshinPrice()">
+      <option value="regal">رگال - ۱۷,۳۰۰ تومان</option>
+      <option value="carton">کارتن - ۱۹۸,۰۰۰ تومان</option>
+      <option value="ghatre">قطره طلا - ۲۴,۵۰۰ تومان</option>
+      <option value="mokhloot">مخلوط - ۲۱,۰۰۰ تومان</option>
+      <option value="albaloo">آلبالو گیلاس - ۲۲,۵۰۰ تومان</option>
+    </select>
+
+    <div class="qty-controls">
+      <button onclick="changeMahshinQty(-1)">➖</button>
+      <span id="mahshin-qty">1</span>
+      <button onclick="changeMahshinQty(1)">➕</button>
+    </div>
+
+    <div class="price-info">
+      💰 قیمت واحد: <span id="mahshin-unit-price">17,300</span> تومان<br>
+      🧮 جمع کل: <span id="mahshin-total-price">17,300</span> تومان
+    </div>
+
+    <div id="mahshin-gift-message"></div>
   </div>
 
-  <a href="index.html" class="back-link">🔙 بازگشت به صفحه اصلی</a>
+  <script>
+    let mahshinQty = 1;
+    let mahshinUnitPrice = 17300;
+
+    const mahshinPrices = {
+      regal: 17300,
+      carton: 198000,
+      ghatre: 24500,
+      mokhloot: 21000,
+      albaloo: 22500
+    };
+
+    function updateMahshinPrice() {
+      const type = document.getElementById("mahshin-type").value;
+      mahshinUnitPrice = mahshinPrices[type];
+      document.getElementById("mahshin-unit-price").innerText = mahshinUnitPrice.toLocaleString();
+      updateMahshinTotal();
+    }
+
+    function changeMahshinQty(change) {
+      mahshinQty = Math.max(1, mahshinQty + change);
+      document.getElementById("mahshin-qty").innerText = mahshinQty;
+      updateMahshinTotal();
+    }
+
+    function updateMahshinTotal() {
+      const total = mahshinQty * mahshinUnitPrice;
+      document.getElementById("mahshin-total-price").innerText = total.toLocaleString();
+
+      const type = document.getElementById("mahshin-type").value;
+      const giftMsg = document.getElementById("mahshin-gift-message");
+
+      if (type === "carton" && mahshinQty >= 5) {
+        giftMsg.innerText = "🎁 یک کارتن اشانتیون شامل شما شد!";
+      } else {
+        giftMsg.innerText = "";
+      }
+    }
+
+    // مقدار اولیه
+    updateMahshinTotal();
+  </script>
 
 </body>
 </html>
