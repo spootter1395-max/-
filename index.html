@@ -22,8 +22,7 @@
       <h2>📂 دسته‌بندی محصولات</h2>
       <div class="menu-icons">
         <div class="menu-item" onclick="toggleCategory('mahshin')">
-          <img src="InShot_۲۰۲۵۰۹۱۰_۰۲۰۲۵۱۱۳۸.jpg" alt="ماهشین" width="60" height="60" style="border-radius: 12px;">
-          <p>ماهشین</p>
+          <img src="InShot_۲۰۲۵۰۹۱۰_۰۲۰۲۵۱۱۳۸.jpg" alt="ماهشین" class="full-icon">
         </div>
         <div class="menu-item" onclick="toggleCategory('nooshidani')">
           <div class="icon">🥤</div>
@@ -32,8 +31,7 @@
       </div>
     </section>
 
-    <!-- سبد کالایی ماهشین -->
-    <div id="mahshin" class="product-section" style="display: none;">
+    <div id="mahshin" class="product-section">
       <div class="product-card">
         <img src="images/product1.jpg" alt="آبنبات ترش">
         <h3>آبنبات ترش</h3>
@@ -71,7 +69,6 @@
     </section>
   </div>
 
-  <!-- اسکریپت باز/بستن سبد کالایی -->
   <script>
     function toggleCategory(id) {
       const section = document.getElementById(id);
