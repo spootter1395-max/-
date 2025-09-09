@@ -35,88 +35,35 @@
           <div class="icon">🥤</div>
           <p>نوشیدنی</p>
         </div>
-        <div class="menu-item" onclick="toggleCategory('alonak')">
-          <div class="icon">🛖🥜</div>
-          <p>آلونک</p>
-        </div>
-        <!-- دسته‌های بیشتر -->
-        <div class="menu-item" onclick="toggleCategory('dadinar')">
-          <div class="icon">🍬</div>
-          <p>دادی نار</p>
-        </div>
-        <div class="menu-item" onclick="toggleCategory('aghbaba')">
-          <div class="icon">🍿🔥</div>
-          <p>آق بابا</p>
-        </div>
-        <div class="menu-item" onclick="toggleCategory('shansi')">
-          <div class="icon">🎁</div>
-          <p>شانسی</p>
-        </div>
-        <div class="menu-item" onclick="toggleCategory('motefareqe')">
-          <div class="icon">🍫</div>
-          <p>متفرقه</p>
-        </div>
       </div>
-
-      <!-- محصولات ماهشین -->
-      <div id="mahshin" class="product-section">
-        <div class="product-card">
-          <img src="IMG_۲۰۲۵۰۸۳۱_۰۱۲۷۳۹.jpg" alt="آلوچه ویژه">
-          <h3>آلوچه ویژه ۳۵ فروش</h3>
-          <p>💰 قیمت: ۳۵,۰۰۰ تومان</p>
-          <p>📍 مشهد بازار حافظ غرفه ۱۶۶</p>
-          <p>🎯 تخفیف نقدی: ۱۰٪ | خرید عمده: ۱۵٪</p>
-        </div>
-      </div>
-
-      <!-- محصولات نوشیدنی -->
-      <div id="nooshidani" class="product-section">
-        <div class="product-card">
-          <img src="images/drink.jpg" alt="نوشابه انرژی‌زا">
-          <h3>نوشابه انرژی‌زا</h3>
-          <p>💰 قیمت: ۱۸,۰۰۰ تومان</p>
-          <p>🎯 تخفیف نقدی: ۸٪ | خرید عمده: ۱۲٪</p>
-        </div>
-      </div>
-
-      <!-- محصولات آلونک -->
-      <div id="alonak" class="product-section">
-        <div class="product-card">
-          <img src="images/nuts.jpg" alt="مغز بادام">
-          <h3>مغز بادام شور</h3>
-          <p>💰 قیمت: ۵۵,۰۰۰ تومان</p>
-          <p>🎯 تخفیف نقدی: ۵٪ | خرید عمده: ۱۰٪</p>
-        </div>
-      </div>
-
-      <!-- دسته‌های دیگر رو هم می‌تونی همین‌طور اضافه کنی -->
-
     </section>
 
-    <footer>
-      📍 مشهد بازار حافظ غرفه ۱۶۶<br>
-      📍 مشهد انتهای توس ۳۳، کشف، شقایق ۱<br><br>
-      تهیه شده در گروه تحقیقات و توسعه آذرخش 💡
-    </footer>
-  </div>
+    <!-- بخش ارتباط با ما -->
+    <section class="contact-section" style="background-color:#f9f9f9; padding:20px; border-radius:10px; margin:30px auto; max-width:600px; text-align:center; font-family:Tahoma;">
+      <h3 style="color:#333;">ارتباط با آذرخش</h3>
+      <p style="font-size:16px;">📞 شماره تماس: <strong>09154353956</strong> | <strong>09357617350</strong></p>
+      <p style="font-size:16px;">📍 شعبه ۱: مشهد، توس ۳۳، کشف، شقایق ۱</p>
+      <p style="font-size:16px;">📍 شعبه ۲: بازار بزرگ حافظ، غرفه ۱۶۶</p>
+      <div style="margin-top:15px; display:flex; justify-content:center; gap:15px; flex-wrap:wrap;">
+        <a href="https://t.me/spotter1395" target="_blank" title="تلگرام">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="تلگرام" width="40">
+        </a>
+        <a href="https://wa.me/989154353956" target="_blank" title="واتساپ">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="واتساپ" width="40">
+        </a>
+        <a href="https://rubika.ir/admin_azarakhsh" target="_blank" title="روبیکا پی‌وی">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Rubika_logo.svg/512px-Rubika_logo.svg.png" alt="روبیکا" width="40">
+        </a>
+        <a href="https://rubika.ir/pakhsh_azarakhsh" target="_blank" title="کانال روبیکا آذرخش">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Rubika_logo.svg/512px-Rubika_logo.svg.png" alt="روبیکا کانال" width="40">
+        </a>
+        <a href="https://instagram.com/pakhsh_azarakhsh1" target="_blank" title="اینستاگرام">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="اینستاگرام" width="40">
+        </a>
+      </div>
+    </section>
 
-  <script>
-    // نمایش محتوای اصلی بعد از خوش‌آمدگویی
-    setTimeout(() => {
-      document.getElementById("welcome-screen").style.display = "none";
-      document.getElementById("main-content").style.display = "block";
-    }, 4000);
-
-    // نمایش دسته‌بندی انتخاب‌شده و جمع کردن بقیه
-    function toggleCategory(id) {
-      const sections = document.querySelectorAll('.product-section');
-      sections.forEach(section => {
-        section.style.display = section.id === id
-          ? (section.style.display === 'block' ? 'none' : 'block')
-          : 'none';
-      });
-    }
-  </script>
+  </div> <!-- پایان main-content -->
 
 </body>
 </html>
