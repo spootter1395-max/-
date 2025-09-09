@@ -15,5 +15,5 @@ function addToCart(productId, productName, basePrice, promoPrice) {
   const total = pricePerCarton * count;
 
   alert(`✅ ${count} کارتن از "${productName}" با قیمت ${total.toLocaleString('fa-IR')} تومان به سبد خرید اضافه شد.`);
-  // اینجا می‌تونی به آرایه سبد خرید اضافه کنی یا به صفحه فاکتور منتقل بشی
+  // اینجا می‌تونی بعداً سبد خرید واقعی بسازی و آیتم‌ها رو ذخیره کنی
 }
