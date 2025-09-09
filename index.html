@@ -8,15 +8,9 @@
 </head>
 <body>
 
-  <!-- صفحه خوش‌آمدگویی -->
-  <div id="welcome-screen">
-    <iframe src="welcome.html" width="100%" height="100%" frameborder="0"></iframe>
-  </div>
-
-  <!-- محتوای اصلی -->
-  <div id="main-content" style="display: none;">
+  <div id="main-content">
     <header>
-      <img src="copilot_image_1756450038118.jpeg" alt="لوگوی پخش آذرخش">
+      <img src="copilot_image_1756450038118.jpeg" alt="لوگوی پخش آذرخش" width="120">
       <div id="blinking-text">پخش آذرخش — هر روز بهتر از دیروز ⚡</div>
     </header>
 
@@ -38,12 +32,11 @@
       </div>
     </section>
 
-    <!-- بخش ارتباط با ما -->
-    <section class="contact-section" style="background-color:#f9f9f9; padding:20px; border-radius:10px; margin:30px auto; max-width:600px; text-align:center; font-family:Tahoma;">
-      <h3 style="color:#333;">ارتباط با آذرخش</h3>
-      <p style="font-size:16px;">📞 شماره تماس: <strong>09154353956</strong> | <strong>09357617350</strong></p>
-      <p style="font-size:16px;">📍 شعبه ۱: مشهد، توس ۳۳، کشف، شقایق ۱</p>
-      <p style="font-size:16px;">📍 شعبه ۲: بازار بزرگ حافظ، غرفه ۱۶۶</p>
+    <section class="contact-section">
+      <h3>ارتباط با آذرخش</h3>
+      <p>📞 شماره تماس: <strong>09154353956</strong> | <strong>09357617350</strong></p>
+      <p>📍 شعبه ۱: مشهد، توس ۳۳، کشف، شقایق ۱</p>
+      <p>📍 شعبه ۲: بازار بزرگ حافظ، غرفه ۱۶۶</p>
       <div style="margin-top:15px; display:flex; justify-content:center; gap:15px; flex-wrap:wrap;">
         <a href="https://t.me/spotter1395" target="_blank" title="تلگرام">
           <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="تلگرام" width="40">
@@ -52,10 +45,10 @@
           <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="واتساپ" width="40">
         </a>
         <a href="https://rubika.ir/admin_azarakhsh" target="_blank" title="روبیکا پی‌وی">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Rubika_logo.svg/512px-Rubika_logo.svg.png" alt="روبیکا" width="40">
+          <img src="https://rubika.ir/favicon.ico" alt="روبیکا" width="40">
         </a>
         <a href="https://rubika.ir/pakhsh_azarakhsh" target="_blank" title="کانال روبیکا آذرخش">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Rubika_logo.svg/512px-Rubika_logo.svg.png" alt="روبیکا کانال" width="40">
+          <img src="https://rubika.ir/favicon.ico" alt="روبیکا کانال" width="40">
         </a>
         <a href="https://instagram.com/pakhsh_azarakhsh1" target="_blank" title="اینستاگرام">
           <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="اینستاگرام" width="40">
@@ -63,16 +56,6 @@
       </div>
     </section>
   </div>
-
-  <!-- اسکریپت فعال‌سازی صفحه اصلی -->
-  <script>
-    window.onload = function() {
-      setTimeout(() => {
-        document.getElementById("welcome-screen").style.display = "none";
-        document.getElementById("main-content").style.display = "block";
-      }, 4000); // نمایش صفحه اصلی بعد از ۴ ثانیه
-    };
-  </script>
 
 </body>
 </html>
