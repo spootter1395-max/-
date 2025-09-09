@@ -18,7 +18,6 @@ header {
 header img {
   max-width: 120px;
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 #blinking-text {
@@ -34,24 +33,9 @@ header img {
   50% { opacity: 0.3; }
 }
 
-.slider video {
-  width: 100%;
-  max-height: 300px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
 .product-menu {
   padding: 30px;
   background-color: #fff;
-  border-top: 1px solid #eee;
-}
-
-.product-menu h2 {
-  color: #b30000;
-  font-weight: bold;
-  margin-bottom: 20px;
 }
 
 .menu-icons {
@@ -84,20 +68,17 @@ header img {
 }
 
 .product-section {
-  display: none;
-  margin-top: 20px;
-  animation: fadeIn 0.4s ease;
+  padding: 20px;
 }
 
 .product-card {
   background-color: #fff;
-  border: 1px solid #ccc;
+  border: 2px solid #ffd700;
   border-radius: 12px;
   padding: 16px;
-  margin: 10px auto;
-  max-width: 400px;
+  margin: 20px auto;
+  max-width: 500px;
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
-  text-align: right;
 }
 
 .product-card img {
@@ -106,57 +87,34 @@ header img {
   margin-bottom: 10px;
 }
 
-.product-card h3 {
-  color: #b30000;
-  margin-bottom: 8px;
-  font-size: 18px;
-}
-
-.product-card p {
-  font-size: 14px;
-  margin: 4px 0;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #f8f8f8;
-  font-size: 14px;
-  line-height: 1.8;
-  border-top: 1px solid #ddd;
-}
-
-.contact-section {
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 30px auto;
-  max-width: 600px;
-  text-align: center;
-  font-family: 'Vazir', Tahoma, sans-serif;
-}
-
-.contact-section h3 {
-  color: #b30000;
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.contact-section p {
-  font-size: 16px;
+.product-info p {
+  font-size: 15px;
   margin: 6px 0;
+  line-height: 1.6;
 }
 
-.contact-section a img {
-  transition: transform 0.3s ease;
+.product-info label {
+  display: block;
+  margin: 10px 0;
+  font-weight: bold;
+  color: #b30000;
 }
 
-.contact-section a:hover img {
-  transform: scale(1.2);
-  filter: drop-shadow(0 0 5px #ffd700);
+.cart-calculator {
+  margin-top: 10px;
+  background-color: #fffbe6;
+  padding: 10px;
+  border-radius: 8px;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.cart-calculator input {
+  width: 60px;
+  padding: 4px;
+  margin-right: 10px;
 }
+
+.cart-calculator button {
+  background-color: #b30000;
+  color: #fff;
+  border: none;
+  padding: 8px 12px[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/Pardis-K/Doctor-Appointment/tree/5da8f6d7847dc7b98f9bbdd1ba83a09a1c39c8ef/views%2Flayout%2Fdoctor.blade.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
