@@ -9,74 +9,66 @@
 </head>
 <body>
 
-  <div id="main-content">
-    <header>
-      <img src="copilot_image_1756450038118.jpeg" alt="لوگوی پخش آذرخش" width="120">
-      <div id="blinking-text">پخش آذرخش — هر روز بهتر از دیروز ⚡</div>
-    </header>
+  <header>
+    <img src="copilot_image_1756450038118.jpeg" alt="لوگوی پخش آذرخش" width="120">
+    <div id="blinking-text">پخش آذرخش — هر روز بهتر از دیروز ⚡</div>
+  </header>
 
-    <section class="slider">
-      <video src="VID_20250829_223507_792.mp4" autoplay muted loop></video>
-    </section>
-
-    <section class="product-menu">
-      <h2>📂 دسته‌بندی محصولات</h2>
-      <div class="menu-icons">
-        <div class="menu-item" onclick="toggleCategory('mahshin')">
-          <img src="IMG_۲۰۲۵۰۹۱۰_۰۲۲۱۳۶.jpg" alt="ماهشین" width="40" style="border-radius: 8px;">
-          <p>ماهشین</p>
-        </div>
-        <div class="menu-item" onclick="toggleCategory('nooshidani')">
-          <div class="icon">🥤</div>
-          <p>نوشیدنی</p>
-        </div>
+  <section class="product-menu">
+    <h2>📂 دسته‌بندی محصولات</h2>
+    <div class="menu-icons">
+      <div class="menu-item" onclick="toggleCategory('mahshin')">
+        <img src="IMG_۲۰۲۵۰۹۱۰_۰۲۲۱۳۶.jpg" alt="ماهشین" width="40" style="border-radius: 8px;">
+        <p>ماهشین</p>
       </div>
-    </section>
-
-    <div id="mahshin" class="product-section">
-      <div class="product-card">
-        <img src="images/product1.jpg" alt="آبنبات ترش">
-        <h3>آبنبات ترش</h3>
-        <p>قیمت: ۱۵٬۰۰۰ تومان</p>
-      </div>
-      <div class="product-card">
-        <img src="images/product2.jpg" alt="شکلات مغزدار">
-        <h3>شکلات مغزدار</h3>
-        <p>قیمت: ۲۵٬۰۰۰ تومان</p>
+      <div class="menu-item" onclick="toggleCategory('nooshidani')">
+        <div class="icon">🥤</div>
+        <p>نوشیدنی</p>
       </div>
     </div>
+  </section>
 
-    <section class="contact-section">
-      <h3>ارتباط با آذرخش</h3>
-      <p>📞 شماره تماس: <strong>09154353956</strong> | <strong>09357617350</strong></p>
-      <p>📍 شعبه ۱: مشهد، توس ۳۳، کشف، شقایق ۱</p>
-      <p>📍 شعبه ۲: بازار بزرگ حافظ، غرفه ۱۶۶</p>
-      <div style="margin-top:15px; display:flex; justify-content:center; gap:15px; flex-wrap:wrap;">
-        <a href="https://t.me/spotter1395" target="_blank" title="تلگرام">
-          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="تلگرام" width="40">
-        </a>
-        <a href="https://wa.me/989154353956" target="_blank" title="واتساپ">
-          <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="واتساپ" width="40">
-        </a>
-        <a href="https://rubika.ir/admin_azarakhsh" target="_blank" title="روبیکا پی‌وی">
-          <img src="logo-Rubika-app-download-png-vector-Toranjlogo (1).png" alt="روبیکا" width="40">
-        </a>
-        <a href="https://rubika.ir/pakhsh_azarakhsh" target="_blank" title="کانال روبیکا آذرخش">
-          <img src="logo-Rubika-app-download-png-vector-Toranjlogo (1).png" alt="روبیکا کانال" width="40">
-        </a>
-        <a href="https://instagram.com/pakhsh_azarakhsh1" target="_blank" title="اینستاگرام">
-          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="اینستاگرام" width="40">
-        </a>
+  <!-- دسته‌بندی ماهشین -->
+  <section id="mahshin" class="product-section">
+    <div class="product-card">
+      <img src="IMG_20250829_015040_390.jpg" alt="آویز ۳۵ فروش ماهشین">
+      <div class="product-info">
+        <p><strong>آویز ۳۵ فروش ماهشین</strong><br>(قطره طلا، آلبالو گیلاس، شرابی، میوه مخلوط)</p>
+        <p>رگال: ۱۰ عدد | کارتن: ۱۲ رگال</p>
+        <p>قیمت پایه خرید هر عدد: ۱۷٬۳۰۰ تومان</p>
+        <p>قیمت پایه خرید هر کارتن: ۲٬۰۷۶٬۰۰۰ تومان</p>
+        <p>قیمت با ۳٪ نقدی: دانه‌ای ۱۶٬۷۸۱ تومان | کارتن: ۲٬۰۱۳٬۷۲۰ تومان</p>
+
+        <label>
+          <input type="checkbox" id="promoToggle-1" onchange="updatePrice(1, 2013720, 1917828)">
+          فعال‌سازی طرح خرید حجمی (۲۰ کارتن + ۱ اشانتیون)
+        </label>
+        <p id="promoPrice-1">قیمت با طرح: دانه‌ای ۱۵٬۹۸۱ تومان | کارتن: ۱٬۹۱۷٬۸۲۸ تومان</p>
+
+        <div class="cart-calculator">
+          <label for="cartonCount-1">تعداد کارتن:</label>
+          <input type="number" id="cartonCount-1" value="1" min="1" onchange="updatePrice(1, 2013720, 1917828)">
+          <p>قیمت نهایی: <span id="finalPrice-1">۲٬۰۱۳٬۷۲۰</span> تومان</p>
+          <button onclick="addToCart(1, 'آویز ۳۵ فروش ماهشین', 2013720, 1917828)">🛒 افزودن به سبد خرید</button>
+        </div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 
-  <script>
-    function toggleCategory(id) {
-      const section = document.getElementById(id);
-      section.style.display = section.style.display === 'none' ? 'block' : 'none';
-    }
-  </script>
+  <section class="contact-section">
+    <h3>ارتباط با آذرخش</h3>
+    <p>📞 شماره تماس: <strong>09154353956</strong> | <strong>09357617350</strong></p>
+    <p>📍 شعبه ۱: مشهد، توس ۳۳، کشف، شقایق ۱</p>
+    <p>📍 شعبه ۲: بازار بزرگ حافظ، غرفه ۱۶۶</p>
+    <div class="social-icons">
+      <a href="https://t.me/spotter1395" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="تلگرام" width="40"></a>
+      <a href="https://wa.me/989154353956" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="واتساپ" width="40"></a>
+      <a href="https://rubika.ir/admin_azarakhsh" target="_blank"><img src="logo-Rubika-app-download-png-vector-Toranjlogo (1).png" alt="روبیکا" width="40"></a>
+      <a href="https://rubika.ir/pakhsh_azarakhsh" target="_blank"><img src="logo-Rubika-app-download-png-vector-Toranjlogo (1).png" alt="روبیکا کانال" width="40"></a>
+      <a href="https://instagram.com/pakhsh_azarakhsh1" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="اینستاگرام" width="40"></a>
+    </div>
+  </section>
 
+  <script src="script.js"></script>
 </body>
 </html>
