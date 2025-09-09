@@ -21,14 +21,9 @@
         <img src="IMG_۲۰۲۵۰۹۱۰_۰۲۲۱۳۶.jpg" alt="ماهشین" width="40" style="border-radius: 8px;">
         <p>ماهشین</p>
       </div>
-      <div class="menu-item" onclick="toggleCategory('nooshidani')">
-        <div class="icon">🥤</div>
-        <p>نوشیدنی</p>
-      </div>
     </div>
   </section>
 
-  <!-- دسته‌بندی ماهشین -->
   <section id="mahshin" class="product-section">
     <div class="product-card">
       <img src="IMG_20250829_015040_390.jpg" alt="آویز ۳۵ فروش ماهشین">
@@ -55,18 +50,18 @@
     </div>
   </section>
 
-  <section class="contact-section">
-    <h3>ارتباط با آذرخش</h3>
-    <p>📞 شماره تماس: <strong>09154353956</strong> | <strong>09357617350</strong></p>
-    <p>📍 شعبه ۱: مشهد، توس ۳۳، کشف، شقایق ۱</p>
-    <p>📍 شعبه ۲: بازار بزرگ حافظ، غرفه ۱۶۶</p>
-    <div class="social-icons">
-      <a href="https://t.me/spotter1395" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="تلگرام" width="40"></a>
-      <a href="https://wa.me/989154353956" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="واتساپ" width="40"></a>
-      <a href="https://rubika.ir/admin_azarakhsh" target="_blank"><img src="logo-Rubika-app-download-png-vector-Toranjlogo (1).png" alt="روبیکا" width="40"></a>
-      <a href="https://rubika.ir/pakhsh_azarakhsh" target="_blank"><img src="logo-Rubika-app-download-png-vector-Toranjlogo (1).png" alt="روبیکا کانال" width="40"></a>
-      <a href="https://instagram.com/pakhsh_azarakhsh1" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="اینستاگرام" width="40"></a>
-    </div>
+  <section id="cartSection" class="cart-section">
+    <h3>🧾 فاکتور خرید شما</h3>
+    <div id="cartItems"></div>
+    <p><strong>جمع کل:</strong> <span id="cartTotal">۰</span> تومان</p>
+
+    <form id="customerForm">
+      <h4>📋 اطلاعات مشتری</h4>
+      <input type="text" id="customerName" placeholder="نام و نام خانوادگی" required>
+      <input type="text" id="customerPhone" placeholder="شماره موبایل (مثلاً 0912...)" required>
+      <textarea id="customerNote" placeholder="توضیحات یا آدرس دلخواه"></textarea>
+      <button type="button" onclick="sendInvoice()">📤 ارسال فاکتور در واتساپ</button>
+    </form>
   </section>
 
   <script src="script.js"></script>
