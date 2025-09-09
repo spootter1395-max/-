@@ -77,47 +77,13 @@ header img {
   margin-bottom: 6px;
 }
 
-.product-section {
-  display: none;
-  margin-top: 20px;
-  animation: fadeIn 0.4s ease;
-}
-
-.product-card {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  padding: 16px;
-  margin: 10px auto;
-  max-width: 400px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-  text-align: right;
-}
-
-.product-card img {
-  width: 100%;
-  border-radius: 12px;
-  margin-bottom: 10px;
-}
-
-.product-card h3 {
-  color: #b30000;
-  margin-bottom: 8px;
-  font-size: 18px;
-}
-
-.product-card p {
-  font-size: 14px;
-  margin: 4px 0;
-}
-
-footer {
-  text-align: center;
+.contact-section {
+  background-color: #f9f9f9;
   padding: 20px;
-  background-color: #f8f8f8;
-  font-size: 14px;
-  line-height: 1.8;
-  border-top: 1px solid #ddd;
+  border-radius: 10px;
+  margin: 30px auto;
+  max-width: 600px;
+  text-align: center;
 }
 
 .contact-section a img {
@@ -127,9 +93,4 @@ footer {
 .contact-section a:hover img {
   transform: scale(1.2);
   filter: drop-shadow(0 0 5px #ffd700);
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
 }
