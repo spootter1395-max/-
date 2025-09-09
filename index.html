@@ -62,8 +62,17 @@
         </a>
       </div>
     </section>
+  </div>
 
-  </div> <!-- پایان main-content -->
+  <!-- اسکریپت فعال‌سازی صفحه اصلی -->
+  <script>
+    window.onload = function() {
+      setTimeout(() => {
+        document.getElementById("welcome-screen").style.display = "none";
+        document.getElementById("main-content").style.display = "block";
+      }, 4000); // نمایش صفحه اصلی بعد از ۴ ثانیه
+    };
+  </script>
 
 </body>
 </html>
