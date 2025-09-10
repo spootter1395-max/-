@@ -1,73 +1,46 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>پخش آذرخش</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css" rel="stylesheet">
-</head>
-<body>
+<!-- فقط بخش mahshin در اینجا نمایش داده می‌شه -->
+<section id="mahshin" class="product-section">
 
-  <header>
-    <img src="copilot_image_1756450038118.jpeg" alt="لوگوی پخش آذرخش" width="120">
-    <div id="blinking-text">پخش آذرخش — هر روز بهتر از دیروز ⚡</div>
-  </header>
+  <!-- محصول اول -->
+  <div class="product-card">
+    <img src="IMG_20250829_015040_390.jpg" alt="آویز ۳۵ فروش ماهشین">
+    <div class="product-info">
+      <p><strong>آویز ۳۵ فروش ماهشین</strong><br>(قطره طلا، آلبالو گیلاس، شرابی، میوه مخلوط)</p>
+      <p>رگال: ۱۰ عدد | کارتن: ۱۲ رگال</p>
+      <p>قیمت پایه خرید هر عدد: ۱۷٬۳۰۰ تومان</p>
+      <p>قیمت با ۳٪ نقدی: دانه‌ای ۱۶٬۷۸۱ تومان | کارتن: ۲٬۰۱۳٬۷۲۰ تومان</p>
+      <p>قیمت با طرح حجمی: دانه‌ای ۱۵٬۹۸۱ تومان | کارتن: ۱٬۹۱۷٬۸۲۸ تومان</p>
+      <p style="color:#007c00; font-weight:bold;">✅ این محصول شامل طرح خرید حجمی است (۲۱ کارتن به بالا)</p>
 
-  <section class="product-menu">
-    <h2>📂 دسته‌بندی محصولات</h2>
-    <div class="menu-icons">
-      <div class="menu-item" onclick="toggleCategory('mahshin')">
-        <img src="IMG_۲۰۲۵۰۹۱۰_۰۲۲۱۳۶.jpg" alt="ماهشین" width="40" style="border-radius: 8px;">
-        <p>ماهشین</p>
+      <div class="cart-calculator">
+        <label for="cartonCount-1">تعداد کارتن:</label>
+        <input type="number" id="cartonCount-1" value="1" min="1" onchange="updatePrice(1, 2013720, 1917828)">
+        <p id="priceLabel-1">قیمت فعلی: ۲٬۰۱۳٬۷۲۰ تومان</p>
+        <p>قیمت نهایی: <span id="finalPrice-1">۲٬۰۱۳٬۷۲۰</span> تومان</p>
+        <button onclick="addToCart(1, 'آویز ۳۵ فروش ماهشین', 2013720, 1917828)">🛒 افزودن به سبد خرید</button>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section id="mahshin" class="product-section">
-    <div class="product-card">
-      <img src="IMG_20250829_015040_390.jpg" alt="آویز ۳۵ فروش ماهشین">
-      <div class="product-info">
-        <p><strong>آویز ۳۵ فروش ماهشین</strong><br>(قطره طلا، آلبالو گیلاس، شرابی، میوه مخلوط)</p>
-        <p>رگال: ۱۰ عدد | کارتن: ۱۲ رگال</p>
-        <p>قیمت پایه خرید هر عدد: ۱۷٬۳۰۰ تومان</p>
-        <p>قیمت با ۳٪ نقدی: ۲٬۰۱۳٬۷۲۰ تومان</p>
-        <p>قیمت با طرح حجمی: ۱٬۹۱۷٬۸۲۸ تومان</p>
-        <p style="color:#007c00; font-weight:bold;">✅ این محصول شامل طرح خرید حجمی است (۲۱ کارتن به بالا)</p>
+  <!-- محصول دوم -->
+  <div class="product-card">
+    <img src="IMG_20250910_041947_024.jpg" alt="آویز ماهشین ۳۰ فروش">
+    <div class="product-info">
+      <p><strong>آویز ماهشین ۳۰ فروش</strong><br>(آلوچه فرآوری شده قرقروتی ترش، آلوچه چیلی، آلوچه ویژه)</p>
+      <p>رگال: ۱۰ عدد | کارتن: ۱۲ رگال</p>
+      <p>قیمت پایه خرید هر عدد: ۱۴٬۸۵۰ تومان</p>
+      <p>قیمت با ۳٪ نقدی: دانه‌ای ۱۴٬۴۰۴ تومان | کارتن: ۱٬۷۲۸٬۵۴۰ تومان</p>
+      <p>قیمت با طرح حجمی: دانه‌ای ۱۳٬۷۱۸ تومان | کارتن: ۱٬۶۴۶٬۱۷۱ تومان</p>
+      <p style="color:#007c00; font-weight:bold;">✅ این محصول شامل طرح خرید حجمی است (۲۱ کارتن به بالا)</p>
 
-        <div class="cart-calculator">
-          <label for="cartonCount-1">تعداد کارتن:</label>
-          <input type="number" id="cartonCount-1" value="1" min="1" onchange="updatePrice(1, 2013720, 1917828)">
-          <p id="priceLabel-1">قیمت فعلی: ۲٬۰۱۳٬۷۲۰ تومان</p>
-          <p>قیمت نهایی: <span id="finalPrice-1">۲٬۰۱۳٬۷۲۰</span> تومان</p>
-          <button onclick="addToCart(1, 'آویز ۳۵ فروش ماهشین', 2013720, 1917828)">🛒 افزودن به سبد خرید</button>
-        </div>
+      <div class="cart-calculator">
+        <label for="cartonCount-2">تعداد کارتن:</label>
+        <input type="number" id="cartonCount-2" value="1" min="1" onchange="updatePrice(2, 1728540, 1646171)">
+        <p id="priceLabel-2">قیمت فعلی: ۱٬۷۲۸٬۵۴۰ تومان</p>
+        <p>قیمت نهایی: <span id="finalPrice-2">۱٬۷۲۸٬۵۴۰</span> تومان</p>
+        <button onclick="addToCart(2, 'آویز ماهشین ۳۰ فروش', 1728540, 1646171)">🛒 افزودن به سبد خرید</button>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section id="cartSection" class="cart-section">
-    <h3>🧾 فاکتور خرید شما</h3>
-    <div id="cartItems"></div>
-    <p><strong>جمع کل:</strong> <span id="cartTotal">۰</span> تومان</p>
-
-    <form id="customerForm">
-      <h4>📋 اطلاعات مشتری</h4>
-      <input type="text" id="customerName" placeholder="نام و نام خانوادگی" required>
-      <input type="text" id="customerPhone" placeholder="شماره موبایل (مثلاً 0912...)" required>
-      <textarea id="customerNote" placeholder="توضیحات یا آدرس دلخواه"></textarea>
-      <button type="button" onclick="sendInvoice()">📤 ساخت لینک واتساپ</button>
-    </form>
-
-    <div id="whatsappLink" style="margin-top:20px;"></div>
-  </section>
-
-  <script src="script.js"></script>
-  <script>
-    function toggleCategory(id) {
-      const section = document.getElementById(id);
-      section.style.display = section.style.display === 'none' ? 'block' : 'none';
-    }
-  </script>
-</body>
-</html>
+</section>
