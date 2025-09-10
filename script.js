@@ -86,16 +86,28 @@ function sendInvoice() {
   localStorage.setItem('customerPhone', phone);
   localStorage.setItem('customerNote', note);
 
-  let message = `🧾 فاکتور خرید:\n👤 مشتری: ${name}\n📱 موبایل: ${phone}\n`;
-  if (note) message += `📝 توضیحات: ${note}\n`;
+  let message = `🧾 فاکتور فروش - پخش آذرخش\n\n`;
+  message += `ردیف | نام کالا              | تعداد | پایه    | ۳٪ نقدی | طرح حجمی | مبلغ نهایی\n`;
+  message += `-----|------------------------|--------|---------|---------|-----------|--------------\n`;
 
   let total = 0;
-  cart.forEach(item => {
-    message += `• ${item.name} - ${item.count} کارتن - ${item.total.toLocaleString('fa-IR')} تومان\n`;
+  cart.forEach((item, i) => {
+    const base = Math.round(item.price / (item.promoActive ? 0.89 : 0.97));
+    const discount = Math.round(base * 0.97);
+    const promo = Math.round(base * 0.89);
+    const line = `${(i+1).toString().padEnd(5)}| ${item.name.padEnd(24)}| ${item.count.toString().padEnd(7)}| ${base.toLocaleString('fa-IR').padEnd(8)}| ${discount.toLocaleString('fa-IR').padEnd(8)}| ${promo.toLocaleString('fa-IR').padEnd(10)}| ${item.total.toLocaleString('fa-IR')}`;
+    message += line + "\n";
     total += item.total;
   });
 
+  const orderId = Date.now();
+  const orderDate = new Date().toLocaleDateString('fa-IR');
+
   message += `\n💰 جمع کل: ${total.toLocaleString('fa-IR')} تومان`;
+  message += `\n📦 نوع قیمت‌گذاری: ${cart.every(i => i.promoActive) ? 'طرح ویژه' : '۳٪ نقدی'}`;
+  message += `\n🕒 تاریخ: ${orderDate}`;
+  message += `\n🔖 کد سفارش: AZ${orderId.toString().slice(-6)}`;
+  message += `\n👤 مشتری: ${name} | 📱 ${phone}`;
 
   const encoded = encodeURIComponent(message);
   const sellerPhone = "989154353956";
@@ -110,7 +122,8 @@ function sendInvoice() {
   // ذخیره سفارش در حال بررسی
   let orders = JSON.parse(localStorage.getItem('orders')) || [];
   orders.push({
-    id: Date.now(),
+    id: orderId,
+    date: orderDate,
     customer: { name, phone, note },
     items: cart,
     total
@@ -123,6 +136,7 @@ function sendInvoice() {
   renderCart();
   document.getElementById('customerForm').reset();
   renderOrders();
+  renderInvoiceTable(orders[orders.length - 1]);
 }
 
 function renderOrders() {
@@ -144,10 +158,45 @@ function renderOrders() {
   });
 }
 
-window.onload = () => {
-  renderCart();
-  renderOrders();
-  document.getElementById('customerName').value = localStorage.getItem('customerName') || '';
-  document.getElementById('customerPhone').value = localStorage.getItem('customerPhone') || '';
-  document.getElementById('customerNote').value = localStorage.getItem('customerNote') || '';
-};
+function renderInvoiceTable(order) {
+  const container = document.getElementById('invoiceTable');
+  let html = `
+    <table class="invoice-table">
+      <thead>
+        <tr>
+          <th>ردیف</th>
+          <th>نام کالا</th>
+          <th>تعداد</th>
+          <th>قیمت پایه</th>
+          <th>۳٪ نقدی</th>
+          <th>طرح حجمی</th>
+          <th>مبلغ نهایی</th>
+        </tr>
+      </thead>
+      <tbody>
+  `;
+
+  order.items.forEach((item, i) => {
+    const base = Math.round(item.price / (item.promoActive ? 0.89 : 0.97));
+    const discount = Math.round(base * 0.97);
+    const promo = Math.round(base * 0.89);
+    html += `
+      <tr>
+        <td>${i + 1}</td>
+        <td>${item.name}</td>
+        <td>${item.count}</td>
+        <td>${base.toLocaleString('fa-IR')}</td>
+        <td>${discount.toLocaleString('fa-IR')}</td>
+        <td>${promo.toLocaleString('fa-IR')}</td>
+        <td>${item.total.toLocaleString('fa-IR')}</td>
+      </tr>
+    `;
+  });
+
+  html += `
+      </tbody>
+    </table>
+    <p><strong>💰 جمع کل:</strong> ${order.total.toLocaleString('fa-IR')} تومان</p>
+    <p><strong>📦 نوع قیمت‌گذاری:</strong> ${order.items.every(i => i.promoActive) ? 'طرح ویژه' : '۳٪ نقدی'}</p>
+    <p><strong>🕒 تاریخ:</strong> ${order.date}</p>
+    <p><strong>🔖 کد سفارش:</strong> AZ${
