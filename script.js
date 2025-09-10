@@ -18,12 +18,14 @@ function addToCart(productId, productName, discountPrice, promoPrice) {
   const count = parseInt(document.getElementById(`cartonCount-${productId}`).value);
   const isPromo = count >= 21;
   const pricePerCarton = isPromo ? promoPrice : discountPrice;
+  const unitPrice = Math.round(pricePerCarton / 12);
   const total = pricePerCarton * count;
 
   cart.push({
     name: productName,
     count,
     price: pricePerCarton,
+    unitPrice,
     total,
     promo: isPromo
   });
@@ -41,6 +43,7 @@ function renderCart() {
     container.innerHTML += `
       <div class="cart-item">
         <p>${item.name} | ${item.count} کارتن | ${item.price.toLocaleString('fa-IR')} تومان/کارتن</p>
+        <p>قیمت دونه‌ای: ${item.unitPrice.toLocaleString('fa-IR')} تومان</p>
         <p>قیمت کل: ${item.total.toLocaleString('fa-IR')} تومان</p>
         <p>نوع قیمت: ${item.promo ? 'طرح حجمی' : '۳٪ نقدی'}</p>
         <button onclick="removeFromCart(${index})">❌ حذف</button>
@@ -116,6 +119,7 @@ function renderInvoiceTable(order) {
           <th>نام کالا</th>
           <th>تعداد کارتن</th>
           <th>تعداد کل (دونه)</th>
+          <th>قیمت کارتن</th>
           <th>قیمت هر عدد</th>
           <th>مبلغ نهایی</th>
           <th>نوع قیمت</th>
@@ -126,14 +130,14 @@ function renderInvoiceTable(order) {
 
   order.items.forEach((item, i) => {
     const totalUnits = item.count * 12;
-    const unitPrice = Math.round(item.price / 12);
     html += `
       <tr>
         <td>${i + 1}</td>
         <td>${item.name}</td>
         <td>${item.count}</td>
         <td>${totalUnits}</td>
-        <td>${unitPrice.toLocaleString('fa-IR')} تومان</td>
+        <td>${item.price.toLocaleString('fa-IR')} تومان</td>
+        <td>${item.unitPrice.toLocaleString('fa-IR')} تومان</td>
         <td>${item.total.toLocaleString('fa-IR')} تومان</td>
         <td>${item.promo ? 'طرح حجمی' : '۳٪ نقدی'}</td>
       </tr>
