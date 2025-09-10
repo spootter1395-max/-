@@ -10,7 +10,7 @@
 <body>
 
   <header>
-    <img src="copilotimage1756450038118.jpeg" alt="لوگوی پخش آذرخش" width="120">
+    <img src="copilot_image_1756450038118.jpeg" alt="لوگوی پخش آذرخش" width="120">
     <div id="blinking-text">پخش آذرخش — هر روز بهتر از دیروز ⚡</div>
   </header>
 
@@ -25,15 +25,33 @@
     <h2>📂 دسته‌بندی محصولات</h2>
     <div class="menu-icons">
       <div class="menu-item" onclick="toggleCategory('mahshin')">
-        <img src="IMG۲۰۲۵۰۹۱۰۰۲۲۱۳۶.jpg" alt="ماهشین" width="40" style="border-radius: 8px;">
+        <img src="IMG_۲۰۲۵۰۹۱۰_۰۲۲۱۳۶.jpg" alt="ماهشین" width="40" style="border-radius: 8px;">
         <p>ماهشین</p>
       </div>
     </div>
   </section>
 
   <section id="mahshin" class="product-section">
-    <!-- محصولات -->
-    <!-- ... (محصولات قبلی بدون تغییر) ... -->
+
+    <!-- محصول تستی -->
+    <div class="product-card">
+      <img src="product1.jpg" alt="آویز ماهشین">
+      <div class="product-info">
+        <p><strong>آویز ماهشین ۳۵ فروش</strong><br>(طعم آلبالو، شرابی، میوه مخلوط)</p>
+        <p>رگال: ۱۰ عدد | کارتن: ۱۲ رگال</p>
+        <p>قیمت پایه: ۱۷٬۳۰۰ تومان</p>
+        <p>قیمت نقدی: ۱۶٬۷۸۱ تومان | حجمی: ۱۵٬۹۸۱ تومان</p>
+
+        <div class="cart-calculator">
+          <label for="cartonCount-1">تعداد کارتن:</label>
+          <input type="number" id="cartonCount-1" value="1" min="1" onchange="updatePrice(1, 2013720, 1917828)">
+          <p id="priceLabel-1">قیمت فعلی: ۲٬۰۱۳٬۷۲۰ تومان</p>
+          <p>قیمت نهایی: <span id="finalPrice-1">۲٬۰۱۳٬۷۲۰</span> تومان</p>
+          <button onclick="addToCart(1, 'آویز ماهشین ۳۵ فروش', 2013720, 1917828)">🛒 افزودن به سبد خرید</button>
+        </div>
+      </div>
+    </div>
+
   </section>
 
   <section id="cartSection" class="cart-section">
