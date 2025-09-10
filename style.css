@@ -62,4 +62,115 @@ header {
 }
 
 .product-section {
-  padding: 20px[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/Pardis-K/Doctor-Appointment/tree/5da8f6d7847dc7b98f9bbdd1ba83a09a1c39c8ef/views%2Flayout%2Fdoctor.blade.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
+  padding: 20px;
+}
+
+.product-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.05);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.product-info p {
+  margin: 6px 0;
+}
+
+.cart-calculator {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #fffbe6;
+  border-radius: 8px;
+}
+
+.cart-calculator input {
+  width: 80px;
+  padding: 4px;
+  margin-right: 10px;
+}
+
+.cart-calculator button {
+  background-color: #007c00;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.cart-calculator button:hover {
+  background-color: #005a00;
+}
+
+.cart-section {
+  padding: 20px;
+  background-color: #fff;
+  border-top: 2px solid #ffd700;
+}
+
+.cart-item {
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.cart-item button {
+  background-color: #b30000;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cart-item button:hover {
+  background-color: #800000;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 6px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+form button {
+  background-color: #007c00;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+form button:hover {
+  background-color: #005a00;
+}
+
+.whatsapp-button {
+  display: inline-block;
+  background-color: #25D366;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.whatsapp-button:hover {
+  background-color: #1da851;
+}
