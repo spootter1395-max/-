@@ -85,4 +85,23 @@ function sendInvoice() {
   let message = `🧾 فاکتور خرید:\n👤 مشتری: ${name}\n📱 موبایل: ${phone}\n`;
   if (note) message += `📝 توضیحات: ${note}\n`;
 
-  let[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/Pardis-K/Doctor-Appointment/tree/5da8f6d7847dc7b98f9bbdd1ba83a09a1c39c8ef/views%2Flayout%2Fdoctor.blade.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
+  let total = 0;
+  cart.forEach(item => {
+    message += `• ${item.name} - ${item.count} کارتن - ${item.total.toLocaleString('fa-IR')} تومان\n`;
+    total += item.total;
+  });
+
+  message += `\n💰 جمع کل: ${total.toLocaleString('fa-IR')} تومان`;
+
+  const encoded = encodeURIComponent(message);
+  const sellerPhone = "989154353956";
+  const url = `https://wa.me/${sellerPhone}?text=${encoded}`;
+
+  const linkContainer = document.getElementById('whatsappLink');
+  linkContainer.innerHTML = `
+    <p>✅ لینک فاکتور آماده است. روی دکمه زیر بزن تا در واتساپ باز بشه:</p>
+    <a href="${url}" target="_blank" class="whatsapp-button">📤 ارسال فاکتور در واتساپ</a>
+  `;
+}
+
+window.onload = renderCart;
