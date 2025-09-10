@@ -62,11 +62,6 @@ header img {
   transform: scale(1.05);
 }
 
-.icon {
-  font-size: 28px;
-  margin-bottom: 6px;
-}
-
 .product-section {
   padding: 20px;
 }
@@ -93,13 +88,6 @@ header img {
   line-height: 1.6;
 }
 
-.product-info label {
-  display: block;
-  margin: 10px 0;
-  font-weight: bold;
-  color: #b30000;
-}
-
 .cart-calculator {
   margin-top: 10px;
   background-color: #fffbe6;
@@ -123,10 +111,6 @@ header img {
   border-radius: 6px;
   cursor: pointer;
   margin-top: 10px;
-}
-
-.cart-calculator button:hover {
-  background-color: #990000;
 }
 
 #priceLabel-1 {
@@ -161,10 +145,6 @@ header img {
   cursor: pointer;
 }
 
-.cart-item button:hover {
-  background-color: #990000;
-}
-
 #customerForm {
   margin-top: 20px;
   display: flex;
@@ -176,22 +156,4 @@ header img {
 #customerForm textarea {
   padding: 8px;
   border: 1px solid #ccc;
-  border-radius: 6px;
-  font-family: 'Vazir';
-}
-
-.whatsapp-button {
-  display: inline-block;
-  background-color: #25D366;
-  color: white;
-  padding: 10px 16px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  margin-top: 10px;
-  text-align: center;
-}
-
-.whatsapp-button:hover {
-  background-color: #1da851;
-}
+  border-radius: 6[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/Pardis-K/Doctor-Appointment/tree/5da8f6d7847dc7b98f9bbdd1ba83a09a1c39c8ef/views%2Flayout%2Fdoctor.blade.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
