@@ -82,19 +82,17 @@ function sendInvoice() {
   const url = `https://wa.me/${sellerPhone}?text=${encoded}`;
 
   document.getElementById('whatsappLink').innerHTML = `
-    <p style="color:green; font-weight:bold;">✅ فاکتور آماده شد. روی دکمه زیر بزن:</p>
+    <p style="color:green; font-weight:bold;">✅ فاکتور آماده شد. روی یکی از دکمه‌ها بزن:</p>
     <a href="${url}" target="_blank" class="whatsapp-button">📤 ارسال در واتساپ</a>
-    <button onclick="window.print()" style="margin-top:10px;">🖨️ چاپ فاکتور</button>
+    <button onclick="window.print()" class="print-button">🖨️ چاپ فاکتور</button>
   `;
 
-  // نمایش پیش‌نمایش فاکتور
   renderInvoiceTable({
     customer: { name, phone, note },
     items: cart,
     total
   });
 
-  // ذخیره سفارش در localStorage
   let orders = JSON.parse(localStorage.getItem('orders')) || [];
   orders.push({
     customer: { name, phone, note },
@@ -112,26 +110,62 @@ function sendInvoice() {
 
 function renderInvoiceTable(order) {
   const container = document.getElementById('invoiceTable');
-  let html = `<ul style="list-style:none; padding:0;">`;
+  const invoiceNumber = 'AZ-' + Date.now().toString().slice(-6);
+  const today = new Date().toLocaleDateString('fa-IR');
+
+  let html = `
+    <div class="invoice-watermark">پیش‌فاکتور غیررسمی - در انتظار تأیید نهایی</div>
+    <div class="invoice-header">
+      <p><strong>شماره فاکتور:</strong> ${invoiceNumber}</p>
+      <p><strong>تاریخ:</strong> ${today}</p>
+    </div>
+    <table class="invoice-table">
+      <thead>
+        <tr>
+          <th>ردیف</th>
+          <th>نام کالا</th>
+          <th>تعداد</th>
+          <th>قیمت واحد</th>
+          <th>مبلغ نهایی</th>
+          <th>نوع قیمت</th>
+        </tr>
+      </thead>
+      <tbody>
+  `;
 
   order.items.forEach((item, i) => {
     html += `
-      <li style="margin-bottom:10px;">
-        <strong>${i + 1}. ${item.name}</strong><br>
-        تعداد: ${item.count} کارتن<br>
-        قیمت واحد: ${item.price.toLocaleString('fa-IR')} تومان<br>
-        مبلغ نهایی: ${item.total.toLocaleString('fa-IR')} تومان<br>
-        نوع قیمت: ${item.promo ? 'طرح حجمی' : '۳٪ نقدی'}
-      </li>
+      <tr>
+        <td>${i + 1}</td>
+        <td>${item.name}</td>
+        <td>${item.count}</td>
+        <td>${item.price.toLocaleString('fa-IR')} تومان</td>
+        <td>${item.total.toLocaleString('fa-IR')} تومان</td>
+        <td>${item.promo ? 'طرح حجمی' : '۳٪ نقدی'}</td>
+      </tr>
     `;
   });
 
-  html += `</ul>`;
-  html += `<p><strong>💰 جمع کل:</strong> ${order.total.toLocaleString('fa-IR')} تومان</p>`;
-  html += `<p><strong>👤 مشتری:</strong> ${order.customer.name} | 📱 ${order.customer.phone}</p>`;
+  html += `
+      </tbody>
+    </table>
+    <p><strong>💰 جمع کل:</strong> ${order.total.toLocaleString('fa-IR')} تومان</p>
+    <p><strong>👤 مشتری:</strong> ${order.customer.name} | 📱 ${order.customer.phone}</p>
+  `;
+
   if (order.customer.note) {
     html += `<p><strong>📝 توضیحات:</strong> ${order.customer.note}</p>`;
   }
+
+  html += `
+    <div class="invoice-signature">
+      <p>امضای دیجیتال فروشنده: <span class="signature-code">AZRASH-${order.customer.phone.slice(-4)}-${order.total.toString().slice(-4)}</span></p>
+      <p>شماره کارت جهت پرداخت: <strong>5041 7211 1312 8343</strong> به نام <strong>قیامی</strong></p>
+    </div>
+    <div class="invoice-stamp">
+      <img src="stamp.png" alt="مهر فروشنده" width="120">
+    </div>
+  `;
 
   container.innerHTML = html;
 }
@@ -163,7 +197,4 @@ function renderOrders() {
 window.onload = () => {
   renderCart();
   renderOrders();
-  document.getElementById('customerName').value = localStorage.getItem('customerName') || '';
-  document.getElementById('customerPhone').value = localStorage.getItem('customerPhone') || '';
-  document.getElementById('customerNote').value = localStorage.getItem('customerNote') || '';
 };
