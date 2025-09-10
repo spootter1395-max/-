@@ -1,176 +1,67 @@
-let cart = [];
-
-function updatePrice(productId, discountPrice, promoPrice) {
-  const count = parseInt(document.getElementById(`cartonCount-${productId}`).value);
-  const isPromo = count >= 21;
-  const pricePerCarton = isPromo ? promoPrice : discountPrice;
-  const total = pricePerCarton * count;
-
-  document.getElementById(`priceLabel-${productId}`).innerText =
-    isPromo
-      ? `قیمت با طرح حجمی: ${pricePerCarton.toLocaleString('fa-IR')} تومان`
-      : `قیمت با ۳٪ نقدی: ${pricePerCarton.toLocaleString('fa-IR')} تومان`;
-
-  document.getElementById(`finalPrice-${productId}`).innerText = total.toLocaleString('fa-IR');
+function updatePrice(id, normalPrice, bulkPrice) {
+  const count = parseInt(document.getElementById(`cartonCount-${id}`).value);
+  const price = count >= 21 ? bulkPrice : normalPrice;
+  document.getElementById(`priceLabel-${id}`).innerText = `قیمت فعلی: ${price.toLocaleString()} تومان`;
+  document.getElementById(`finalPrice-${id}`).innerText = price.toLocaleString();
 }
 
-function addToCart(productId, productName, discountPrice, promoPrice) {
-  const count = parseInt(document.getElementById(`cartonCount-${productId}`).value);
-  const isPromo = count >= 21;
-  const pricePerCarton = isPromo ? promoPrice : discountPrice;
-  const unitPrice = Math.round(pricePerCarton / 12);
-  const total = pricePerCarton * count;
+let cart = [];
 
-  cart.push({
-    name: productName,
-    count,
-    price: pricePerCarton,
-    unitPrice,
-    total,
-    promo: isPromo
-  });
-
+function addToCart(id, name, normalPrice, bulkPrice) {
+  const count = parseInt(document.getElementById(`cartonCount-${id}`).value);
+  const price = count >= 21 ? bulkPrice : normalPrice;
+  const unitPrice = count >= 21 ? Math.round(bulkPrice / 12) : Math.round(normalPrice / 12);
+  cart.push({ name, count, price, unitPrice, type: count >= 21 ? "حجمی" : "نقدی" });
   renderCart();
 }
 
 function renderCart() {
-  const container = document.getElementById('cartItems');
-  container.innerHTML = '';
+  const container = document.getElementById("cartItems");
+  container.innerHTML = "";
   let total = 0;
-
   cart.forEach((item, index) => {
-    total += item.total;
-    container.innerHTML += `
-      <div class="cart-item">
-        <p>${item.name} | ${item.count} کارتن | ${item.price.toLocaleString('fa-IR')} تومان/کارتن</p>
-        <p>قیمت دونه‌ای: ${item.unitPrice.toLocaleString('fa-IR')} تومان</p>
-        <p>قیمت کل: ${item.total.toLocaleString('fa-IR')} تومان</p>
-        <p>نوع قیمت: ${item.promo ? 'طرح حجمی' : '۳٪ نقدی'}</p>
-        <button onclick="removeFromCart(${index})">❌ حذف</button>
-      </div>
+    const row = document.createElement("div");
+    row.innerHTML = `
+      <p><strong>${index + 1}. ${item.name}</strong> | تعداد: ${item.count} کارتن | قیمت هر عدد: ${item.unitPrice.toLocaleString()} تومان | قیمت کل: ${item.price.toLocaleString()} تومان | نوع: ${item.type}</p>
     `;
+    container.appendChild(row);
+    total += item.price;
   });
-
-  document.getElementById('cartTotal').innerText = total.toLocaleString('fa-IR');
+  document.getElementById("cartTotal").innerText = total.toLocaleString();
+  renderInvoice();
 }
 
-function removeFromCart(index) {
-  cart.splice(index, 1);
-  renderCart();
+function renderInvoice() {
+  const container = document.getElementById("invoiceTable");
+  container.innerHTML = "<h4>🧾 فاکتور رسمی</h4>";
+  let total = 0;
+  cart.forEach((item, index) => {
+    const row = document.createElement("p");
+    row.innerHTML = `${index + 1}. ${item.name} | ${item.count} کارتن | ${item.count * 12} بسته | ${item.unitPrice.toLocaleString()} تومان | ${item.price.toLocaleString()} تومان | ${item.type}`;
+    container.appendChild(row);
+    total += item.price;
+  });
+  const totalRow = document.createElement("p");
+  totalRow.innerHTML = `<strong>جمع کل: ${total.toLocaleString()} تومان</strong>`;
+  container.appendChild(totalRow);
 }
 
 function sendInvoice() {
-  const name = document.getElementById('customerName').value.trim();
-  const phone = document.getElementById('customerPhone').value.trim();
-  const note = document.getElementById('customerNote').value.trim();
-
-  if (!name || !phone) {
-    alert("لطفاً نام و شماره موبایل را وارد کنید.");
-    return;
-  }
-
-  let message = `🧾 فاکتور خرید\n👤 مشتری: ${name}\n📱 موبایل: ${phone}\n`;
-  if (note) message += `📝 توضیحات: ${note}\n`;
-
-  let total = 0;
-  cart.forEach(item => {
-    message += `• ${item.name} - ${item.count} کارتن - ${item.total.toLocaleString('fa-IR')} تومان\n`;
-    total += item.total;
+  const name = document.getElementById("customerName").value;
+  const phone = document.getElementById("customerPhone").value;
+  const note = document.getElementById("customerNote").value;
+  let message = `🧾 فاکتور خرید\n`;
+  cart.forEach((item, index) => {
+    message += `${index + 1}. ${item.name} | ${item.count} کارتن | ${item.count * 12} بسته | ${item.unitPrice.toLocaleString()} تومان | ${item.price.toLocaleString()} تومان | ${item.type}\n`;
   });
-
-  message += `\n💰 جمع کل: ${total.toLocaleString('fa-IR')} تومان`;
-
-  const encoded = encodeURIComponent(message);
-  const sellerPhone = "989154353956";
-  const url = `https://wa.me/${sellerPhone}?text=${encoded}`;
-
-  document.getElementById('whatsappLink').innerHTML = `
-    <p style="color:green; font-weight:bold;">✅ فاکتور آماده شد. روی یکی از دکمه‌ها بزن:</p>
-    <a href="${url}" target="_blank" class="whatsapp-button">📤 ارسال در واتساپ</a>
-    <button onclick="printInvoice()" class="print-button">🖨️ چاپ فاکتور</button>
-  `;
-
-  renderInvoiceTable({
-    customer: { name, phone, note },
-    items: cart,
-    total
-  });
-
-  cart = [];
-  renderCart();
-  document.getElementById('customerForm').reset();
+  message += `\n👤 مشتری: ${name}\n📱 موبایل: ${phone}\n📝 توضیحات: ${note}`;
+  const link = `https://wa.me/989154353956?text=${encodeURIComponent(message)}`;
+  document.getElementById("whatsappLink").innerHTML = `<a href="${link}" target="_blank">📤 ارسال به واتساپ</a>`;
 }
 
-function renderInvoiceTable(order) {
-  const container = document.getElementById('invoiceTable');
-  const invoiceNumber = 'AZ-' + Date.now().toString().slice(-6);
-  const today = new Date().toLocaleDateString('fa-IR');
-
-  let html = `
-    <div class="invoice-watermark">پیش‌فاکتور غیررسمی - در انتظار تأیید نهایی</div>
-    <div class="invoice-header">
-      <p><strong>شماره فاکتور:</strong> ${invoiceNumber}</p>
-      <p><strong>تاریخ:</strong> ${today}</p>
-    </div>
-    <table class="invoice-table">
-      <thead>
-        <tr>
-          <th>ردیف</th>
-          <th>نام کالا</th>
-          <th>تعداد کارتن</th>
-          <th>تعداد کل (دونه)</th>
-          <th>قیمت کارتن</th>
-          <th>قیمت هر عدد</th>
-          <th>مبلغ نهایی</th>
-          <th>نوع قیمت</th>
-        </tr>
-      </thead>
-      <tbody>
-  `;
-
-  order.items.forEach((item, i) => {
-    const totalUnits = item.count * 12;
-    html += `
-      <tr>
-        <td>${i + 1}</td>
-        <td>${item.name}</td>
-        <td>${item.count}</td>
-        <td>${totalUnits}</td>
-        <td>${item.price.toLocaleString('fa-IR')} تومان</td>
-        <td>${item.unitPrice.toLocaleString('fa-IR')} تومان</td>
-        <td>${item.total.toLocaleString('fa-IR')} تومان</td>
-        <td>${item.promo ? 'طرح حجمی' : '۳٪ نقدی'}</td>
-      </tr>
-    `;
+function copyToClipboard(id) {
+  const text = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    alert("✅ کپی شد: " + text);
   });
-
-  html += `
-      </tbody>
-    </table>
-    <p><strong>💰 جمع کل:</strong> ${order.total.toLocaleString('fa-IR')} تومان</p>
-    <p><strong>👤 مشتری:</strong> ${order.customer.name} | 📱 ${order.customer.phone}</p>
-  `;
-
-  if (order.customer.note) {
-    html += `<p><strong>📝 توضیحات:</strong> ${order.customer.note}</p>`;
-  }
-
-  html += `
-    <div class="invoice-signature">
-      <p>شماره کارت جهت پرداخت: <strong>5041 7211 1312 8343</strong> به نام <strong>قیامی</strong></p>
-    </div>
-    <div class="invoice-stamp">
-      <img src="stamp.png" alt="مهر فروشنده" width="120">
-    </div>
-  `;
-
-  container.innerHTML = html;
 }
-
-function printInvoice() {
-  window.print();
-}
-
-window.onload = () => {
-  renderCart();
-};
