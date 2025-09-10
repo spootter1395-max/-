@@ -1,21 +1,24 @@
+/* فونت و رنگ پایه */
 body {
   font-family: 'Vazir', Tahoma, sans-serif;
-  background-color: #fdfcf9;
+  background-color: #fefefe;
   color: #333;
   margin: 0;
   padding: 0;
+  line-height: 1.8;
 }
 
+/* هدر */
 header {
   text-align: center;
   padding: 20px;
-  background-color: #fff;
+  background-color: #ffffff;
   border-bottom: 2px solid #ffd700;
 }
 
 #blinking-text {
   font-size: 20px;
-  color: #b30000;
+  color: #d35400;
   animation: blink 1.2s infinite;
   margin-top: 10px;
   font-weight: bold;
@@ -26,12 +29,14 @@ header {
   50% { opacity: 0.3; }
 }
 
+/* ویدیو */
 .video-teaser {
   padding: 20px;
   max-width: 600px;
   margin: 0 auto;
 }
 
+/* منوی دسته‌بندی */
 .product-menu {
   padding: 30px;
   background-color: #fff;
@@ -39,14 +44,13 @@ header {
 
 .menu-icons {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
 }
 
 .menu-item {
   cursor: pointer;
-  background-color: #fff;
+  background-color: #f9f9f9;
   border: 2px solid #ffd700;
   border-radius: 12px;
   padding: 12px;
@@ -61,6 +65,7 @@ header {
   transform: scale(1.05);
 }
 
+/* محصولات */
 .product-section {
   padding: 20px;
   display: flex;
@@ -70,8 +75,8 @@ header {
 }
 
 .product-card {
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: #ffffff;
+  border: 1px solid #eee;
   border-radius: 12px;
   padding: 20px;
   width: 320px;
@@ -87,12 +92,15 @@ header {
   width: 100%;
   border-radius: 12px;
   margin-bottom: 10px;
+  object-fit: cover;
 }
 
+/* اطلاعات محصول */
 .product-info p {
   margin: 6px 0;
 }
 
+/* محاسبه قیمت */
 .cart-calculator {
   margin-top: 10px;
   padding: 10px;
@@ -120,6 +128,7 @@ header {
   background-color: #005a00;
 }
 
+/* سبد خرید و فاکتور */
 .cart-section {
   padding: 20px;
   background-color: #fff;
@@ -147,6 +156,7 @@ header {
   background-color: #800000;
 }
 
+/* فرم مشتری */
 form input, form textarea {
   width: 100%;
   padding: 8px;
@@ -170,6 +180,7 @@ form button:hover {
   background-color: #005a00;
 }
 
+/* دکمه واتساپ و چاپ */
 .whatsapp-button {
   display: inline-block;
   background-color: #25D366;
@@ -200,6 +211,7 @@ form button:hover {
   background-color: #222;
 }
 
+/* فاکتور */
 .invoice-header {
   margin-bottom: 10px;
   font-size: 14px;
@@ -233,12 +245,6 @@ form button:hover {
   border: 1px dashed #aaa;
 }
 
-.signature-code {
-  font-family: monospace;
-  color: #007c00;
-  font-weight: bold;
-}
-
 .invoice-stamp {
   margin-top: 20px;
   text-align: left;
@@ -251,4 +257,20 @@ form button:hover {
   font-weight: bold;
   margin-bottom: 10px;
   opacity: 0.6;
+}
+
+/* فقط فاکتور چاپ شود */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #invoicePreview, #invoicePreview * {
+    visibility: visible;
+  }
+  #invoicePreview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
 }
