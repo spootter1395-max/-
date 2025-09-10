@@ -86,7 +86,40 @@ function sendInvoice() {
     <a href="${url}" target="_blank" class="whatsapp-button">📤 ارسال در واتساپ</a>
   `;
 
+  // نمایش پیش‌نمایش فاکتور
+  renderInvoiceTable({
+    customer: { name, phone, note },
+    items: cart,
+    total
+  });
+
   cart = [];
   renderCart();
   document.getElementById('customerForm').reset();
+}
+
+function renderInvoiceTable(order) {
+  const container = document.getElementById('invoiceTable');
+  let html = `<ul style="list-style:none; padding:0;">`;
+
+  order.items.forEach((item, i) => {
+    html += `
+      <li style="margin-bottom:10px;">
+        <strong>${i + 1}. ${item.name}</strong><br>
+        تعداد: ${item.count} کارتن<br>
+        قیمت واحد: ${item.price.toLocaleString('fa-IR')} تومان<br>
+        مبلغ نهایی: ${item.total.toLocaleString('fa-IR')} تومان<br>
+        نوع قیمت: ${item.promo ? 'طرح حجمی' : '۳٪ نقدی'}
+      </li>
+    `;
+  });
+
+  html += `</ul>`;
+  html += `<p><strong>💰 جمع کل:</strong> ${order.total.toLocaleString('fa-IR')} تومان</p>`;
+  html += `<p><strong>👤 مشتری:</strong> ${order.customer.name} | 📱 ${order.customer.phone}</p>`;
+  if (order.customer.note) {
+    html += `<p><strong>📝 توضیحات:</strong> ${order.customer.note}</p>`;
+  }
+
+  container.innerHTML = html;
 }
