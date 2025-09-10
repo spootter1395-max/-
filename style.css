@@ -33,6 +33,12 @@ header img {
   50% { opacity: 0.3; }
 }
 
+.video-teaser {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .product-menu {
   padding: 30px;
   background-color: #fff;
@@ -113,7 +119,12 @@ header img {
   margin-top: 10px;
 }
 
-#priceLabel-1 {
+.cart-calculator button:hover {
+  background-color: #990000;
+}
+
+#priceLabel-1,
+#priceLabel-2 {
   font-weight: bold;
   color: #007c00;
   margin-top: 8px;
@@ -145,6 +156,10 @@ header img {
   cursor: pointer;
 }
 
+.cart-item button:hover {
+  background-color: #990000;
+}
+
 #customerForm {
   margin-top: 20px;
   display: flex;
@@ -157,4 +172,21 @@ header img {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  font-family[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/Pardis-K/Doctor-Appointment/tree/5da8f6d7847dc7b98f9bbdd1ba83a09a1c39c8ef/views%2Flayout%2Fdoctor.blade.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
+  font-family: 'Vazir';
+}
+
+.whatsapp-button {
+  display: inline-block;
+  background-color: #25D366;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.whatsapp-button:hover {
+  background-color: #1da851;
+}
