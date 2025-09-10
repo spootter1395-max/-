@@ -199,4 +199,4 @@ function renderInvoiceTable(order) {
     <p><strong>💰 جمع کل:</strong> ${order.total.toLocaleString('fa-IR')} تومان</p>
     <p><strong>📦 نوع قیمت‌گذاری:</strong> ${order.items.every(i => i.promoActive) ? 'طرح ویژه' : '۳٪ نقدی'}</p>
     <p><strong>🕒 تاریخ:</strong> ${order.date}</p>
-    <p><strong>🔖 کد سفارش:</strong> AZ${
+    <p><strong>🔖 کد سفارش:</
