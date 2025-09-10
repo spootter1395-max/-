@@ -84,7 +84,7 @@ function sendInvoice() {
   document.getElementById('whatsappLink').innerHTML = `
     <p style="color:green; font-weight:bold;">✅ فاکتور آماده شد. روی یکی از دکمه‌ها بزن:</p>
     <a href="${url}" target="_blank" class="whatsapp-button">📤 ارسال در واتساپ</a>
-    <button onclick="window.print()" class="print-button">🖨️ چاپ فاکتور</button>
+    <button onclick="printInvoice()" class="print-button">🖨️ چاپ فاکتور</button>
   `;
 
   renderInvoiceTable({
@@ -114,8 +114,9 @@ function renderInvoiceTable(order) {
         <tr>
           <th>ردیف</th>
           <th>نام کالا</th>
-          <th>تعداد</th>
-          <th>قیمت واحد</th>
+          <th>تعداد کارتن</th>
+          <th>تعداد کل (دونه)</th>
+          <th>قیمت هر عدد</th>
           <th>مبلغ نهایی</th>
           <th>نوع قیمت</th>
         </tr>
@@ -124,12 +125,15 @@ function renderInvoiceTable(order) {
   `;
 
   order.items.forEach((item, i) => {
+    const totalUnits = item.count * 12;
+    const unitPrice = Math.round(item.price / 12);
     html += `
       <tr>
         <td>${i + 1}</td>
         <td>${item.name}</td>
         <td>${item.count}</td>
-        <td>${item.price.toLocaleString('fa-IR')} تومان</td>
+        <td>${totalUnits}</td>
+        <td>${unitPrice.toLocaleString('fa-IR')} تومان</td>
         <td>${item.total.toLocaleString('fa-IR')} تومان</td>
         <td>${item.promo ? 'طرح حجمی' : '۳٪ نقدی'}</td>
       </tr>
@@ -149,7 +153,6 @@ function renderInvoiceTable(order) {
 
   html += `
     <div class="invoice-signature">
-      <p>امضای دیجیتال فروشنده: <span class="signature-code">AZRASH-${order.customer.phone.slice(-4)}-${order.total.toString().slice(-4)}</span></p>
       <p>شماره کارت جهت پرداخت: <strong>5041 7211 1312 8343</strong> به نام <strong>قیامی</strong></p>
     </div>
     <div class="invoice-stamp">
@@ -158,6 +161,10 @@ function renderInvoiceTable(order) {
   `;
 
   container.innerHTML = html;
+}
+
+function printInvoice() {
+  window.print();
 }
 
 window.onload = () => {
