@@ -82,6 +82,10 @@ function sendInvoice() {
     return;
   }
 
+  localStorage.setItem('customerName', name);
+  localStorage.setItem('customerPhone', phone);
+  localStorage.setItem('customerNote', note);
+
   let message = `🧾 فاکتور خرید:\n👤 مشتری: ${name}\n📱 موبایل: ${phone}\n`;
   if (note) message += `📝 توضیحات: ${note}\n`;
 
@@ -99,9 +103,51 @@ function sendInvoice() {
 
   const linkContainer = document.getElementById('whatsappLink');
   linkContainer.innerHTML = `
-    <p>✅ لینک فاکتور آماده است. روی دکمه زیر بزن تا در واتساپ باز بشه:</p>
+    <p style="color:green; font-weight:bold;">✅ فاکتور با موفقیت ساخته شد. روی دکمه زیر بزن تا در واتساپ باز بشه:</p>
     <a href="${url}" target="_blank" class="whatsapp-button">📤 ارسال فاکتور در واتساپ</a>
   `;
+
+  // ذخیره سفارش در حال بررسی
+  let orders = JSON.parse(localStorage.getItem('orders')) || [];
+  orders.push({
+    id: Date.now(),
+    customer: { name, phone, note },
+    items: cart,
+    total
+  });
+  localStorage.setItem('orders', JSON.stringify(orders));
+
+  // پاک‌سازی سبد و فرم
+  cart = [];
+  localStorage.removeItem('cart');
+  renderCart();
+  document.getElementById('customerForm').reset();
+  renderOrders();
 }
 
-window.onload = renderCart;
+function renderOrders() {
+  const orders = JSON.parse(localStorage.getItem('orders')) || [];
+  const container = document.getElementById('orderList');
+  container.innerHTML = '';
+
+  orders.forEach(order => {
+    container.innerHTML += `
+      <div class="cart-item">
+        <p>👤 ${order.customer.name} | 📱 ${order.customer.phone}</p>
+        <p>📝 ${order.customer.note || 'بدون توضیح'}</p>
+        <p>💰 جمع کل: ${order.total.toLocaleString('fa-IR')} تومان</p>
+        <ul>
+          ${order.items.map(i => `<li>${i.name} - ${i.count} کارتن</li>`).join('')}
+        </ul>
+      </div>
+    `;
+  });
+}
+
+window.onload = () => {
+  renderCart();
+  renderOrders();
+  document.getElementById('customerName').value = localStorage.getItem('customerName') || '';
+  document.getElementById('customerPhone').value = localStorage.getItem('customerPhone') || '';
+  document.getElementById('customerNote').value = localStorage.getItem('customerNote') || '';
+};
