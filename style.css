@@ -1,6 +1,6 @@
 body {
   font-family: 'Vazir', Tahoma, sans-serif;
-  background-color: #fffaf3;
+  background-color: #fdfcf9;
   color: #333;
   margin: 0;
   padding: 0;
@@ -63,6 +63,61 @@ header {
 
 .product-section {
   padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.product-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  width: 320px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.product-info p {
+  margin: 6px 0;
+}
+
+.cart-calculator {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #fffbe6;
+  border-radius: 8px;
+}
+
+.cart-calculator input {
+  width: 80px;
+  padding: 4px;
+  margin-right: 10px;
+}
+
+.cart-calculator button {
+  background-color: #007c00;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.cart-calculator button:hover {
+  background-color: #005a00;
 }
 
 .cart-section {
