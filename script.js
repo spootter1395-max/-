@@ -72,10 +72,16 @@ function sendInvoice() {
   });
 
   message += `\n💰 جمع کل: ${total.toLocaleString('fa-IR')} تومان`;
+
   const encoded = encodeURIComponent(message);
   const sellerPhone = "989154353956";
   const url = `https://wa.me/${sellerPhone}?text=${encoded}`;
-  window.open(url, '_blank');
+
+  const linkContainer = document.getElementById('whatsappLink');
+  linkContainer.innerHTML = `
+    <p>✅ لینک فاکتور آماده است. روی دکمه زیر بزن تا در واتساپ باز بشه:</p>
+    <a href="${url}" target="_blank" class="whatsapp-button">📤 ارسال فاکتور در واتساپ</a>
+  `;
 }
 
 window.onload = renderCart;
