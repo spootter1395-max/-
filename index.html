@@ -16,13 +16,6 @@
     <button onclick="toggleDarkMode()" class="dark-toggle">🌙 حالت شب</button>
   </header>
 
-  <section class="video-teaser">
-    <video autoplay muted loop playsinline width="100%" style="border-radius:12px;">
-      <source src="teaser.mp4" type="video/mp4">
-      مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
-    </video>
-  </section>
-
   <section class="product-menu">
     <h2>📂 دسته‌بندی محصولات</h2>
     <div class="menu-icons">
@@ -34,49 +27,7 @@
   </section>
 
   <section id="mahshin" class="product-section">
-
-    <!-- محصول اول -->
-    <div class="product-card fade-in">
-      <img src="IMG_20250829_015040_390.jpg" alt="آویز ۳۵ فروش ماهشین">
-      <div class="product-info">
-        <p><strong>آویز ۳۵ فروش ماهشین</strong><br>(قطره طلا، آلبالو گیلاس، شرابی، میوه مخلوط)</p>
-        <p>رگال: ۱۰ عدد | کارتن: ۱۲ رگال</p>
-        <p>قیمت پایه خرید هر عدد: ۱۷٬۳۰۰ تومان</p>
-        <p>قیمت با ۳٪ نقدی: دانه‌ای ۱۶٬۷۸۱ تومان | کارتن: ۲٬۰۱۳٬۷۲۰ تومان</p>
-        <p>قیمت با طرح حجمی: دانه‌ای ۱۵٬۹۸۱ تومان | کارتن: ۱٬۹۱۷٬۸۲۸ تومان</p>
-        <p style="color:#007c00; font-weight:bold;">✅ این محصول شامل طرح خرید حجمی است (۲۱ کارتن به بالا)</p>
-
-        <div class="cart-calculator">
-          <label for="cartonCount-1">تعداد کارتن:</label>
-          <input type="number" id="cartonCount-1" value="1" min="1" onchange="updatePrice(1, 2013720, 1917828)">
-          <p id="priceLabel-1">قیمت فعلی: ۲٬۰۱۳٬۷۲۰ تومان</p>
-          <p>قیمت نهایی: <span id="finalPrice-1">۲٬۰۱۳٬۷۲۰</span> تومان</p>
-          <button onclick="playClickSound(); addToCart(1, 'آویز ۳۵ فروش ماهشین', 2013720, 1917828)">🛒 افزودن به سبد خرید</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- محصول دوم -->
-    <div class="product-card fade-in">
-      <img src="IMG_20250910_041947_024.jpg" alt="آویز ماهشین ۳۰ فروش">
-      <div class="product-info">
-        <p><strong>آویز ماهشین ۳۰ فروش</strong><br>(آلوچه قرقروتی، آلوچه چیلی، آلوچه ویژه)</p>
-        <p>رگال: ۱۰ عدد | کارتن: ۱۲ رگال</p>
-        <p>قیمت پایه خرید هر عدد: ۱۴٬۸۵۰ تومان</p>
-        <p>قیمت با ۳٪ نقدی: دانه‌ای ۱۴٬۴۰۴ تومان | کارتن: ۱٬۷۲۸٬۵۴۰ تومان</p>
-        <p>قیمت با طرح حجمی: دانه‌ای ۱۳٬۷۱۸ تومان | کارتن: ۱٬۶۴۶٬۱۷۱ تومان</p>
-        <p style="color:#007c00; font-weight:bold;">✅ این محصول شامل طرح خرید حجمی است (۲۱ کارتن به بالا)</p>
-
-        <div class="cart-calculator">
-          <label for="cartonCount-2">تعداد کارتن:</label>
-          <input type="number" id="cartonCount-2" value="1" min="1" onchange="updatePrice(2, 1728540, 1646171)">
-          <p id="priceLabel-2">قیمت فعلی: ۱٬۷۲۸٬۵۴۰ تومان</p>
-          <p>قیمت نهایی: <span id="finalPrice-2">۱٬۷۲۸٬۵۴۰</span> تومان</p>
-          <button onclick="playClickSound(); addToCart(2, 'آویز ماهشین ۳۰ فروش', 1728540, 1646171)">🛒 افزودن به سبد خرید</button>
-        </div>
-      </div>
-    </div>
-
+    <!-- محصولات قرار می‌گیرند -->
   </section>
 
   <section id="cartSection" class="cart-section">
@@ -120,4 +71,33 @@
 
       <div class="branch-card branch1">
         <h5>شعبه ۱ - مشهد</h5>
-        <p>📌[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/Pardis-K/Doctor-Appointment/tree/5da8f6d7847dc7b98f9bbdd1ba83a09a1c39c8ef/views%2Flayout%2Fdoctor.blade.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
+        <p>📌 انتهای توس ۳۳، شقایق ۱</p>
+        <p>👤 مدیریت: جواد کاردان</p>
+        <p>📞 <a href="tel:+989357617350">0935 761 7350</a></p>
+      </div>
+
+      <div class="branch-card branch2">
+        <h5>شعبه ۲ - مشهد</h5>
+        <p>📌 بازار حافظ، غرفه ۱۶۶</p>
+        <p>👤 مدیریت: سیدمجتبی قیامی</p>
+        <p>📞 <a href="tel:+989154353956">0915 435 3956</a></p>
+      </div>
+
+      <div class="branch-card branch3">
+        <h5>شعبه ۳ - مه‌ولات</h5>
+        <p>📌 استان خراسان رضوی، کاشمر، فیض‌آباد، مه‌ولات</p>
+        <p>👤 مدیریت: محمد پیکری</p>
+        <p>📞 <a href="tel:+989334760801">0933 476 0801</a></p>
+      </div>
+
+      <div class="location-map" style="margin-top: 20px;">
+        <p><strong>🗺️ لوکیشن روی نقشه نشان:</strong></p>
+        <a href="https://nshn.ir/44sb1BEQVJJG7S" target="_blank" style="color:#007c00; font-weight:bold;">
+          مشاهده موقعیت پخش آذرخش در نشان
+        </a>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
