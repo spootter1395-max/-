@@ -24,6 +24,16 @@ header {
   50% { opacity: 0.3; }
 }
 
+.dark-toggle {
+  margin-top: 10px;
+  padding: 6px 12px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
 .product-menu {
   padding: 30px;
   background-color: #fff;
@@ -97,4 +107,55 @@ header {
   cursor: pointer;
 }
 .cart-item button:hover {
-  background-color: #800000[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/Pardis-K/Doctor-Appointment/tree/5da8f6d7847dc7b98f9bbdd1ba83a09a1c39c8ef/views%2Flayout%2Fdoctor.blade.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
+  background-color: #800000;
+}
+
+.print-button {
+  background-color: #007c00;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.print-button:hover {
+  background-color: #005a00;
+}
+
+.branch-locations {
+  padding: 20px;
+}
+.branch-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.branch-list li {
+  padding: 6px 0;
+  border-bottom: 1px dashed #ccc;
+  font-size: 15px;
+}
+.location-map a {
+  color: #007c00;
+  font-weight: bold;
+  text-decoration: none;
+}
+.location-map a:hover {
+  text-decoration: underline;
+}
+
+.dark-mode {
+  background-color: #222;
+  color: #eee;
+}
+.dark-mode .product-card {
+  background-color: #333;
+  border-color: #444;
+}
+.dark-mode .cart-section {
+  background-color: #2a2a2a;
+}
+.dark-mode .menu-item {
+  background-color: #444;
+  border-color: #666;
+}
