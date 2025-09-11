@@ -13,6 +13,7 @@
   <header>
     <img src="copilot_image_1756450038118.jpeg" alt="لوگوی پخش آذرخش" width="120">
     <div id="blinking-text">پخش آذرخش — هر روز بهتر از دیروز ⚡</div>
+    <button onclick="toggleDarkMode()" class="dark-toggle">🌙 حالت شب</button>
   </header>
 
   <section class="video-teaser">
@@ -35,7 +36,7 @@
   <section id="mahshin" class="product-section">
 
     <!-- محصول اول -->
-    <div class="product-card">
+    <div class="product-card fade-in">
       <img src="IMG_20250829_015040_390.jpg" alt="آویز ۳۵ فروش ماهشین">
       <div class="product-info">
         <p><strong>آویز ۳۵ فروش ماهشین</strong><br>(قطره طلا، آلبالو گیلاس، شرابی، میوه مخلوط)</p>
@@ -50,13 +51,13 @@
           <input type="number" id="cartonCount-1" value="1" min="1" onchange="updatePrice(1, 2013720, 1917828)">
           <p id="priceLabel-1">قیمت فعلی: ۲٬۰۱۳٬۷۲۰ تومان</p>
           <p>قیمت نهایی: <span id="finalPrice-1">۲٬۰۱۳٬۷۲۰</span> تومان</p>
-          <button onclick="addToCart(1, 'آویز ۳۵ فروش ماهشین', 2013720, 1917828)">🛒 افزودن به سبد خرید</button>
+          <button onclick="playClickSound(); addToCart(1, 'آویز ۳۵ فروش ماهشین', 2013720, 1917828)">🛒 افزودن به سبد خرید</button>
         </div>
       </div>
     </div>
 
     <!-- محصول دوم -->
-    <div class="product-card">
+    <div class="product-card fade-in">
       <img src="IMG_20250910_041947_024.jpg" alt="آویز ماهشین ۳۰ فروش">
       <div class="product-info">
         <p><strong>آویز ماهشین ۳۰ فروش</strong><br>(آلوچه قرقروتی، آلوچه چیلی، آلوچه ویژه)</p>
@@ -71,7 +72,7 @@
           <input type="number" id="cartonCount-2" value="1" min="1" onchange="updatePrice(2, 1728540, 1646171)">
           <p id="priceLabel-2">قیمت فعلی: ۱٬۷۲۸٬۵۴۰ تومان</p>
           <p>قیمت نهایی: <span id="finalPrice-2">۱٬۷۲۸٬۵۴۰</span> تومان</p>
-          <button onclick="addToCart(2, 'آویز ماهشین ۳۰ فروش', 1728540, 1646171)">🛒 افزودن به سبد خرید</button>
+          <button onclick="playClickSound(); addToCart(2, 'آویز ماهشین ۳۰ فروش', 1728540, 1646171)">🛒 افزودن به سبد خرید</button>
         </div>
       </div>
     </div>
@@ -100,5 +101,23 @@
     <button onclick="printInvoice()" class="print-button">🖨️ چاپ فاکتور</button>
   </section>
 
-</body>
-</html>
+  <section class="contact-section">
+    <h3>📞 ارتباط با پخش آذرخش</h3>
+
+    <div class="social-icons">
+      <p><strong>📱 پیوی شخصی:</strong></p>
+      <a href="https://instagram.com/pakhsh_azarakhsh1" target="_blank"><img src="instagram.png" alt="اینستاگرام" width="32"></a>
+      <a href="https://t.me/pakhsh_azarakhshhh" target="_blank"><img src="telegram.png" alt="تلگرام" width="32"></a>
+      <a href="https://rubika.ir/@admin_azarakhsh" target="_blank"><img src="rubika.png" alt="روبیکا پیوی" width="32"></a>
+      <a href="https://wa.me/989154353956" target="_blank"><img src="whatsapp.png" alt="واتساپ" width="32"></a>
+
+      <p><strong>📦 کانال رسمی پخش آذرخش:</strong></p>
+      <a href="https://rubika.ir/@pakhsh_azarakhsh" target="_blank"><img src="rubika.png" alt="روبیکا کانال" width="32"></a>
+    </div>
+
+    <div class="branch-locations" style="margin-top: 40px;">
+      <h4>📍 شعب پخش آذرخش</h4>
+
+      <div class="branch-card branch1">
+        <h5>شعبه ۱ - مشهد</h5>
+        <p>📌[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/Pardis-K/Doctor-Appointment/tree/5da8f6d7847dc7b98f9bbdd1ba83a09a1c39c8ef/views%2Flayout%2Fdoctor.blade.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
