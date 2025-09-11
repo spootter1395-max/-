@@ -6,6 +6,59 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.8;
+  overflow-x: hidden;
+}
+
+/* انیمیشن ورود */
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+  opacity: 0;
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* حالت شب */
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+body.dark-mode header,
+body.dark-mode .product-card,
+body.dark-mode .cart-section,
+body.dark-mode .contact-section,
+body.dark-mode .branch-card {
+  background-color: #1e1e1e;
+  border-color: #333;
+  box-shadow: none;
+}
+body.dark-mode .cart-calculator {
+  background-color: #2a2a2a;
+}
+body.dark-mode .menu-item {
+  background-color: #2a2a2a;
+  border-color: #666;
+}
+body.dark-mode .menu-item:hover {
+  background-color: #333;
+}
+body.dark-mode .whatsapp-button {
+  background-color: #128c7e;
+}
+body.dark-mode .print-button {
+  background-color: #666;
+}
+.dark-toggle {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 999;
 }
 
 /* هدر */
@@ -15,7 +68,6 @@ header {
   background-color: #ffffff;
   border-bottom: 2px solid #ffd700;
 }
-
 #blinking-text {
   font-size: 20px;
   color: #d35400;
@@ -23,7 +75,6 @@ header {
   margin-top: 10px;
   font-weight: bold;
 }
-
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.3; }
@@ -41,13 +92,12 @@ header {
   padding: 30px;
   background-color: #fff;
 }
-
 .menu-icons {
   display: flex;
   justify-content: center;
   gap: 20px;
+  flex-wrap: wrap;
 }
-
 .menu-item {
   cursor: pointer;
   background-color: #f9f9f9;
@@ -59,7 +109,6 @@ header {
   box-shadow: 0 0 8px rgba(0,0,0,0.05);
   transition: 0.3s;
 }
-
 .menu-item:hover {
   background-color: #fffbe6;
   transform: scale(1.05);
@@ -73,7 +122,6 @@ header {
   gap: 20px;
   justify-content: center;
 }
-
 .product-card {
   background-color: #ffffff;
   border: 1px solid #eee;
@@ -83,19 +131,15 @@ header {
   box-shadow: 0 0 6px rgba(0,0,0,0.05);
   transition: 0.3s;
 }
-
 .product-card:hover {
   box-shadow: 0 0 12px rgba(0,0,0,0.1);
 }
-
 .product-card img {
   width: 100%;
   border-radius: 12px;
   margin-bottom: 10px;
   object-fit: cover;
 }
-
-/* اطلاعات محصول */
 .product-info p {
   margin: 6px 0;
 }
@@ -107,13 +151,11 @@ header {
   background-color: #fffbe6;
   border-radius: 8px;
 }
-
 .cart-calculator input {
   width: 80px;
   padding: 4px;
   margin-right: 10px;
 }
-
 .cart-calculator button {
   background-color: #007c00;
   color: white;
@@ -122,8 +164,8 @@ header {
   border-radius: 6px;
   cursor: pointer;
   margin-top: 10px;
+  font-weight: bold;
 }
-
 .cart-calculator button:hover {
   background-color: #005a00;
 }
@@ -134,7 +176,6 @@ header {
   background-color: #fff;
   border-top: 2px solid #ffd700;
 }
-
 .cart-item {
   background-color: #f9f9f9;
   padding: 10px;
@@ -142,7 +183,6 @@ header {
   border-radius: 8px;
   border: 1px solid #ddd;
 }
-
 .cart-item button {
   background-color: #b30000;
   color: white;
@@ -151,7 +191,6 @@ header {
   border-radius: 4px;
   cursor: pointer;
 }
-
 .cart-item button:hover {
   background-color: #800000;
 }
@@ -165,7 +204,6 @@ form input, form textarea {
   border-radius: 6px;
   font-family: inherit;
 }
-
 form button {
   background-color: #007c00;
   color: white;
@@ -175,7 +213,6 @@ form button {
   cursor: pointer;
   font-size: 16px;
 }
-
 form button:hover {
   background-color: #005a00;
 }
@@ -191,11 +228,9 @@ form button:hover {
   font-weight: bold;
   margin-right: 10px;
 }
-
 .whatsapp-button:hover {
   background-color: #1da851;
 }
-
 .print-button {
   background-color: #444;
   color: white;
@@ -206,7 +241,6 @@ form button:hover {
   cursor: pointer;
   font-weight: bold;
 }
-
 .print-button:hover {
   background-color: #222;
 }
@@ -216,13 +250,11 @@ form button:hover {
   margin-bottom: 10px;
   font-size: 14px;
 }
-
 .invoice-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
 }
-
 .invoice-table th,
 .invoice-table td {
   border: 1px solid #ccc;
@@ -230,12 +262,10 @@ form button:hover {
   text-align: center;
   font-size: 14px;
 }
-
 .invoice-table th {
   background-color: #f0f0f0;
   font-weight: bold;
 }
-
 .invoice-signature {
   margin-top: 20px;
   font-size: 14px;
@@ -244,12 +274,10 @@ form button:hover {
   border-radius: 6px;
   border: 1px dashed #aaa;
 }
-
 .invoice-stamp {
   margin-top: 20px;
   text-align: left;
 }
-
 .invoice-watermark {
   text-align: center;
   font-size: 16px;
@@ -259,18 +287,34 @@ form button:hover {
   opacity: 0.6;
 }
 
-/* فقط فاکتور چاپ شود */
-@media print {
-  body * {
-    visibility: hidden;
-  }
-  #invoicePreview, #invoicePreview * {
-    visibility: visible;
-  }
-  #invoicePreview {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-  }
+/* نمادهای ارتباطی */
+.social-icons {
+  text-align: center;
+  margin-top: 20px;
 }
+.social-icons img {
+  margin: 5px;
+  transition: 0.3s ease;
+  vertical-align: middle;
+}
+.social-icons img:hover {
+  transform: scale(1.2);
+}
+
+/* شعب با رنگ آبرنگی */
+.branch-card {
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  color: #333;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+.branch1 {
+  background: linear-gradient(135deg, #fceabb, #f8b500);
+}
+.branch2 {
+  background: linear-gradient(135deg, #d5f3ff, #a0e0ff);
+}
+.branch3 {
+  background: linear
