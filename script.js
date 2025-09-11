@@ -187,6 +187,11 @@ function printInvoice() {
   window.print();
 }
 
+function toggleCategory(id) {
+  const section = document.getElementById(id);
+  section.style.display = section.style.display === 'none' ? 'block' : 'none';
+}
+
 window.onload = () => {
   renderCart();
 };
