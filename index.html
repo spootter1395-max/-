@@ -1,52 +1,121 @@
-<section class="contact-section">
-  <h3>📞 ارتباط با ما</h3>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>پخش آذرخش</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css" rel="stylesheet">
+  <script src="script.js" defer></script>
+</head>
+<body>
 
-  <div class="contact-info">
-    <p><strong>نام مجموعه:</strong> پخش آذرخش قیامی پورباقی</p>
-    <p><strong>آدرس:</strong> مشهد، بلوار وکیل‌آباد، نبش بلوار شهید صادقی</p>
-    <p><strong>لوکیشن ثبت‌شده در نشان:</strong> 
-      <a href="https://nshn.ir/44sb1BEQVJJG7S" target="_blank" class="location-link">مشاهده در نقشه نشان</a>
-    </p>
-  </div>
+  <header>
+    <img src="copilot_image_1756450038118.jpeg" alt="لوگوی پخش آذرخش" width="120">
+    <div id="blinking-text">پخش آذرخش — هر روز بهتر از دیروز ⚡</div>
+  </header>
 
-  <div class="payment-info">
-    <h4>💳 اطلاعات پرداخت</h4>
-    <p>
-      شماره کارت: <span id="cardNumber">5041-7210-6431-4793</span>
-      <button onclick="copyToClipboard('cardNumber')">📋 کپی</button>
-    </p>
-    <p>
-      شماره شبا: <span id="shebaNumber">IR800700010002106686741003</span>
-      <button onclick="copyToClipboard('shebaNumber')">📋 کپی</button>
-    </p>
-  </div>
-
-  <div class="social-icons">
-    <h4>🌐 راه‌های ارتباطی</h4>
-    <p>📱 شخصی:</p>
-    <a href="https://instagram.com/sayyed_qiyami" target="_blank"><img src="instagram.png" alt="اینستاگرام شخصی" width="32"></a>
-    <a href="https://t.me/sayyed_qiyami" target="_blank"><img src="telegram.png" alt="تلگرام شخصی" width="32"></a>
-    <a href="https://wa.me/989154353956" target="_blank"><img src="whatsapp.png" alt="واتساپ شخصی" width="32"></a>
-    <a href="https://rubika.ir/sayyed_qiyami" target="_blank"><img src="rubika.png" alt="روبیکا شخصی" width="32"></a>
-
-    <p>📦 پیج مجموعه:</p>
-    <a href="https://instagram.com/azarakhsh_shop" target="_blank"><img src="instagram.png" alt="اینستاگرام مجموعه" width="32"></a>
-    <a href="https://t.me/azarakhsh_shop" target="_blank"><img src="telegram.png" alt="تلگرام مجموعه" width="32"></a>
-    <a href="https://wa.me/989154353956" target="_blank"><img src="whatsapp.png" alt="واتساپ مجموعه" width="32"></a>
-    <a href="https://rubika.ir/azarakhsh_shop" target="_blank"><img src="rubika.png" alt="روبیکا مجموعه" width="32"></a>
-  </div>
-
-  <div class="video-teaser">
-    <h4>🎬 معرفی مجموعه</h4>
-    <video controls width="100%" style="border-radius:12px;">
+  <section class="video-teaser">
+    <video autoplay muted loop playsinline width="100%" style="border-radius:12px;">
       <source src="teaser.mp4" type="video/mp4">
       مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
     </video>
-  </div>
-</section>
+  </section>
 
-<section id="invoicePreview" class="cart-section">
-  <h3>🧾 پیش‌نمایش فاکتور</h3>
-  <div id="invoiceTable"></div>
-  <button onclick="window.print()">🖨️ چاپ فاکتور</button>
-</section>
+  <section class="product-menu">
+    <h2>📂 دسته‌بندی محصولات</h2>
+    <div class="menu-icons">
+      <div class="menu-item" onclick="toggleCategory('mahshin')">
+        <img src="IMG_۲۰۲۵۰۹۱۰_۰۲۲۱۳۶.jpg" alt="ماهشین" width="40" style="border-radius: 8px;">
+        <p>ماهشین</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="mahshin" class="product-section">
+
+    <!-- محصول اول -->
+    <div class="product-card">
+      <img src="IMG_20250829_015040_390.jpg" alt="آویز ۳۵ فروش ماهشین">
+      <div class="product-info">
+        <p><strong>آویز ۳۵ فروش ماهشین</strong><br>(قطره طلا، آلبالو گیلاس، شرابی، میوه مخلوط)</p>
+        <p>رگال: ۱۰ عدد | کارتن: ۱۲ رگال</p>
+        <p>قیمت پایه خرید هر عدد: ۱۷٬۳۰۰ تومان</p>
+        <p>قیمت با ۳٪ نقدی: دانه‌ای ۱۶٬۷۸۱ تومان | کارتن: ۲٬۰۱۳٬۷۲۰ تومان</p>
+        <p>قیمت با طرح حجمی: دانه‌ای ۱۵٬۹۸۱ تومان | کارتن: ۱٬۹۱۷٬۸۲۸ تومان</p>
+        <p style="color:#007c00; font-weight:bold;">✅ این محصول شامل طرح خرید حجمی است (۲۱ کارتن به بالا)</p>
+
+        <div class="cart-calculator">
+          <label for="cartonCount-1">تعداد کارتن:</label>
+          <input type="number" id="cartonCount-1" value="1" min="1" onchange="updatePrice(1, 2013720, 1917828)">
+          <p id="priceLabel-1">قیمت فعلی: ۲٬۰۱۳٬۷۲۰ تومان</p>
+          <p>قیمت نهایی: <span id="finalPrice-1">۲٬۰۱۳٬۷۲۰</span> تومان</p>
+          <button onclick="addToCart(1, 'آویز ۳۵ فروش ماهشین', 2013720, 1917828)">🛒 افزودن به سبد خرید</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- محصول دوم -->
+    <div class="product-card">
+      <img src="IMG_20250910_041947_024.jpg" alt="آویز ماهشین ۳۰ فروش">
+      <div class="product-info">
+        <p><strong>آویز ماهشین ۳۰ فروش</strong><br>(آلوچه قرقروتی، آلوچه چیلی، آلوچه ویژه)</p>
+        <p>رگال: ۱۰ عدد | کارتن: ۱۲ رگال</p>
+        <p>قیمت پایه خرید هر عدد: ۱۴٬۸۵۰ تومان</p>
+        <p>قیمت با ۳٪ نقدی: دانه‌ای ۱۴٬۴۰۴ تومان | کارتن: ۱٬۷۲۸٬۵۴۰ تومان</p>
+        <p>قیمت با طرح حجمی: دانه‌ای ۱۳٬۷۱۸ تومان | کارتن: ۱٬۶۴۶٬۱۷۱ تومان</p>
+        <p style="color:#007c00; font-weight:bold;">✅ این محصول شامل طرح خرید حجمی است (۲۱ کارتن به بالا)</p>
+
+        <div class="cart-calculator">
+          <label for="cartonCount-2">تعداد کارتن:</label>
+          <input type="number" id="cartonCount-2" value="1" min="1" onchange="updatePrice(2, 1728540, 1646171)">
+          <p id="priceLabel-2">قیمت فعلی: ۱٬۷۲۸٬۵۴۰ تومان</p>
+          <p>قیمت نهایی: <span id="finalPrice-2">۱٬۷۲۸٬۵۴۰</span> تومان</p>
+          <button onclick="addToCart(2, 'آویز ماهشین ۳۰ فروش', 1728540, 1646171)">🛒 افزودن به سبد خرید</button>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="cartSection" class="cart-section">
+    <h3>🧾 فاکتور خرید شما</h3>
+    <div id="cartItems"></div>
+    <p><strong>جمع کل:</strong> <span id="cartTotal">۰</span> تومان</p>
+
+    <form id="customerForm">
+      <h4>📋 اطلاعات مشتری</h4>
+      <input type="text" id="customerName" placeholder="نام و نام خانوادگی" required>
+      <input type="text" id="customerPhone" placeholder="شماره موبایل (مثلاً 0912...)" required>
+      <textarea id="customerNote" placeholder="توضیحات یا آدرس دلخواه"></textarea>
+      <button type="button" onclick="sendInvoice()">📤 ساخت لینک واتساپ</button>
+    </form>
+
+    <div id="whatsappLink" style="margin-top:20px;"></div>
+  </section>
+
+  <section id="invoicePreview" class="cart-section">
+    <h3>🧾 پیش‌نمایش فاکتور</h3>
+    <div id="invoiceTable"></div>
+    <button onclick="printInvoice()" class="print-button">🖨️ چاپ فاکتور</button>
+  </section>
+
+  <section class="contact-section">
+    <h3>📞 ارتباط با ما</h3>
+    <div class="social-icons">
+      <p>📱 شخصی:</p>
+      <a href="https://instagram.com/sayyed_qiyami" target="_blank"><img src="instagram.png" alt="اینستاگرام شخصی" width="32"></a>
+      <a href="https://t.me/sayyed_qiyami" target="_blank"><img src="telegram.png" alt="تلگرام شخصی" width="32"></a>
+      <a href="https://wa.me/989154353956" target="_blank"><img src="whatsapp.png" alt="واتساپ شخصی" width="32"></a>
+      <a href="https://rubika.ir/sayyed_qiyami" target="_blank"><img src="rubika.png" alt="روبیکا شخصی" width="32"></a>
+
+      <p>📦 پیج مجموعه:</p>
+      <a href="https://instagram.com/azarakhsh_shop" target="_blank"><img src="instagram.png" alt="اینستاگرام مجموعه" width="32"></a>
+      <a href="https://t.me/azarakhsh_shop" target="_blank"><img src="telegram.png" alt="تلگرام مجموعه" width="32"></a>
+      <a href="https://wa.me/989154353956" target="_blank"><img src="whatsapp.png" alt="واتساپ مجموعه" width="32"></a>
+      <a href="https://rubika.ir/azarakhsh_shop" target="_blank"><img src="rubika.png" alt="روبیکا مجموعه" width="32"></a>
+    </div>
+  </section>
+
+</body>
+</html>
