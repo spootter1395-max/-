@@ -144,6 +144,21 @@ header {
   text-decoration: underline;
 }
 
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+.invoice-table th,
+.invoice-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+.invoice-table th {
+  background-color: #f0f0f0;
+}
+
 .dark-mode {
   background-color: #222;
   color: #eee;
@@ -158,4 +173,10 @@ header {
 .dark-mode .menu-item {
   background-color: #444;
   border-color: #666;
+}
+.dark-mode .invoice-table th {
+  background-color: #444;
+}
+.dark-mode .invoice-table td {
+  background-color: #2a2a2a;
 }
