@@ -1,189 +1,41 @@
-/* فونت و تنظیمات پایه */
-body {
-  font-family: 'Vazir', sans-serif;
-  background-color: #f9f9f9;
-  margin: 0;
-  padding: 0;
-  direction: rtl;
-  color: #333;
-}
-
-header {
-  text-align: center;
-  padding: 20px;
-  background-color: #fff;
-  border-bottom: 2px solid #eee;
-}
-
-#blinking-text {
-  animation: blink 1s infinite;
-  color: #d90000;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-/* دسته‌بندی محصولات */
-.product-menu {
-  background-color: #fff;
-  padding: 15px;
-  margin: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px #ccc;
-}
-
-.menu-icons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.menu-item {
-  text-align: center;
-  cursor: pointer;
-}
-
-.menu-item img {
-  display: block;
-  margin: 0 auto 5px;
-}
-
-/* کارت محصول */
-.product-section {
-  padding: 10px 20px;
-}
-
-.product-card {
-  background-color: #fff;
-  margin: 20px 0;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px #ccc;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.product-card img {
-  max-width: 200px;
-  border-radius: 12px;
-}
-
-.product-info {
-  flex: 1;
-  min-width: 250px;
-}
-
-/* محاسبه قیمت */
-.cart-calculator {
-  margin-top: 10px;
-}
-
-.cart-calculator input {
-  width: 60px;
-  padding: 5px;
-  margin: 5px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-button {
-  background-color: #007c00;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-button:hover {
-  background-color: #005a00;
-}
-
-/* سبد خرید و فاکتور */
-.cart-section {
-  background-color: #fff;
-  margin: 20px;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px #ccc;
-}
-
-#cartItems p {
-  margin: 8px 0;
-}
-
-#invoiceTable p {
-  margin: 6px 0;
-}
-
-/* فرم مشتری */
-#customerForm input,
-#customerForm textarea {
-  width: 100%;
-  margin: 8px 0;
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-family: 'Vazir', sans-serif;
-}
-
-/* ارتباط با ما */
-.contact-section {
-  background-color: #fff;
-  margin: 20px;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px #ccc;
-}
-
-.payment-info p {
-  margin: 6px 0;
-}
-
-.location-link {
-  color: #007c00;
-  text-decoration: underline;
-}
-
-/* نمادهای ارتباطی */
-.social-icons {
-  margin-top: 10px;
-  text-align: center;
-}
-
-.social-icons img {
-  margin: 5px;
-  vertical-align: middle;
-  transition: 0.3s ease;
-}
-
-.social-icons img:hover {
-  transform: scale(1.2);
-}
-
-/* ویدئو معرفی */
-.video-teaser {
-  margin-top: 20px;
-}
-
-/* چاپ فقط فاکتور */
-@media print {
-  body * {
-    visibility: hidden;
+@media screen and (max-width: 600px) {
+  .product-section {
+    flex-direction: column;
+    align-items: center;
   }
-  #invoicePreview, #invoicePreview * {
-    visibility: visible;
+
+  .product-card {
+    width: 90%;
+    padding: 15px;
   }
-  #invoicePreview {
-    position: absolute;
-    top: 0;
-    left: 0;
+
+  .menu-icons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cart-calculator input {
     width: 100%;
+    margin: 10px 0;
+  }
+
+  form input, form textarea {
+    font-size: 14px;
+  }
+
+  .whatsapp-button, .print-button {
+    width: 100%;
+    margin: 10px 0;
+    font-size: 15px;
+  }
+
+  .invoice-table th, .invoice-table td {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .social-icons img {
+    width: 28px;
+    margin: 4px;
   }
 }
