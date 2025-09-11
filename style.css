@@ -6,16 +6,6 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.8;
-  overflow-x: hidden;
-}
-
-/* انیمیشن ورود */
-.fade-in {
-  animation: fadeIn 0.8s ease forwards;
-  opacity: 0;
-}
-@keyframes fadeIn {
-  to { opacity: 1; }
 }
 
 /* هدر */
@@ -56,7 +46,6 @@ header {
   display: flex;
   justify-content: center;
   gap: 20px;
-  flex-wrap: wrap;
 }
 
 .menu-item {
@@ -133,7 +122,6 @@ header {
   border-radius: 6px;
   cursor: pointer;
   margin-top: 10px;
-  font-weight: bold;
 }
 
 .cart-calculator button:hover {
@@ -271,22 +259,6 @@ form button:hover {
   opacity: 0.6;
 }
 
-/* نمادهای ارتباطی */
-.social-icons {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.social-icons img {
-  margin: 5px;
-  transition: 0.3s ease;
-  vertical-align: middle;
-}
-
-.social-icons img:hover {
-  transform: scale(1.2);
-}
-
 /* فقط فاکتور چاپ شود */
 @media print {
   body * {
@@ -300,48 +272,5 @@ form button:hover {
     top: 0;
     left: 0;
     width: 100%;
-  }
-}
-
-/* حالت موبایل */
-@media screen and (max-width: 600px) {
-  .product-section {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .product-card {
-    width: 90%;
-    padding: 15px;
-  }
-
-  .menu-icons {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .cart-calculator input {
-    width: 100%;
-    margin: 10px 0;
-  }
-
-  form input, form textarea {
-    font-size: 14px;
-  }
-
-  .whatsapp-button, .print-button {
-    width: 100%;
-    margin: 10px 0;
-    font-size: 15px;
-  }
-
-  .invoice-table th, .invoice-table td {
-    font-size: 12px;
-    padding: 6px;
-  }
-
-  .social-icons img {
-    width: 28px;
-    margin: 4px;
   }
 }
