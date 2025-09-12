@@ -16,51 +16,87 @@
     <button onclick="toggleDarkMode()" class="dark-toggle">🌙 حالت شب</button>
   </header>
 
-  <section class="product-section">
+  <section class="product-menu">
+    <h2>📂 دسته‌بندی محصولات</h2>
+    <div class="menu-icons">
+      <div class="menu-item" onclick="toggleCategory('mahshin')">
+        <img src="mahshin.jpg" alt="ماهشین" width="40">
+        <p>ماهشین</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="mahshin" class="product-section">
     <!-- محصول اول -->
-    <div class="product-card">
+    <div class="product-card fade-in">
       <img src="IMG_20250829_015040_390.jpg" alt="آویز ۳۵ فروش ماهشین">
       <div class="product-info">
         <p><strong>آویز ۳۵ فروش ماهشین</strong><br>(قطره طلا، آلبالو گیلاس، شرابی، میوه مخلوط)</p>
         <p>رگال: ۱۰ عدد | کارتن: ۱۲ رگال</p>
-        <p>قیمت پایه: ۱۷٬۳۰۰ تومان | ۳٪ نقدی: ۱۶٬۷۸۱ | حجمی: ۱۵٬۹۸۱</p>
+        <p>قیمت پایه خرید هر عدد: ۱۷٬۳۰۰ تومان</p>
+        <p>قیمت با ۳٪ نقدی: دانه‌ای ۱۶٬۷۸۱ تومان | کارتن: ۲٬۰۱۳٬۷۲۰ تومان</p>
+        <p>قیمت با طرح حجمی: دانه‌ای ۱۵٬۹۸۱ تومان | کارتن: ۱٬۹۱۷٬۸۲۸ تومان</p>
+        <p style="color:#007c00; font-weight:bold;">✅ این محصول شامل طرح خرید حجمی است (۲۱ کارتن به بالا)</p>
         <div class="cart-calculator">
           <label for="cartonCount-1">تعداد کارتن:</label>
           <input type="number" id="cartonCount-1" value="1" min="1" onchange="updatePrice(1, 2013720, 1917828)">
           <p id="priceLabel-1">۳٪ نقدی: ۲٬۰۱۳٬۷۲۰ تومان</p>
           <p>قیمت نهایی: <span id="finalPrice-1">۲٬۰۱۳٬۷۲۰</span> تومان</p>
-          <button onclick="playClickSound(); addToCart(1, 'آویز ۳۵ فروش ماهشین', 2013720, 1917828)">🛒 افزودن</button>
+          <button onclick="playClickSound(); addToCart(1, 'آویز ۳۵ فروش ماهشین', 2013720, 1917828)">🛒 افزودن به سبد خرید</button>
         </div>
       </div>
     </div>
 
     <!-- محصول دوم -->
-    <div class="product-card">
+    <div class="product-card fade-in">
       <img src="IMG_20250910_041947_024.jpg" alt="آویز ماهشین ۳۰ فروش">
       <div class="product-info">
         <p><strong>آویز ماهشین ۳۰ فروش</strong><br>(آلوچه قرقروتی، آلوچه چیلی، آلوچه ویژه)</p>
         <p>رگال: ۱۰ عدد | کارتن: ۱۲ رگال</p>
-        <p>قیمت پایه: ۱۴٬۸۵۰ تومان | ۳٪ نقدی: ۱۴٬۴۰۴ | حجمی: ۱۳٬۷۱۸</p>
+        <p>قیمت پایه خرید هر عدد: ۱۴٬۸۵۰ تومان</p>
+        <p>قیمت با ۳٪ نقدی: دانه‌ای ۱۴٬۴۰۴ تومان | کارتن: ۱٬۷۲۸٬۵۴۰ تومان</p>
+        <p>قیمت با طرح حجمی: دانه‌ای ۱۳٬۷۱۸ تومان | کارتن: ۱٬۶۴۶٬۱۷۱ تومان</p>
+        <p style="color:#007c00; font-weight:bold;">✅ این محصول شامل طرح خرید حجمی است (۲۱ کارتن به بالا)</p>
         <div class="cart-calculator">
           <label for="cartonCount-2">تعداد کارتن:</label>
           <input type="number" id="cartonCount-2" value="1" min="1" onchange="updatePrice(2, 1728540, 1646171)">
           <p id="priceLabel-2">۳٪ نقدی: ۱٬۷۲۸٬۵۴۰ تومان</p>
           <p>قیمت نهایی: <span id="finalPrice-2">۱٬۷۲۸٬۵۴۰</span> تومان</p>
-          <button onclick="playClickSound(); addToCart(2, 'آویز ماهشین ۳۰ فروش', 1728540, 1646171)">🛒 افزودن</button>
+          <button onclick="playClickSound(); addToCart(2, 'آویز ماهشین ۳۰ فروش', 1728540, 1646171)">🛒 افزودن به سبد خرید</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- محصول سوم -->
+    <div class="product-card fade-in">
+      <img src="IMG_20250912_141504_867.jpg" alt="لیوانی ۳۵ مصرف میکس شهددار ماهشین">
+      <div class="product-info">
+        <p><strong>لیوانی ۳۵ مصرف میکس شهددار ماهشین</strong><br>(بسته ۲۰ عددی | ۳ بسته در هر کارتن = ۶۰ عدد)</p>
+        <p>قیمت پایه هر عدد: ۱۷٬۲۵۰ تومان | بسته: ۳۴۵٬۰۰۰ تومان | کارتن: ۱٬۰۳۵٬۰۰۰ تومان</p>
+        <p>قیمت با ۳٪ نقدی: دانه‌ای ۱۶٬۷۳۲ تومان | بسته: ۳۳۴٬۶۵۰ تومان | کارتن: ۱٬۰۰۳٬۹۵۰ تومان</p>
+        <p>قیمت با طرح تشویقی: دانه‌ای ۱۵٬۹۳۵ تومان | بسته: ۳۱۸٬۷۹۴ تومان | کارتن: ۹۵۶٬۱۱۴ تومان</p>
+        <p style="color:#007c00; font-weight:bold;">✅ طرح تشویقی: ۲۰ کارتن + ۱ کارتن اشانتیون</p>
+        <div class="cart-calculator">
+          <label for="cartonCount-3">تعداد کارتن:</label>
+          <input type="number" id="cartonCount-3" value="1" min="1" onchange="updatePrice(3, 1003950, 956114)">
+          <p id="priceLabel-3">۳٪ نقدی: ۱٬۰۰۳٬۹۵۰ تومان</p>
+          <p>قیمت نهایی: <span id="finalPrice-3">۱٬۰۰۳٬۹۵۰</span> تومان</p>
+          <button onclick="playClickSound(); addToCart(3, 'لیوانی ۳۵ مصرف میکس شهددار ماهشین', 1003950, 956114)">🛒 افزودن به سبد خرید</button>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="cart-section">
-    <h3>🧾 فاکتور خرید</h3>
+  <section id="cartSection" class="cart-section">
+    <h3>🧾 فاکتور خرید شما</h3>
     <div id="cartItems"></div>
     <p><strong>جمع کل:</strong> <span id="cartTotal">۰</span> تومان</p>
 
     <form id="customerForm">
-      <input type="text" id="customerName" placeholder="نام مشتری" required>
+      <h4>📋 اطلاعات مشتری</h4>
+      <input type="text" id="customerName" placeholder="نام و نام خانوادگی" required>
       <input type="text" id="customerPhone" placeholder="شماره موبایل" required>
-      <textarea id="customerNote" placeholder="توضیحات"></textarea>
+      <textarea id="customerNote" placeholder="توضیحات یا آدرس دلخواه"></textarea>
       <button type="button" onclick="sendInvoice()">📤 ساخت لینک واتساپ</button>
     </form>
 
@@ -73,5 +109,5 @@
     <button onclick="printInvoice()" class="print-button">🖨️ چاپ فاکتور</button>
   </section>
 
-</body>
-</html>
+  <section class="branch-locations">
+    <h4>📍 شعب پخش آذرخش</h4[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/Pardis-K/Doctor-Appointment/tree/5da8f6d7847dc7b98f9bbdd1ba83a09a1c39c8ef/views%2Flayout%2Fdoctor.blade.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
