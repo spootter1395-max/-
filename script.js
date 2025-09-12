@@ -1,25 +1,11 @@
-امل و تست‌شده‌ی فایل‌های script.js و style.css رو برات می‌فرستم که کاملاً هماهنگ با index.html هستن. همه قابلیت‌ها مثل محاسبه قیمت، افزودن به سبد خرید، ساخت لینک واتساپ، پیش‌نمایش فاکتور، حالت شب، افکت صوتی و طراحی حرفه‌ای داخلشون هست.
-
-🟥 script.js — نسخه نهایی و کامل
 let cart = [];
 
 function updatePrice(productId, discountPrice, promoPrice) {
   const count = parseInt(document.getElementById(`cartonCount-${productId}`).value);
   if (isNaN(count) || count <= 0) return;
 
-  let pricePerCarton, priceType;
-
-  if (productId === 3 && count >= 20) {
-    pricePerCarton = Math.round(promoPrice * 0.97);
-    priceType = 'طرح تشویقی';
-  } else if (count >= 21) {
-    pricePerCarton = Math.round(promoPrice * 0.97);
-    priceType = 'طرح حجمی';
-  } else {
-    pricePerCarton = discountPrice;
-    priceType = '۳٪ نقدی';
-  }
-
+  let pricePerCarton = count >= 21 ? Math.round(promoPrice * 0.97) : discountPrice;
+  let priceType = count >= 21 ? 'طرح حجمی' : '۳٪ نقدی';
   const total = pricePerCarton * count;
 
   document.getElementById(`priceLabel-${productId}`).innerText =
@@ -31,101 +17,13 @@ function addToCart(productId, productName, discountPrice, promoPrice) {
   const count = parseInt(document.getElementById(`cartonCount-${productId}`).value);
   if (isNaN(count) || count <= 0) return;
 
-  let pricePerCarton, priceType;
-
-  if (productId === 3 && count >= 20) {
-    pricePerCarton = Math.round(promoPrice * 0.97);
-    priceType = 'طرح تشویقی';
-  } else if (count >= 21) {
-    pricePerCarton = Math.round(promoPrice * 0.97);
-    priceType = 'طرح حجمی';
-  } else {
-    pricePerCarton = discountPrice;
-    priceType = '۳٪ نقدی';
-  }
-
-  let unitPrice, packPrice;
-  if (productId === 3) {
-    unitPrice = Math.round(pricePerCarton / 60);
-    packPrice = Math.round(pricePerCarton / 3);
-  } else {
-    unitPrice = Math.round(pricePerCarton / 12);
-    packPrice = '-';
-  }
+  let pricePerCarton = count >= 21 ? Math.round(promoPrice * 0.97) : discountPrice;
+  let priceType = count >= 21 ? 'طرح حجمی' : '۳٪ نقدی';
+  let unitPrice = Math.round(pricePerCarton / 12);
 
   const total = pricePerCarton * count;
 
-  cart.push({ productId, name: productName, count, unitPrice, packPrice, price: pricePerCarton, total, priceType });
-  renderCart();
-}
-
-function renderCart() {
-  const container = document.getElementById('cartItems');
-  container.innerHTML = '';
-  let total = 0;
-
-  cart.forEach((item, index) => {
-    total += item.total;
-    container.innerHTML += `
-      <div class=
-حتماً سید جان 💼 الان نسخه‌های کامل و تست‌شده‌ی فایل‌های script.js و style.css رو برات می‌فرستم که کاملاً هماهنگ با index.html هستن. همه قابلیت‌ها مثل محاسبه قیمت، افزودن به سبد خرید، ساخت لینک واتساپ، پیش‌نمایش فاکتور، حالت شب، افکت صوتی و طراحی حرفه‌ای داخلشون هست.
-
-🟥 script.js — نسخه نهایی و کامل
-let cart = [];
-
-function updatePrice(productId, discountPrice, promoPrice) {
-  const count = parseInt(document.getElementById(`cartonCount-${productId}`).value);
-  if (isNaN(count) || count <= 0) return;
-
-  let pricePerCarton, priceType;
-
-  if (productId === 3 && count >= 20) {
-    pricePerCarton = Math.round(promoPrice * 0.97);
-    priceType = 'طرح تشویقی';
-  } else if (count >= 21) {
-    pricePerCarton = Math.round(promoPrice * 0.97);
-    priceType = 'طرح حجمی';
-  } else {
-    pricePerCarton = discountPrice;
-    priceType = '۳٪ نقدی';
-  }
-
-  const total = pricePerCarton * count;
-
-  document.getElementById(`priceLabel-${productId}`).innerText =
-    `${priceType}: ${pricePerCarton.toLocaleString('fa-IR')} تومان`;
-  document.getElementById(`finalPrice-${productId}`).innerText = total.toLocaleString('fa-IR');
-}
-
-function addToCart(productId, productName, discountPrice, promoPrice) {
-  const count = parseInt(document.getElementById(`cartonCount-${productId}`).value);
-  if (isNaN(count) || count <= 0) return;
-
-  let pricePerCarton, priceType;
-
-  if (productId === 3 && count >= 20) {
-    pricePerCarton = Math.round(promoPrice * 0.97);
-    priceType = 'طرح تشویقی';
-  } else if (count >= 21) {
-    pricePerCarton = Math.round(promoPrice * 0.97);
-    priceType = 'طرح حجمی';
-  } else {
-    pricePerCarton = discountPrice;
-    priceType = '۳٪ نقدی';
-  }
-
-  let unitPrice, packPrice;
-  if (productId === 3) {
-    unitPrice = Math.round(pricePerCarton / 60);
-    packPrice = Math.round(pricePerCarton / 3);
-  } else {
-    unitPrice = Math.round(pricePerCarton / 12);
-    packPrice = '-';
-  }
-
-  const total = pricePerCarton * count;
-
-  cart.push({ productId, name: productName, count, unitPrice, packPrice, price: pricePerCarton, total, priceType });
+  cart.push({ productId, name: productName, count, unitPrice, price: pricePerCarton, total, priceType });
   renderCart();
 }
 
@@ -138,13 +36,16 @@ function renderCart() {
     total += item.total;
     container.innerHTML += `
       <div class="cart-item">
-        <p>${item.name} - ${item.count} کارتن - ${item.total.toLocaleString('fa-IR')} تومان</p>
+        <p>${item.name} | ${item.count} کارتن</p>
+        <p>قیمت هر عدد: ${item.unitPrice.toLocaleString('fa-IR')} تومان</p>
+        <p>قیمت کل: ${item.total.toLocaleString('fa-IR')} تومان</p>
+        <p>نوع قیمت: ${item.priceType}</p>
         <button onclick="removeFromCart(${index})">❌ حذف</button>
       </div>
     `;
   });
 
-  document.getElementById('cartTotal').innerText = `💰 جمع کل: ${total.toLocaleString('fa-IR')} تومان`;
+  document.getElementById('cartTotal').innerText = total.toLocaleString('fa-IR');
 }
 
 function removeFromCart(index) {
@@ -152,125 +53,29 @@ function removeFromCart(index) {
   renderCart();
 }
 
-function generateWhatsAppLink() {
+function sendInvoice() {
   const name = document.getElementById('customerName').value.trim();
   const phone = document.getElementById('customerPhone').value.trim();
   const note = document.getElementById('customerNote').value.trim();
 
   if (!name || !phone) {
-    alert("لطفاً نام و شماره موبایل را وارد کنید.");
+    alert("نام و شماره موبایل الزامی است.");
     return;
   }
 
-  let message = `🧾 فاکتور خرید
-👤 مشتری: ${name}
-📱 موبایل: ${phone}
-`;
-  if (note) message += `📝 توضیحات: ${note}
-`;
+  let message = `🧾 فاکتور خرید\n👤 مشتری: ${name}\n📱 موبایل: ${phone}\n`;
+  if (note) message += `📝 توضیحات: ${note}\n`;
 
   let total = 0;
   cart.forEach(item => {
-    message += `• ${item.name} - ${item.count} کارتن - ${item.total.toLocaleString('fa-IR')} تومان
-`;
+    message += `• ${item.name} - ${item.count} کارتن - ${item.total.toLocaleString('fa-IR')} تومان\n`;
     total += item.total;
   });
 
-  message += `
-💰 جمع کل: ${total.toLocaleString('fa-IR')} تومان`;
+  message += `\n💰 جمع کل: ${total.toLocaleString('fa-IR')} تومان`;
 
   const encoded = encodeURIComponent(message);
   const sellerPhone = "989154353956";
   const url = `https://wa.me/${sellerPhone}?text=${encoded}`;
 
-  document.getElementById('whatsappLink').innerHTML = `
-    <p style="color:green; font-weight:bold;">✅ فاکتور آماده شد:</p>
-    <a href="${url}" target="_blank" class="whatsapp-button">📤 ارسال در واتساپ</a>
-    <button onclick="printInvoice()" class="print-button">🖨️ چاپ فاکتور</button>
-  `;
-
-  renderInvoiceTable({ customer: { name, phone, note }, items: cart, total });
-  cart = [];
-  renderCart();
-  document.getElementById('customerForm').reset();
-}
-
-function renderInvoiceTable(order) {
-  const container = document.getElementById('invoiceTable');
-  const invoiceNumber = 'AZ-' + Date.now().toString().slice(-6);
-  const today = new Date().toLocaleDateString('fa-IR');
-
-  let html = `
-    <div class="invoice-header">
-      <p><strong>شماره فاکتور:</strong> ${invoiceNumber}</p>
-      <p><strong>تاریخ:</strong> ${today}</p>
-    </div>
-    <table class="invoice-table">
-      <thead>
-        <tr>
-          <th>ردیف</th>
-          <th>نام کالا</th>
-          <th>تعداد کارتن</th>
-          <th>تعداد بسته</th>
-          <th>تعداد عدد</th>
-          <th>قیمت هر عدد</th>
-          <th>قیمت هر بسته</th>
-          <th>قیمت کارتن</th>
-          <th>قیمت کل</th>
-          <th>نوع قیمت</th>
-        </tr>
-      </thead>
-      <tbody>
-  `;
-
-  order.items.forEach((item, i) => {
-    const totalUnits = item.productId === 3 ? item.count * 60 : item.count * 12;
-    const totalPacks = item.productId === 3 ? item.count * 3 : '-';
-    html += `
-      <tr>
-        <td>${i + 1}</td>
-        <td>${item.name}</td>
-        <td>${item.count}</td>
-        <td>${totalPacks}</td>
-        <td>${totalUnits}</td>
-        <td>${item.unitPrice.toLocaleString('fa-IR')}</td>
-        <td>${item.packPrice !== '-' ? item.packPrice.toLocaleString('fa-IR') : '-'}</td>
-        <td>${item.price.toLocaleString('fa-IR')}</td>
-        <td>${item.total.toLocaleString('fa-IR')}</td>
-        <td>${item.priceType}</td>
-      </tr>
-    `;
-  });
-
-  html += `
-      </tbody>
-    </table>
-    <p><strong>💰 جمع کل:</strong> ${order.total.toLocaleString('fa-IR')} تومان</p>
-    <p><strong>👤 مشتری:</strong> ${order.customer.name} | 📱 ${order.customer.phone}</p>
-  `;
-
-  if (order.customer.note) {
-    html += `<p><strong>📝 توضیحات:</strong> ${order.customer.note}</p>`;
-  }
-
-  html += `
-    <div class="invoice-signature">
-      <p>شماره کارت جهت پرداخت: <strong>5041 7211 1312 8343</strong> به نام <strong>قیامی</strong></p>
-    </div>
-  `;
-
-  container.innerHTML = html;
-}
-
-function printInvoice() {
-  window.print();
-}
-
-function toggleDarkMode() {
-  document.body.classList.toggle('dark-mode');
-}
-
-function playClickSound() {
-  const audio = new Audio('click.mp3');
-  audio.play();
-}
+  document.getElement[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/Pardis-K/Doctor-Appointment/tree/5da8f6d7847dc7b98f9bbdd1ba83a09a1c39c8ef/views%2Flayout%2Fdoctor.blade.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
