@@ -124,6 +124,7 @@ header {
 
 .branch-locations {
   padding: 20px;
+  background-color: #fff;
 }
 .branch-list {
   list-style: none;
