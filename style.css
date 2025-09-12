@@ -1,3 +1,4 @@
+/* فونت و رنگ پایه */
 body {
   font-family: 'Vazir', Tahoma, sans-serif;
   background-color: #fefefe;
@@ -7,43 +8,46 @@ body {
   line-height: 1.8;
 }
 
+/* هدر */
 header {
   text-align: center;
   padding: 20px;
   background-color: #ffffff;
   border-bottom: 2px solid #ffd700;
 }
+
 #blinking-text {
   font-size: 20px;
   color: #d35400;
   animation: blink 1.2s infinite;
+  margin-top: 10px;
   font-weight: bold;
 }
+
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.3; }
 }
 
-.dark-toggle {
-  margin-top: 10px;
-  padding: 6px 12px;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+/* ویدیو */
+.video-teaser {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
+/* منوی دسته‌بندی */
 .product-menu {
   padding: 30px;
   background-color: #fff;
 }
+
 .menu-icons {
   display: flex;
   justify-content: center;
   gap: 20px;
-  flex-wrap: wrap;
 }
+
 .menu-item {
   cursor: pointer;
   background-color: #f9f9f9;
@@ -55,11 +59,13 @@ header {
   box-shadow: 0 0 8px rgba(0,0,0,0.05);
   transition: 0.3s;
 }
+
 .menu-item:hover {
   background-color: #fffbe6;
   transform: scale(1.05);
 }
 
+/* محصولات */
 .product-section {
   padding: 20px;
   display: flex;
@@ -67,6 +73,7 @@ header {
   gap: 20px;
   justify-content: center;
 }
+
 .product-card {
   background-color: #ffffff;
   border: 1px solid #eee;
@@ -76,9 +83,11 @@ header {
   box-shadow: 0 0 6px rgba(0,0,0,0.05);
   transition: 0.3s;
 }
+
 .product-card:hover {
   box-shadow: 0 0 12px rgba(0,0,0,0.1);
 }
+
 .product-card img {
   width: 100%;
   border-radius: 12px;
@@ -86,11 +95,46 @@ header {
   object-fit: cover;
 }
 
+/* اطلاعات محصول */
+.product-info p {
+  margin: 6px 0;
+}
+
+/* محاسبه قیمت */
+.cart-calculator {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #fffbe6;
+  border-radius: 8px;
+}
+
+.cart-calculator input {
+  width: 80px;
+  padding: 4px;
+  margin-right: 10px;
+}
+
+.cart-calculator button {
+  background-color: #007c00;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.cart-calculator button:hover {
+  background-color: #005a00;
+}
+
+/* سبد خرید و فاکتور */
 .cart-section {
   padding: 20px;
   background-color: #fff;
   border-top: 2px solid #ffd700;
 }
+
 .cart-item {
   background-color: #f9f9f9;
   padding: 10px;
@@ -98,6 +142,7 @@ header {
   border-radius: 8px;
   border: 1px solid #ddd;
 }
+
 .cart-item button {
   background-color: #b30000;
   color: white;
@@ -106,107 +151,126 @@ header {
   border-radius: 4px;
   cursor: pointer;
 }
+
 .cart-item button:hover {
   background-color: #800000;
 }
 
-.print-button {
-  background-color: #007c00;
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-.print-button:hover {
-  background-color: #005a00;
-}
-
-.whatsapp-button {
-  background-color: #25d366;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 6px;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 10px;
-}
-.whatsapp-button:hover {
-  background-color: #1ebe57;
-}
-
-.branch-locations {
-  padding: 20px;
-  background-color: #fff;
-}
-.branch-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.branch-list li {
-  padding: 6px 0;
-  border-bottom: 1px dashed #ccc;
-  font-size: 15px;
-}
-.location-map a {
-  color: #007c00;
-  font-weight: bold;
-  text-decoration: none;
-}
-.location-map a:hover {
-  text-decoration: underline;
-}
-
-.invoice-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-.invoice-table th,
-.invoice-table td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: center;
-}
-.invoice-table th {
-  background-color: #f0f0f0;
-}
-
-input, textarea {
+/* فرم مشتری */
+form input, form textarea {
   width: 100%;
   padding: 8px;
-  margin-top: 6px;
-  margin-bottom: 12px;
+  margin: 6px 0;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-family: inherit;
 }
 
-.dark-mode {
+form button {
+  background-color: #007c00;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+form button:hover {
+  background-color: #005a00;
+}
+
+/* دکمه واتساپ و چاپ */
+.whatsapp-button {
+  display: inline-block;
+  background-color: #25D366;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.whatsapp-button:hover {
+  background-color: #1da851;
+}
+
+.print-button {
+  background-color: #444;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.print-button:hover {
   background-color: #222;
-  color: #eee;
 }
-.dark-mode .product-card {
-  background-color: #333;
-  border-color: #444;
+
+/* فاکتور */
+.invoice-header {
+  margin-bottom: 10px;
+  font-size: 14px;
 }
-.dark-mode .cart-section {
-  background-color: #2a2a2a;
+
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
 }
-.dark-mode .menu-item {
-  background-color: #444;
-  border-color: #666;
+
+.invoice-table th,
+.invoice-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+  font-size: 14px;
 }
-.dark-mode .invoice-table th {
-  background-color: #444;
+
+.invoice-table th {
+  background-color: #f0f0f0;
+  font-weight: bold;
 }
-.dark-mode .invoice-table td {
-  background-color: #2a2a2a;
+
+.invoice-signature {
+  margin-top: 20px;
+  font-size: 14px;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px dashed #aaa;
 }
-.dark-mode input,
-.dark-mode textarea {
-  background-color: #333;
-  color: #eee;
-  border-color: #555;
+
+.invoice-stamp {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.invoice-watermark {
+  text-align: center;
+  font-size: 16px;
+  color: #999;
+  font-weight: bold;
+  margin-bottom: 10px;
+  opacity: 0.6;
+}
+
+/* فقط فاکتور چاپ شود */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #invoicePreview, #invoicePreview * {
+    visibility: visible;
+  }
+  #invoicePreview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
 }
