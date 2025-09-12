@@ -4,8 +4,20 @@ function updatePrice(productId, discountPrice, promoPrice) {
   const count = parseInt(document.getElementById(`cartonCount-${productId}`).value);
   if (isNaN(count) || count <= 0) return;
 
-  let pricePerCarton = count >= 21 ? Math.round(promoPrice * 0.97) : discountPrice;
-  let priceType = count >= 21 ? 'طرح تشویقی' : '۳٪ نقدی';
+  let pricePerCarton;
+  let priceType;
+
+  if (productId === 3 && count >= 20) {
+    pricePerCarton = Math.round(promoPrice * 0.97);
+    priceType = 'طرح تشویقی';
+  } else if (count >= 21) {
+    pricePerCarton = Math.round(promoPrice * 0.97);
+    priceType = 'طرح حجمی';
+  } else {
+    pricePerCarton = discountPrice;
+    priceType = '۳٪ نقدی';
+  }
+
   const total = pricePerCarton * count;
 
   document.getElementById(`priceLabel-${productId}`).innerText =
@@ -17,8 +29,20 @@ function addToCart(productId, productName, discountPrice, promoPrice) {
   const count = parseInt(document.getElementById(`cartonCount-${productId}`).value);
   if (isNaN(count) || count <= 0) return;
 
-  let pricePerCarton = count >= 21 ? Math.round(promoPrice * 0.97) : discountPrice;
-  let priceType = count >= 21 ? 'طرح تشویقی' : '۳٪ نقدی';
+  let pricePerCarton;
+  let priceType;
+
+  if (productId === 3 && count >= 20) {
+    pricePerCarton = Math.round(promoPrice * 0.97);
+    priceType = 'طرح تشویقی';
+  } else if (count >= 21) {
+    pricePerCarton = Math.round(promoPrice * 0.97);
+    priceType = 'طرح حجمی';
+  } else {
+    pricePerCarton = discountPrice;
+    priceType = '۳٪ نقدی';
+  }
+
   const unitPrice = Math.round(pricePerCarton / 12);
   const total = pricePerCarton * count;
 
