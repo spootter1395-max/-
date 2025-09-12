@@ -122,6 +122,19 @@ header {
   background-color: #005a00;
 }
 
+.whatsapp-button {
+  background-color: #25d366;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+}
+.whatsapp-button:hover {
+  background-color: #1ebe57;
+}
+
 .branch-locations {
   padding: 20px;
   background-color: #fff;
@@ -160,6 +173,16 @@ header {
   background-color: #f0f0f0;
 }
 
+input, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: inherit;
+}
+
 .dark-mode {
   background-color: #222;
   color: #eee;
@@ -180,4 +203,10 @@ header {
 }
 .dark-mode .invoice-table td {
   background-color: #2a2a2a;
+}
+.dark-mode input,
+.dark-mode textarea {
+  background-color: #333;
+  color: #eee;
+  border-color: #555;
 }
