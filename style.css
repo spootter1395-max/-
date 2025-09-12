@@ -34,6 +34,32 @@ header {
   cursor: pointer;
 }
 
+.product-menu {
+  padding: 30px;
+  background-color: #fff;
+}
+.menu-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.menu-item {
+  cursor: pointer;
+  background-color: #f9f9f9;
+  border: 2px solid #ffd700;
+  border-radius: 12px;
+  padding: 12px;
+  width: 100px;
+  text-align: center;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+.menu-item:hover {
+  background-color: #fffbe6;
+  transform: scale(1.05);
+}
+
 .product-section {
   padding: 20px;
   display: flex;
@@ -48,6 +74,10 @@ header {
   padding: 20px;
   width: 320px;
   box-shadow: 0 0 6px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+.product-card:hover {
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
 }
 .product-card img {
   width: 100%;
@@ -105,6 +135,29 @@ header {
   background-color: #1ebe57;
 }
 
+.branch-locations {
+  padding: 20px;
+  background-color: #fff;
+}
+.branch-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.branch-list li {
+  padding: 6px 0;
+  border-bottom: 1px dashed #ccc;
+  font-size: 15px;
+}
+.location-map a {
+  color: #007c00;
+  font-weight: bold;
+  text-decoration: none;
+}
+.location-map a:hover {
+  text-decoration: underline;
+}
+
 .invoice-table {
   width: 100%;
   border-collapse: collapse;
@@ -140,6 +193,10 @@ input, textarea {
 }
 .dark-mode .cart-section {
   background-color: #2a2a2a;
+}
+.dark-mode .menu-item {
+  background-color: #444;
+  border-color: #666;
 }
 .dark-mode .invoice-table th {
   background-color: #444;
