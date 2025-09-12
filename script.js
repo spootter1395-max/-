@@ -4,8 +4,7 @@ function updatePrice(productId, discountPrice, promoPrice) {
   const count = parseInt(document.getElementById(`cartonCount-${productId}`).value);
   if (isNaN(count) || count <= 0) return;
 
-  let pricePerCarton;
-  let priceType;
+  let pricePerCarton, priceType;
 
   if (productId === 3 && count >= 20) {
     pricePerCarton = Math.round(promoPrice * 0.97);
@@ -29,8 +28,7 @@ function addToCart(productId, productName, discountPrice, promoPrice) {
   const count = parseInt(document.getElementById(`cartonCount-${productId}`).value);
   if (isNaN(count) || count <= 0) return;
 
-  let pricePerCarton;
-  let priceType;
+  let pricePerCarton, priceType;
 
   if (productId === 3 && count >= 20) {
     pricePerCarton = Math.round(promoPrice * 0.97);
@@ -43,10 +41,18 @@ function addToCart(productId, productName, discountPrice, promoPrice) {
     priceType = '۳٪ نقدی';
   }
 
-  const unitPrice = Math.round(pricePerCarton / 12);
+  let unitPrice, packPrice;
+  if (productId === 3) {
+    unitPrice = Math.round(pricePerCarton / 60);
+    packPrice = Math.round(pricePerCarton / 3);
+  } else {
+    unitPrice = Math.round(pricePerCarton / 12);
+    packPrice = '-';
+  }
+
   const total = pricePerCarton * count;
 
-  cart.push({ name: productName, count, unitPrice, price: pricePerCarton, total, priceType });
+  cart.push({ productId, name: productName, count, unitPrice, packPrice, price: pricePerCarton, total, priceType });
   renderCart();
 }
 
@@ -62,6 +68,7 @@ function renderCart() {
         <p>${item.name} | ${item.count} کارتن</p>
         <p>قیمت کارتن: ${item.price.toLocaleString('fa-IR')} تومان</p>
         <p>قیمت هر عدد: ${item.unitPrice.toLocaleString('fa-IR')} تومان</p>
+        ${item.packPrice !== '-' ? `<p>قیمت هر بسته: ${item.packPrice.toLocaleString('fa-IR')} تومان</p>` : ''}
         <p>قیمت کل: ${item.total.toLocaleString('fa-IR')} تومان</p>
         <p>نوع قیمت: ${item.priceType}</p>
         <button onclick="removeFromCart(${index})">❌ حذف</button>
@@ -131,9 +138,11 @@ function renderInvoiceTable(order) {
           <th>نام کالا</th>
           <th>تعداد کارتن</th>
           <th>تعداد بسته</th>
+          <th>تعداد عدد</th>
           <th>قیمت هر عدد</th>
+          <th>قیمت هر بسته</th>
           <th>قیمت کارتن</th>
-          <th>قیمت نهایی</th>
+          <th>قیمت کل</th>
           <th>نوع قیمت</th>
         </tr>
       </thead>
@@ -141,14 +150,17 @@ function renderInvoiceTable(order) {
   `;
 
   order.items.forEach((item, i) => {
-    const totalUnits = item.count * 12;
+    const totalUnits = item.productId === 3 ? item.count * 60 : item.count * 12;
+    const totalPacks = item.productId === 3 ? item.count * 3 : '-';
     html += `
       <tr>
         <td>${i + 1}</td>
         <td>${item.name}</td>
         <td>${item.count}</td>
+        <td>${totalPacks}</td>
         <td>${totalUnits}</td>
         <td>${item.unitPrice.toLocaleString('fa-IR')}</td>
+        <td>${item.packPrice !== '-' ? item.packPrice.toLocaleString('fa-IR') : '-'}</td>
         <td>${item.price.toLocaleString('fa-IR')}</td>
         <td>${item.total.toLocaleString('fa-IR')}</td>
         <td>${item.priceType}</td>
@@ -177,18 +189,3 @@ function renderInvoiceTable(order) {
 }
 
 function printInvoice() {
-  window.print();
-}
-
-function toggleDarkMode() {
-  document.body.classList.toggle('dark-mode');
-}
-
-function playClickSound() {
-  const audio = new Audio('click.mp3');
-  audio.play();
-}
-
-window.onload = () => {
-  renderCart();
-};
