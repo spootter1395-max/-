@@ -1,130 +1,72 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>پخش آذرخش</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css" rel="stylesheet">
-  <script src="script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>فاکتور فروش آذرخش</title>
+  <style>
+    body { font-family: 'Vazir', sans-serif; background-color: #f9f9f9; margin: 0; padding: 0; }
+    .dark-mode { background-color: #121212; color: #f1f1f1; }
+    .container { max-width: 800px; margin: auto; padding: 20px; }
+    input, button, select, textarea { font-family: inherit; padding: 8px; margin: 5px 0; border: 1px solid #ccc; border-radius: 4px; }
+    button { cursor: pointer; background-color: #007bff; color: white; border: none; }
+    button:hover { background-color: #0056b3; }
+    .whatsapp-button { display: inline-block; padding: 10px 15px; background-color: #25D366; color: white; text-decoration: none; border-radius: 5px; }
+    .print-button { margin-top: 10px; background-color: #28a745; }
+    .invoice-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    .invoice-table th, .invoice-table td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+    .invoice-header { margin-bottom: 10px; }
+    .invoice-signature { margin-top: 20px; font-weight: bold; }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <h2>🧾 فرم سفارش آذرخش</h2>
 
-  <header>
-    <img src="logo.jpeg" alt="لوگوی پخش آذرخش" width="120">
-    <div id="blinking-text">پخش آذرخش — هر روز بهتر از دیروز ⚡</div>
-    <button onclick="toggleDarkMode()" class="dark-toggle">🌙 حالت شب</button>
-  </header>
-
-  <section class="product-menu">
-    <h2>📂 دسته‌بندی محصولات</h2>
-    <div class="menu-icons">
-      <div class="menu-item" onclick="toggleCategory('mahshin')">
-        <img src="mahshin.jpg" alt="ماهشین" width="40">
-        <p>ماهشین</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="mahshin" class="product-section">
-    <!-- محصول اول -->
-    <div class="product-card fade-in">
-      <img src="IMG_20250829_015040_390.jpg" alt="آویز ۳۵ فروش ماهشین">
-      <div class="product-info">
-        <p><strong>آویز ۳۵ فروش ماهشین</strong><br>(قطره طلا، آلبالو گیلاس، شرابی، میوه مخلوط)</p>
-        <p>رگال: ۱۰ عدد | کارتن: ۱۲ رگال</p>
-        <p>قیمت پایه خرید هر عدد: ۱۷٬۳۰۰ تومان</p>
-        <p>قیمت با ۳٪ نقدی: دانه‌ای ۱۶٬۷۸۱ تومان | کارتن: ۲٬۰۱۳٬۷۲۰ تومان</p>
-        <p>قیمت با طرح حجمی: دانه‌ای ۱۵٬۹۸۱ تومان | کارتن: ۱٬۹۱۷٬۸۲۸ تومان</p>
-        <p style="color:#007c00; font-weight:bold;">✅ این محصول شامل طرح خرید حجمی است (۲۱ کارتن به بالا)</p>
-        <div class="cart-calculator">
-          <label for="cartonCount-1">تعداد کارتن:</label>
-          <input type="number" id="cartonCount-1" value="1" min="1" onchange="updatePrice(1, 2013720, 1917828)">
-          <p id="priceLabel-1">۳٪ نقدی: ۲٬۰۱۳٬۷۲۰ تومان</p>
-          <p>قیمت نهایی: <span id="finalPrice-1">۲٬۰۱۳٬۷۲۰</span> تومان</p>
-          <button onclick="playClickSound(); addToCart(1, 'آویز ۳۵ فروش ماهشین', 2013720, 1917828)">🛒 افزودن به سبد خرید</button>
-        </div>
-      </div>
+    <div>
+      <label>نام مشتری:</label>
+      <input type="text" id="customerName" />
+      <label>شماره موبایل:</label>
+      <input type="text" id="customerPhone" />
+      <label>توضیحات:</label>
+      <textarea id="customerNote"></textarea>
     </div>
 
-    <!-- محصول دوم -->
-    <div class="product-card fade-in">
-      <img src="IMG_20250910_041947_024.jpg" alt="آویز ماهشین ۳۰ فروش">
-      <div class="product-info">
-        <p><strong>آویز ماهشین ۳۰ فروش</strong><br>(آلوچه قرقروتی، آلوچه چیلی، آلوچه ویژه)</p>
-        <p>رگال: ۱۰ عدد | کارتن: ۱۲ رگال</p>
-        <p>قیمت پایه خرید هر عدد: ۱۴٬۸۵۰ تومان</p>
-        <p>قیمت با ۳٪ نقدی: دانه‌ای ۱۴٬۴۰۴ تومان | کارتن: ۱٬۷۲۸٬۵۴۰ تومان</p>
-        <p>قیمت با طرح حجمی: دانه‌ای ۱۳٬۷۱۸ تومان | کارتن: ۱٬۶۴۶٬۱۷۱ تومان</p>
-        <p style="color:#007c00; font-weight:bold;">✅ این محصول شامل طرح خرید حجمی است (۲۱ کارتن به بالا)</p>
-        <div class="cart-calculator">
-          <label for="cartonCount-2">تعداد کارتن:</label>
-          <input type="number" id="cartonCount-2" value="1" min="1" onchange="updatePrice(2, 1728540, 1646171)">
-          <p id="priceLabel-2">۳٪ نقدی: ۱٬۷۲۸٬۵۴۰ تومان</p>
-          <p>قیمت نهایی: <span id="finalPrice-2">۱٬۷۲۸٬۵۴۰</span> تومان</p>
-          <button onclick="playClickSound(); addToCart(2, 'آویز ماهشین ۳۰ فروش', 1728540, 1646171)">🛒 افزودن به سبد خرید</button>
-        </div>
-      </div>
+    <hr />
+
+    <div>
+      <h3>🛒 انتخاب محصول</h3>
+      <label>لیوانی ۳۵ مصرف میکس شهددار ماهشین:</label>
+      <input type="number" id="cartonCount-3" placeholder="تعداد کارتن" />
+      <button onclick="updatePrice(3, 870000, 900000)">محاسبه قیمت</button>
+      <p id="priceLabel-3"></p>
+      <p>قیمت کل: <span id="finalPrice-3">۰</span> تومان</p>
+      <button onclick="addToCart(3, 'لیوانی ۳۵ شهددار ماهشین', 870000, 900000)">➕ افزودن به سبد</button>
     </div>
 
-    <!-- محصول سوم -->
-    <div class="product-card fade-in">
-      <img src="IMG_20250912_141504_867.jpg" alt="لیوانی ۳۵ مصرف میکس شهددار ماهشین">
-      <div class="product-info">
-        <p><strong>لیوانی ۳۵ مصرف میکس شهددار ماهشین</strong><br>(بسته ۲۰ عددی | ۳ بسته در هر کارتن = ۶۰ عدد)</p>
-        <p>قیمت پایه هر عدد: ۱۷٬۲۵۰ تومان | بسته: ۳۴۵٬۰۰۰ تومان | کارتن: ۱٬۰۳۵٬۰۰۰ تومان</p>
-        <p>قیمت با ۳٪ نقدی: دانه‌ای ۱۶٬۷۳۲ تومان | بسته: ۳۳۴٬۶۵۰ تومان | کارتن: ۱٬۰۰۳٬۹۵۰ تومان</p>
-        <p>قیمت با طرح تشویقی: دانه‌ای ۱۵٬۹۳۵ تومان | بسته: ۳۱۸٬۷۹۴ تومان | کارتن: ۹۵۶٬۱۱۴ تومان</p>
-        <p style="color:#007c00; font-weight:bold;">✅ طرح تشویقی: ۲۰ کارتن + ۱ کارتن اشانتیون</p>
-        <div class="cart-calculator">
-          <label for="cartonCount-3">تعداد کارتن:</label>
-          <input type="number" id="cartonCount-3" value="1" min="1" onchange="updatePrice(3, 1003950, 956114)">
-          <p id="priceLabel-3">۳٪ نقدی: ۱٬۰۰۳٬۹۵۰ تومان</p>
-          <p>قیمت نهایی: <span id="finalPrice-3">۱٬۰۰۳٬۹۵۰</span> تومان</p>
-          <button onclick="playClickSound(); addToCart(3, 'لیوانی ۳۵ مصرف میکس شهددار ماهشین', 1003950, 956114)">🛒 افزودن به سبد خرید</button>
-        </div>
-      </div>
-    </div>
-  </section>
+    <hr />
 
-  <section id="cartSection" class="cart-section">
-    <h3>🧾 فاکتور خرید شما</h3>
     <div id="cartItems"></div>
-    <p><strong>جمع کل:</strong> <span id="cartTotal">۰</span> تومان</p>
-
-    <form id="customerForm">
-      <h4>📋 اطلاعات مشتری</h4>
-      <input type="text" id="customerName" placeholder="نام و نام خانوادگی" required>
-      <input type="text" id="customerPhone" placeholder="شماره موبایل" required>
-      <textarea id="customerNote" placeholder="توضیحات یا آدرس دلخواه"></textarea>
-      <button type="button" onclick="sendInvoice()">📤 ساخت لینک واتساپ</button>
-    </form>
+    <p id="cartTotal">💰 جمع کل: ۰ تومان</p>
+    <button onclick="generateWhatsAppLink()">📤 ساخت فاکتور و ارسال واتساپ</button>
+    <button onclick="toggleDarkMode()">🌙 حالت شب</button>
+    <button onclick="playClickSound()">🔊 تست صدا</button>
 
     <div id="whatsappLink"></div>
-  </section>
-
-  <section id="invoicePreview" class="cart-section">
-    <h3>🧾 پیش‌نمایش فاکتور</h3>
     <div id="invoiceTable"></div>
-    <button onclick="printInvoice()" class="print-button">🖨️ چاپ فاکتور</button>
-  </section>
+  </div>
 
-  <section class="branch-locations">
-    <h4>📍 شعب پخش آذرخش</h4>
-    <ul>
-      <li><strong>تهران:</strong> خیابان ولیعصر، نرسیده به پارک ملت، پلاک ۲۳۴</li>
-      <li><strong>مشهد:</strong> بلوار سجاد، نبش سجاد ۲، پلاک ۵۶</li>
-      <li><strong>اصفهان:</strong> خیابان چهارباغ بالا، مجتمع تجاری آفتاب، واحد ۱۲</li>
-    </ul>
-    <div class="map-container">
-      <img src="map.jpg" alt="نقشه شعب پخش آذرخش" width="100%">
-    </div>
-  </section>
+  <audio id="clickSound" src="click.mp3" preload="auto"></audio>
 
-  <footer>
-    <p>© ۲۰۲۵ پخش آذرخش | طراحی و توسعه توسط تیم آذرخش</p>
-    <div class="social-links">
-      <a href="https://instagram.com/azarkhosh" target="_blank">📷 اینستاگرام</a>
-      <a href="https://t.me/azarkhosh" target="_blank">💬 تلگرام</a>
-    </div>
-  </footer>
+  <script>
+    let cart = [];
+
+    function updatePrice(productId, discountPrice, promoPrice) {
+      const count = parseInt(document.getElementById(`cartonCount-${productId}`).value);
+      if (isNaN(count) || count <= 0) return;
+
+      let pricePerCarton, priceType;
+      if (productId === 3 && count >= 20) {
+        pricePerCarton = Math.round(promoPrice * 0.97);
+        priceType = 'طرح تشویقی';
+      } else if (count >=
